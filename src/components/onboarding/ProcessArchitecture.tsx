@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 import { processSteps } from "@/content/transparencia";
 
 export function ProcessArchitecture() {
-  const [activeId, setActiveId] = useState(processSteps[0].id);
-  const active = processSteps.find((s) => s.id === activeId)!;
+  const [activeId, setActiveId] = useState<string>(processSteps[0]!.id);
+  const active = processSteps.find((s) => s.id === activeId) ?? processSteps[0]!;
 
   return (
     <div className="space-y-8">
