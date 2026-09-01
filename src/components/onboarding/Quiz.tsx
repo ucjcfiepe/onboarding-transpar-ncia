@@ -9,8 +9,8 @@ export function Quiz({
   onFinish,
   initialAnswers,
 }: {
-  onFinish?: (score: number, total: number, answers: Record<string, string>) => void;
-  initialAnswers?: Record<string, string>;
+  onFinish?: ((score: number, total: number, answers: Record<string, string>) => void) | undefined;
+  initialAnswers?: Record<string, string> | undefined;
 }) {
   const total = quizQuestions.length;
   const [index, setIndex] = useState(0);
