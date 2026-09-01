@@ -203,7 +203,7 @@ export const toolGroups: ToolGroup[] = [
         entity: "ambos",
         role: "Plataforma de publicação e gestão",
         description:
-          "Utilizada pelo Analista de Transparência para realizar determinadas cargas, validar arquivos, publicar conteúdos e administrar títulos, notas e fontes. Também pode ser utilizada para consulta de informações relacionadas às cargas e ao cronograma de publicação.",
+          "Utilizada pelo Analista de Transparência para realizar determinadas cargas, validar arquivos, publicar conteúdos e administrar títulos, notas e fontes. Também pode ser utilizada para consulta de informações relacionadas aos Manuais da Transparência e ao cronograma de publicação.",
         flow: [
           "Selecionar módulo",
           "Informar parâmetros",
