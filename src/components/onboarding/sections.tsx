@@ -246,7 +246,7 @@ export function QuizSection({ moduleId }: { moduleId: string }) {
 export function ConclusionSection({ moduleId }: { moduleId: string }) {
   const { moduleProgress, state, resetModule } = useProgress();
   const progress = moduleProgress(moduleId);
-  const quiz = state.quizResults[moduleId];
+  
 
   return (
     <div className="space-y-12">
@@ -260,25 +260,9 @@ export function ConclusionSection({ moduleId }: { moduleId: string }) {
             Você percorreu o conceito, a arquitetura de quatro etapas, os ambientes e ferramentas, a
             rotina do analista, as responsabilidades e as situações práticas.
           </p>
-          <div className="mt-9 grid gap-6 sm:grid-cols-2">
+          <div className="mt-9 max-w-md">
             <div className="glass rounded-2xl p-5">
               <ProgressIndicator value={progress} label="Conclusão do módulo" tone="dark" />
-            </div>
-            <div className="glass rounded-2xl p-5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-white/60">
-                Resultado do quiz
-              </p>
-              <p className="mt-2 text-2xl font-extrabold tabular-nums text-white">
-                {quiz ? `${quiz.score}/${quiz.total}` : "—"}
-                {quiz ? (
-                  <span className="ml-2 text-sm font-semibold text-white/60">
-                    {Math.round((quiz.score / quiz.total) * 100)}%
-                  </span>
-                ) : null}
-              </p>
-              {!quiz ? (
-                <p className="mt-1 text-xs text-white/60">Quiz ainda não realizado.</p>
-              ) : null}
             </div>
           </div>
         </div>
