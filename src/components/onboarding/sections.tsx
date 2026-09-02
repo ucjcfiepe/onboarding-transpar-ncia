@@ -14,7 +14,6 @@ import { ProcessArchitecture } from "./ProcessArchitecture";
 import { JourneyTimeline } from "./JourneyTimeline";
 import { ScenarioCard } from "./ScenarioCard";
 import { ToolCard } from "./ToolCard";
-import { Quiz } from "./Quiz";
 import { Button } from "@/components/ui/button";
 import { useProgress } from "@/lib/progress";
 
@@ -215,36 +214,9 @@ export function ScenariosSection() {
   );
 }
 
-/* ---------------- Quiz ---------------- */
-export function QuizSection({ moduleId }: { moduleId: string }) {
-  const { saveQuizResult, state } = useProgress();
-  const existing = state.quizResults[moduleId];
-
-  return (
-    <div className="space-y-10">
-      <SectionHeading
-        eyebrow="Seção 07 · Quiz final"
-        title="Verifique sua compreensão"
-        lead="Dez questões sobre a arquitetura do processo, ambientes, plataformas, monitoramento, acionamento técnico, responsabilidades e evidências."
-      />
-      <Quiz
-        initialAnswers={existing?.answers}
-        onFinish={(score, total, answers) =>
-          saveQuizResult(moduleId, {
-            score,
-            total,
-            answers,
-            completedAt: new Date().toISOString(),
-          })
-        }
-      />
-    </div>
-  );
-}
-
 /* ---------------- Conclusão ---------------- */
 export function ConclusionSection({ moduleId }: { moduleId: string }) {
-  const { moduleProgress, state, resetModule } = useProgress();
+  const { moduleProgress, resetModule } = useProgress();
   const progress = moduleProgress(moduleId);
   
 

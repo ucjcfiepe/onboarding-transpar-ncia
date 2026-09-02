@@ -13,7 +13,6 @@ export type SectionKind =
   | "journey"
   | "responsibilities"
   | "scenarios"
-  | "quiz"
   | "conclusion";
 
 export interface ModuleSection {
