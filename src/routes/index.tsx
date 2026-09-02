@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ClipboardCheck, Layers, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { modules } from "@/content/modules";
 import { useProgress } from "@/lib/progress";
 import { ModuleCard } from "@/components/onboarding/ModuleCard";
@@ -25,23 +25,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const pillars = [
-  {
-    icon: Layers,
-    title: "Processo em quatro etapas",
-    text: "Uma arquitetura única que organiza planejamento, disponibilização, verificação e correção.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Cada ferramenta, uma função",
-    text: "Ambientes públicos, plataformas de publicação, sistema de origem, monitoramento e acionamento técnico.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Evidência e rastreabilidade",
-    text: "Verificar o resultado e registrar a evidência fazem parte da entrega, não são um extra.",
-  },
-];
 
 function Home() {
   const { moduleProgress, overallProgress, state, hydrated } = useProgress();
@@ -84,19 +67,6 @@ function Home() {
           </div>
         </div>
       </header>
-
-      {/* Pilares */}
-      <section className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8">
-        <div className="grid gap-10 sm:grid-cols-3">
-          {pillars.map((p) => (
-            <div key={p.title}>
-              <p.icon className="size-5 text-sky" aria-hidden />
-              <h2 className="mt-5 text-base font-bold text-primary">{p.title}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Módulos */}
       <section
