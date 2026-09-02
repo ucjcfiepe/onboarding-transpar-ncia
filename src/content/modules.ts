@@ -13,7 +13,6 @@ export type SectionKind =
   | "journey"
   | "responsibilities"
   | "scenarios"
-  | "quiz"
   | "conclusion";
 
 export interface ModuleSection {
@@ -80,15 +79,8 @@ export const transparenciaSections: ModuleSection[] = [
     kind: "scenarios",
   },
   {
-    id: "quiz",
-    eyebrow: "Seção 07",
-    title: "Quiz final",
-    summary: "Verifique a compreensão dos pontos essenciais do módulo.",
-    kind: "quiz",
-  },
-  {
     id: "conclusao",
-    eyebrow: "Seção 08",
+    eyebrow: "Seção 07",
     title: "Conclusão",
     summary: "Retomada dos principais aprendizados e próximos passos.",
     kind: "conclusion",

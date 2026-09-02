@@ -11,7 +11,6 @@ import {
   IntroSection,
   JourneySection,
   ProcessSection,
-  QuizSection,
   ResponsibilitiesSection,
   ScenariosSection,
   SectionNotReady,
@@ -224,8 +223,6 @@ function SectionBody({ kind, moduleId }: { kind: string; moduleId: string }) {
       return <ResponsibilitiesSection />;
     case "scenarios":
       return <ScenariosSection />;
-    case "quiz":
-      return <QuizSection moduleId={moduleId} />;
     case "conclusion":
       return <ConclusionSection moduleId={moduleId} />;
     default:

@@ -14,7 +14,6 @@ import { ProcessArchitecture } from "./ProcessArchitecture";
 import { JourneyTimeline } from "./JourneyTimeline";
 import { ScenarioCard } from "./ScenarioCard";
 import { ToolCard } from "./ToolCard";
-import { Quiz } from "./Quiz";
 import { Button } from "@/components/ui/button";
 import { useProgress } from "@/lib/progress";
 
@@ -215,38 +214,11 @@ export function ScenariosSection() {
   );
 }
 
-/* ---------------- Quiz ---------------- */
-export function QuizSection({ moduleId }: { moduleId: string }) {
-  const { saveQuizResult, state } = useProgress();
-  const existing = state.quizResults[moduleId];
-
-  return (
-    <div className="space-y-10">
-      <SectionHeading
-        eyebrow="Seção 07 · Quiz final"
-        title="Verifique sua compreensão"
-        lead="Dez questões sobre a arquitetura do processo, ambientes, plataformas, monitoramento, acionamento técnico, responsabilidades e evidências."
-      />
-      <Quiz
-        initialAnswers={existing?.answers}
-        onFinish={(score, total, answers) =>
-          saveQuizResult(moduleId, {
-            score,
-            total,
-            answers,
-            completedAt: new Date().toISOString(),
-          })
-        }
-      />
-    </div>
-  );
-}
-
 /* ---------------- Conclusão ---------------- */
 export function ConclusionSection({ moduleId }: { moduleId: string }) {
-  const { moduleProgress, state, resetModule } = useProgress();
+  const { moduleProgress, resetModule } = useProgress();
   const progress = moduleProgress(moduleId);
-  const quiz = state.quizResults[moduleId];
+  
 
   return (
     <div className="space-y-12">
@@ -260,25 +232,9 @@ export function ConclusionSection({ moduleId }: { moduleId: string }) {
             Você percorreu o conceito, a arquitetura de quatro etapas, os ambientes e ferramentas, a
             rotina do analista, as responsabilidades e as situações práticas.
           </p>
-          <div className="mt-9 grid gap-6 sm:grid-cols-2">
+          <div className="mt-9 max-w-md">
             <div className="glass rounded-2xl p-5">
               <ProgressIndicator value={progress} label="Conclusão do módulo" tone="dark" />
-            </div>
-            <div className="glass rounded-2xl p-5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-white/60">
-                Resultado do quiz
-              </p>
-              <p className="mt-2 text-2xl font-extrabold tabular-nums text-white">
-                {quiz ? `${quiz.score}/${quiz.total}` : "—"}
-                {quiz ? (
-                  <span className="ml-2 text-sm font-semibold text-white/60">
-                    {Math.round((quiz.score / quiz.total) * 100)}%
-                  </span>
-                ) : null}
-              </p>
-              {!quiz ? (
-                <p className="mt-1 text-xs text-white/60">Quiz ainda não realizado.</p>
-              ) : null}
             </div>
           </div>
         </div>
