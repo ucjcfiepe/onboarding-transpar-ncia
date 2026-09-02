@@ -40,7 +40,22 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) setState({ ...emptyState, ...(JSON.parse(raw) as ProgressState) });
+      if (raw) {
+        const parsed = { ...emptyState, ...(JSON.parse(raw) as ProgressState) };
+        // Remove referências a seções que não existem mais (ex.: quiz removido)
+        const valid = (moduleId: string, sectionId: string) =>
+          modules.some((m) => m.id === moduleId && m.sections.some((s) => s.id === sectionId));
+        parsed.lastVisited = Object.fromEntries(
+          Object.entries(parsed.lastVisited ?? {}).filter(([m, s]) => valid(m, s)),
+        );
+        parsed.completedSections = Object.fromEntries(
+          Object.entries(parsed.completedSections ?? {}).map(([m, ids]) => [
+            m,
+            (ids ?? []).filter((s) => valid(m, s)),
+          ]),
+        );
+        setState(parsed);
+      }
     } catch {
       /* progresso local indisponível */
     }
