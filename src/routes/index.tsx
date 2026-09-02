@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ClipboardCheck, Layers, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { modules } from "@/content/modules";
 import { useProgress } from "@/lib/progress";
 import { ModuleCard } from "@/components/onboarding/ModuleCard";
