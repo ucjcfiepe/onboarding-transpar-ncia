@@ -126,7 +126,7 @@ function Home() {
                 key={m.id}
                 module={m}
                 progress={hydrated ? moduleProgress(m.id) : 0}
-                {...(state.lastVisited[m.id] ? { resumeSectionId: state.lastVisited[m.id]! } : {})}
+                {...(validResume(m.id) ? { resumeSectionId: validResume(m.id)! } : {})}
               />
             ))}
           </div>
