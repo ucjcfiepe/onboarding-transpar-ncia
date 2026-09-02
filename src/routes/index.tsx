@@ -85,19 +85,6 @@ function Home() {
         </div>
       </header>
 
-      {/* Pilares */}
-      <section className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8">
-        <div className="grid gap-10 sm:grid-cols-3">
-          {pillars.map((p) => (
-            <div key={p.title}>
-              <p.icon className="size-5 text-sky" aria-hidden />
-              <h2 className="mt-5 text-base font-bold text-primary">{p.title}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Módulos */}
       <section
         className="border-y border-border"
