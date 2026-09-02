@@ -47,7 +47,12 @@ function Home() {
   const { moduleProgress, overallProgress, state, hydrated } = useProgress();
   const overall = hydrated ? overallProgress() : 0;
   const primary = modules[0]!;
-  const resume = state.lastVisited[primary.id];
+  const validResume = (moduleId: string) => {
+    const mod = modules.find((m) => m.id === moduleId);
+    const last = state.lastVisited[moduleId];
+    return last && mod?.sections.some((s) => s.id === last) ? last : undefined;
+  };
+  const resume = validResume(primary.id);
 
   return (
     <div className="min-h-screen bg-background">
@@ -121,7 +126,7 @@ function Home() {
                 key={m.id}
                 module={m}
                 progress={hydrated ? moduleProgress(m.id) : 0}
-                {...(state.lastVisited[m.id] ? { resumeSectionId: state.lastVisited[m.id]! } : {})}
+                {...(validResume(m.id) ? { resumeSectionId: validResume(m.id)! } : {})}
               />
             ))}
           </div>
