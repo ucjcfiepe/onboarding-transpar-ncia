@@ -25,23 +25,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const pillars = [
-  {
-    icon: Layers,
-    title: "Processo em quatro etapas",
-    text: "Uma arquitetura única que organiza planejamento, disponibilização, verificação e correção.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Cada ferramenta, uma função",
-    text: "Ambientes públicos, plataformas de publicação, sistema de origem, monitoramento e acionamento técnico.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Evidência e rastreabilidade",
-    text: "Verificar o resultado e registrar a evidência fazem parte da entrega, não são um extra.",
-  },
-];
 
 function Home() {
   const { moduleProgress, overallProgress, state, hydrated } = useProgress();
