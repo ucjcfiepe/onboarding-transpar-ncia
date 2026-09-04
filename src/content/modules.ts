@@ -115,14 +115,15 @@ export const modules: OnboardingModule[] = [
     id: "fiscalizacao-continua",
     order: 2,
     code: "Módulo 02",
-    title: "Fiscalização Contínua",
-    subtitle: "Conteúdo em preparação",
+    title: "Fiscalização Contínua do TCU",
+    subtitle: "Do ofício de requisição à validação dos arquivos",
     description:
-      "Este módulo será disponibilizado em uma próxima etapa do onboarding da Unidade Jurídica.",
-    status: "soon",
-    duration: "Em breve",
-    sections: [],
+      "Entenda como o TCU acompanha periodicamente informações do SESI e do SENAI, quem participa, quais são os prazos e como as entregas são preparadas, conferidas, enviadas e validadas.",
+    status: "available",
+    duration: "≈ 25 min",
+    sections: fiscalizacaoSections,
   },
+
 ];
 
 export function getModule(id: string) {
