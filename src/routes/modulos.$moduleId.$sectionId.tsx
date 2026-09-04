@@ -31,22 +31,26 @@ import {
 
 
 export const Route = createFileRoute("/modulos/$moduleId/$sectionId")({
-  head: () => ({
-    meta: [
-      { title: "Módulo Transparência SESI/SENAI — Onboarding Unidade Jurídica" },
-      {
-        name: "description",
-        content:
-          "Trilha interativa sobre a rotina de Transparência do SESI e do SENAI: processo, ambientes públicos, plataformas, monitoramento e evidências.",
-      },
-      { property: "og:title", content: "Módulo Transparência SESI/SENAI" },
-      {
-        property: "og:description",
-        content:
-          "Aprenda a rotina de Transparência: planejar, disponibilizar, verificar, registrar e corrigir.",
-      },
-    ],
-  }),
+  head: ({ params }) => {
+    const fc = params.moduleId === "fiscalizacao-continua";
+    const title = fc
+      ? "Módulo Fiscalização Contínua do TCU — Onboarding Unidade Jurídica"
+      : "Módulo Transparência SESI/SENAI — Onboarding Unidade Jurídica";
+    const description = fc
+      ? "Jornada interativa sobre a Fiscalização Contínua do TCU no SESI e no SENAI: ofício de requisição, prazos, preparação e conferência dos arquivos, envio e validação."
+      : "Trilha interativa sobre a rotina de Transparência do SESI e do SENAI: processo, ambientes públicos, plataformas, monitoramento e evidências.";
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+      ],
+    };
+  },
+
   loader: ({ params }) => {
     const mod = getModule(params.moduleId);
     if (!mod || mod.status !== "available") throw notFound();
