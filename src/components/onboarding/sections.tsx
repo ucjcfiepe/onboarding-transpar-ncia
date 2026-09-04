@@ -260,9 +260,10 @@ export function ConclusionSection({ moduleId }: { moduleId: string }) {
         </div>
         <h3 className="mt-5 text-xl font-extrabold text-primary">Próximos passos</h3>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          O módulo <strong className="font-semibold">Fiscalização Contínua</strong> será
-          disponibilizado em uma próxima etapa do onboarding da Unidade Jurídica.
+          O módulo <strong className="font-semibold">Fiscalização Contínua do TCU</strong> já está
+          disponível na trilha da Unidade Jurídica.
         </p>
+
         <div className="mt-7 flex flex-wrap gap-3">
           <Button asChild>
             <Link to="/">
