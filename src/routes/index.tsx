@@ -78,12 +78,13 @@ function Home() {
             <div className="max-w-xl">
               <p className="label-eyebrow">Trilha</p>
               <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl">
-                Módulos disponíveis
+                O que você quer conhecer?
               </h2>
               <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-                A trilha é modular: novos módulos são incorporados sem alterar a navegação nem o
-                progresso já registrado.
+                Escolha um módulo para começar. A trilha é modular: novos módulos são incorporados
+                sem alterar a navegação nem o progresso já registrado.
               </p>
+
             </div>
             <p className="text-sm font-semibold text-muted-foreground">
               {modules.filter((m) => m.status === "available").length} de {modules.length} liberado
