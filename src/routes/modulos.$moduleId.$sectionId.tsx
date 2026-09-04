@@ -225,7 +225,28 @@ function SectionBody({ kind, moduleId }: { kind: string; moduleId: string }) {
       return <ScenariosSection />;
     case "conclusion":
       return <ConclusionSection moduleId={moduleId} />;
+    case "fc-abertura":
+      return <FcAberturaSection />;
+    case "fc-fluxo":
+      return <FcFluxoSection />;
+    case "fc-inicio":
+      return <FcInicioSection />;
+    case "fc-comunicacao":
+      return <FcComunicacaoSection />;
+    case "fc-prazos":
+      return <FcPrazosSection />;
+    case "fc-entregas":
+      return <FcEntregasSection />;
+    case "fc-ajustes":
+      return <FcAjustesSection />;
+    case "fc-validacao":
+      return <FcValidacaoSection />;
+    case "fc-papeis":
+      return <FcPapeisSection />;
+    case "fc-conclusao":
+      return <FcConclusaoSection moduleId={moduleId} />;
     default:
       return <SectionNotReady />;
   }
 }
+
