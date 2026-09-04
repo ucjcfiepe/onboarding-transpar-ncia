@@ -16,6 +16,19 @@ import {
   SectionNotReady,
   ToolsSection,
 } from "@/components/onboarding/sections";
+import {
+  FcAberturaSection,
+  FcAjustesSection,
+  FcComunicacaoSection,
+  FcConclusaoSection,
+  FcEntregasSection,
+  FcFluxoSection,
+  FcInicioSection,
+  FcPapeisSection,
+  FcPrazosSection,
+  FcValidacaoSection,
+} from "@/components/onboarding/fiscalizacaoSections";
+
 
 export const Route = createFileRoute("/modulos/$moduleId/$sectionId")({
   head: () => ({
