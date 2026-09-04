@@ -13,7 +13,18 @@ export type SectionKind =
   | "journey"
   | "responsibilities"
   | "scenarios"
-  | "conclusion";
+  | "conclusion"
+  | "fc-abertura"
+  | "fc-fluxo"
+  | "fc-inicio"
+  | "fc-comunicacao"
+  | "fc-prazos"
+  | "fc-entregas"
+  | "fc-ajustes"
+  | "fc-validacao"
+  | "fc-papeis"
+  | "fc-conclusao";
+
 
 export interface ModuleSection {
   id: string;
