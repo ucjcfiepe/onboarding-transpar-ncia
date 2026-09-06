@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as JuridicoRouteImport } from './routes/juridico'
 import { Route as ModulosModuleIdSectionIdRouteImport } from './routes/modulos.$moduleId.$sectionId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JuridicoRoute = JuridicoRouteImport.update({
+  id: '/juridico',
+  path: '/juridico',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ModulosModuleIdSectionIdRoute =
@@ -26,27 +32,31 @@ const ModulosModuleIdSectionIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/juridico': typeof JuridicoRoute
   '/modulos/$moduleId/$sectionId': typeof ModulosModuleIdSectionIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/juridico': typeof JuridicoRoute
   '/modulos/$moduleId/$sectionId': typeof ModulosModuleIdSectionIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/juridico': typeof JuridicoRoute
   '/modulos/$moduleId/$sectionId': typeof ModulosModuleIdSectionIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/modulos/$moduleId/$sectionId'
+  fullPaths: '/' | '/juridico' | '/modulos/$moduleId/$sectionId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/modulos/$moduleId/$sectionId'
-  id: '__root__' | '/' | '/modulos/$moduleId/$sectionId'
+  to: '/' | '/juridico' | '/modulos/$moduleId/$sectionId'
+  id: '__root__' | '/' | '/juridico' | '/modulos/$moduleId/$sectionId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  JuridicoRoute: typeof JuridicoRoute
   ModulosModuleIdSectionIdRoute: typeof ModulosModuleIdSectionIdRoute
 }
 
@@ -57,6 +67,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/juridico': {
+      id: '/juridico'
+      path: '/juridico'
+      fullPath: '/juridico'
+      preLoaderRoute: typeof JuridicoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/modulos/$moduleId/$sectionId': {
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  JuridicoRoute: JuridicoRoute,
   ModulosModuleIdSectionIdRoute: ModulosModuleIdSectionIdRoute,
 }
 export const routeTree = rootRouteImport
