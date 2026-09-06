@@ -91,7 +91,11 @@ function OperacoesPage() {
                 <div className="grid gap-5 md:grid-cols-2">
                   {e.blocks.map((b) => (
                     <div key={b.title}>
-                      <ListCard title={b.title} lead={b.message} items={b.items} />
+                      <ListCard
+                        title={b.title}
+                        items={b.items}
+                        {...(b.message ? { lead: b.message } : {})}
+                      />
                     </div>
                   ))}
                 </div>
