@@ -10,11 +10,29 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComplianceRouteImport } from './routes/compliance'
+import { Route as JuridicoRouteImport } from './routes/juridico'
+import { Route as OperacoesRouteImport } from './routes/operacoes'
 import { Route as ModulosModuleIdSectionIdRouteImport } from './routes/modulos.$moduleId.$sectionId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComplianceRoute = ComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JuridicoRoute = JuridicoRouteImport.update({
+  id: '/juridico',
+  path: '/juridico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OperacoesRoute = OperacoesRouteImport.update({
+  id: '/operacoes',
+  path: '/operacoes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ModulosModuleIdSectionIdRoute =
@@ -26,27 +44,55 @@ const ModulosModuleIdSectionIdRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/compliance': typeof ComplianceRoute
+  '/juridico': typeof JuridicoRoute
+  '/operacoes': typeof OperacoesRoute
   '/modulos/$moduleId/$sectionId': typeof ModulosModuleIdSectionIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/compliance': typeof ComplianceRoute
+  '/juridico': typeof JuridicoRoute
+  '/operacoes': typeof OperacoesRoute
   '/modulos/$moduleId/$sectionId': typeof ModulosModuleIdSectionIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/compliance': typeof ComplianceRoute
+  '/juridico': typeof JuridicoRoute
+  '/operacoes': typeof OperacoesRoute
   '/modulos/$moduleId/$sectionId': typeof ModulosModuleIdSectionIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/modulos/$moduleId/$sectionId'
+  fullPaths:
+    | '/'
+    | '/compliance'
+    | '/juridico'
+    | '/operacoes'
+    | '/modulos/$moduleId/$sectionId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/modulos/$moduleId/$sectionId'
-  id: '__root__' | '/' | '/modulos/$moduleId/$sectionId'
+  to:
+    | '/'
+    | '/compliance'
+    | '/juridico'
+    | '/operacoes'
+    | '/modulos/$moduleId/$sectionId'
+  id:
+    | '__root__'
+    | '/'
+    | '/compliance'
+    | '/juridico'
+    | '/operacoes'
+    | '/modulos/$moduleId/$sectionId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComplianceRoute: typeof ComplianceRoute
+  JuridicoRoute: typeof JuridicoRoute
+  OperacoesRoute: typeof OperacoesRoute
   ModulosModuleIdSectionIdRoute: typeof ModulosModuleIdSectionIdRoute
 }
 
@@ -57,6 +103,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/compliance': {
+      id: '/compliance'
+      path: '/compliance'
+      fullPath: '/compliance'
+      preLoaderRoute: typeof ComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/juridico': {
+      id: '/juridico'
+      path: '/juridico'
+      fullPath: '/juridico'
+      preLoaderRoute: typeof JuridicoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/operacoes': {
+      id: '/operacoes'
+      path: '/operacoes'
+      fullPath: '/operacoes'
+      preLoaderRoute: typeof OperacoesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/modulos/$moduleId/$sectionId': {
@@ -71,6 +138,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComplianceRoute: ComplianceRoute,
+  JuridicoRoute: JuridicoRoute,
+  OperacoesRoute: OperacoesRoute,
   ModulosModuleIdSectionIdRoute: ModulosModuleIdSectionIdRoute,
 }
 export const routeTree = rootRouteImport
