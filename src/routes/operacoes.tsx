@@ -1,14 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Database } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { modules } from "@/content/modules";
-import { nojcEixos, nojcIntro, nojcPortfolio, notificacoesFluxo } from "@/content/ucjc";
-import { KeyTakeaway, SectionHeading } from "@/components/onboarding/primitives";
+import { nojcEixos, nojcIntro, nojcPortfolio } from "@/content/ucjc";
+import { SectionHeading } from "@/components/onboarding/primitives";
 import { ModuleCard } from "@/components/onboarding/ModuleCard";
 import { useProgress } from "@/lib/progress";
 import {
   AreaHero,
   AreaSection,
-  FlowStrip,
   ListCard,
   PillGrid,
 } from "@/components/ucjc/primitives";
@@ -105,23 +104,6 @@ function OperacoesPage() {
         </Accordion>
       </AreaSection>
 
-      <AreaSection>
-        <SectionHeading
-          eyebrow="Rotina"
-          title="Recebimento de notificações"
-          lead="Notificações físicas e eletrônicas seguem um fluxo de registro, encaminhamento e acompanhamento interno."
-        />
-        <div className="mt-10">
-          <FlowStrip steps={notificacoesFluxo} />
-        </div>
-        <div className="mt-10">
-          <KeyTakeaway title="Informação organizada">
-            <Database className="mb-3 size-4 text-sky" aria-hidden />
-            Informação organizada reduz retrabalho, melhora a rastreabilidade e facilita a tomada de
-            decisão.
-          </KeyTakeaway>
-        </div>
-      </AreaSection>
 
       <AreaSection soft>
         <SectionHeading
