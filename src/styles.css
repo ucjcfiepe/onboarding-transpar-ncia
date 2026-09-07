@@ -192,29 +192,46 @@
 @utility aurora {
   position: relative;
   isolation: isolate;
+  background-color: var(--institutional);
+  color: oklch(1 0 0);
   &::before {
     content: "";
     position: absolute;
-    inset: -20%;
+    inset: -8%;
     z-index: 0;
     pointer-events: none;
     background:
       radial-gradient(
-        42% 38% at 18% 22%,
-        color-mix(in oklab, var(--sky-blue) 42%, transparent) 0%,
-        transparent 70%
+        58% 78% at 28% 48%,
+        color-mix(in oklab, var(--night) 72%, transparent) 0%,
+        transparent 76%
       ),
       radial-gradient(
-        46% 42% at 82% 12%,
-        color-mix(in oklab, var(--institutional) 55%, transparent) 0%,
-        transparent 72%
+        48% 58% at 82% 10%,
+        color-mix(in oklab, var(--sky-blue) 76%, transparent) 0%,
+        transparent 68%
       ),
       radial-gradient(
-        40% 46% at 70% 92%,
-        color-mix(in oklab, var(--sky-blue) 26%, transparent) 0%,
-        transparent 70%
+        34% 44% at 5% 3%,
+        color-mix(in oklab, var(--teal) 72%, transparent) 0%,
+        transparent 64%
+      ),
+      radial-gradient(
+        34% 44% at 98% 94%,
+        color-mix(in oklab, var(--sesi) 66%, transparent) 0%,
+        transparent 62%
+      ),
+      radial-gradient(
+        30% 38% at 5% 96%,
+        color-mix(in oklab, var(--senai) 78%, transparent) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        70% 84% at 56% 56%,
+        color-mix(in oklab, var(--institutional) 78%, transparent) 0%,
+        transparent 78%
       );
-    filter: blur(24px);
+    filter: blur(22px) saturate(1.16);
   }
 }
 
@@ -254,10 +271,10 @@
         color-mix(in oklab, var(--sesi) 66%, transparent) 0%,
         transparent 62%
       ),
-      /* Laranja — pequeno contraste na extremidade inferior esquerda */
+      /* Laranja — contraste mais luminoso na extremidade inferior esquerda */
       radial-gradient(
-        25% 30% at 3% 98%,
-        color-mix(in oklab, var(--senai) 58%, transparent) 0%,
+        30% 38% at 5% 96%,
+        color-mix(in oklab, var(--senai) 78%, transparent) 0%,
         transparent 60%
       ),
       /* Azul institucional — elo predominante entre os acentos */
@@ -266,7 +283,7 @@
         color-mix(in oklab, var(--institutional) 78%, transparent) 0%,
         transparent 78%
       );
-    filter: blur(24px) saturate(1.12);
+    filter: blur(22px) saturate(1.16);
   }
 }
 
