@@ -105,23 +105,6 @@ function OperacoesPage() {
         </Accordion>
       </AreaSection>
 
-      <AreaSection>
-        <SectionHeading
-          eyebrow="Rotina"
-          title="Recebimento de notificações"
-          lead="Notificações físicas e eletrônicas seguem um fluxo de registro, encaminhamento e acompanhamento interno."
-        />
-        <div className="mt-10">
-          <FlowStrip steps={notificacoesFluxo} />
-        </div>
-        <div className="mt-10">
-          <KeyTakeaway title="Informação organizada">
-            <Database className="mb-3 size-4 text-sky" aria-hidden />
-            Informação organizada reduz retrabalho, melhora a rastreabilidade e facilita a tomada de
-            decisão.
-          </KeyTakeaway>
-        </div>
-      </AreaSection>
 
       <AreaSection soft>
         <SectionHeading
