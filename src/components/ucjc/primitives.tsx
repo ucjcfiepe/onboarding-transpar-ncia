@@ -74,24 +74,30 @@ export function SoftList({ items, className }: { items: string[]; className?: st
   );
 }
 
-/* ---------- Card com título + lista ---------- */
+/* ---------- Card com título + lista ou descrição ---------- */
 export function ListCard({
   eyebrow,
   title,
   lead,
   items,
+  description,
 }: {
   eyebrow?: string;
   title: string;
   lead?: string;
-  items: string[];
+  items?: string[];
+  description?: string;
 }) {
   return (
     <article className="card-elevated rounded-3xl p-7 sm:p-8">
       {eyebrow ? <p className="label-eyebrow">{eyebrow}</p> : null}
       <h3 className="mt-2 text-lg font-extrabold text-primary">{title}</h3>
       {lead ? <p className="mt-1.5 text-sm text-muted-foreground">{lead}</p> : null}
-      <SoftList items={items} />
+      {description ? (
+        <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{description}</p>
+      ) : items ? (
+        <SoftList items={items} />
+      ) : null}
     </article>
   );
 }

@@ -56,11 +56,11 @@ function JuridicoPage() {
         <SectionHeading
           eyebrow="Portfólio de serviços"
           title="O que o Jurídico entrega"
-          lead="Muito além de contratos e pareceres: análise, orientação, instrumentos, representação e assessoria contínua às áreas."
+          lead="Análise, orientação e suporte jurídico para decisões mais seguras."
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {juridicoPortfolio.map((g) => (
-            <ListCard key={g.group} title={g.group} items={g.items} />
+            <ListCard key={g.title} title={g.title} description={g.description} />
           ))}
         </div>
       </AreaSection>
