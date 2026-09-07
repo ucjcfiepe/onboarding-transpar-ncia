@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { modules } from "@/content/modules";
 import { nojcEixos, nojcIntro, nojcPortfolio } from "@/content/ucjc";
-import { KeyTakeaway, SectionHeading } from "@/components/onboarding/primitives";
+import { SectionHeading } from "@/components/onboarding/primitives";
 import { ModuleCard } from "@/components/onboarding/ModuleCard";
 import { useProgress } from "@/lib/progress";
 import {
