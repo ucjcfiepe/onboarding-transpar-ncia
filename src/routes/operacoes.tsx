@@ -8,7 +8,6 @@ import { useProgress } from "@/lib/progress";
 import {
   AreaHero,
   AreaSection,
-  FlowStrip,
   ListCard,
   PillGrid,
 } from "@/components/ucjc/primitives";
