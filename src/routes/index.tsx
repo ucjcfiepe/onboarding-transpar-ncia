@@ -67,9 +67,6 @@ function Home() {
               Explorar a UCJC
               <ArrowRight className="size-4" aria-hidden />
             </a>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/50">
-              FIEPE · IEL · CIEPE
-            </p>
           </div>
         </div>
       </header>
