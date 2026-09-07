@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Database } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { modules } from "@/content/modules";
 import { nojcEixos, nojcIntro, nojcPortfolio, notificacoesFluxo } from "@/content/ucjc";
 import { KeyTakeaway, SectionHeading } from "@/components/onboarding/primitives";
