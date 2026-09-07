@@ -245,20 +245,20 @@
       /* Verde-água — brilho suave na lateral superior esquerda */
       radial-gradient(
         34% 44% at 5% 3%,
-        color-mix(in oklab, var(--teal) 62%, transparent) 0%,
-        transparent 68%
+        color-mix(in oklab, var(--teal) 72%, transparent) 0%,
+        transparent 64%
       ),
       /* Verde — extremidade inferior direita, presente e discreto */
       radial-gradient(
-        30% 40% at 98% 96%,
-        color-mix(in oklab, var(--sesi) 46%, transparent) 0%,
-        transparent 66%
+        34% 44% at 98% 94%,
+        color-mix(in oklab, var(--sesi) 66%, transparent) 0%,
+        transparent 62%
       ),
       /* Laranja — pequeno contraste na extremidade inferior esquerda */
       radial-gradient(
-        22% 28% at 5% 98%,
-        color-mix(in oklab, var(--senai) 38%, transparent) 0%,
-        transparent 64%
+        25% 30% at 3% 98%,
+        color-mix(in oklab, var(--senai) 58%, transparent) 0%,
+        transparent 60%
       ),
       /* Azul institucional — elo predominante entre os acentos */
       radial-gradient(
@@ -266,7 +266,7 @@
         color-mix(in oklab, var(--institutional) 78%, transparent) 0%,
         transparent 78%
       );
-    filter: blur(30px) saturate(1.08);
+    filter: blur(24px) saturate(1.12);
   }
 }
 
