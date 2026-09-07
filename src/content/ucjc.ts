@@ -58,42 +58,26 @@ export const areas: AreaSummary[] = [
 export const juridicoIntro =
   "O Jurídico atua antes, durante e depois das decisões que envolvem risco jurídico, oferecendo orientação, análise e representação para apoiar as áreas com segurança.";
 
-export const juridicoPortfolio: { group: string; items: string[] }[] = [
+export const juridicoPortfolio: { title: string; description: string }[] = [
   {
-    group: "Análise e orientação",
-    items: [
-      "Emissão de pareceres jurídicos",
-      "Elaboração e revisão de documentos internos",
-      "Memorandos, ofícios e normativos",
-    ],
+    title: "Análise e orientação",
+    description:
+      "Apoio técnico-jurídico para interpretar normas, avaliar riscos e orientar as áreas na definição do caminho mais seguro para cada decisão ou providência.",
   },
   {
-    group: "Instrumentos e negociações",
-    items: [
-      "Análise e elaboração de acordos de vontade",
-      "Contratos, convênios e termos aditivos",
-      "Outros instrumentos jurídicos",
-      "Suporte jurídico em negociações coletivas e relações sindicais",
-    ],
+    title: "Contratos, parcerias e negociações",
+    description:
+      "Apoio jurídico na elaboração, revisão e formalização de contratos, parcerias e outros instrumentos, além de suporte em negociações coletivas e relações sindicais, contribuindo para relações mais claras, seguras e bem estruturadas.",
   },
   {
-    group: "Representação e processos",
-    items: [
-      "Atuação em processos judiciais",
-      "Atuação em processos administrativos",
-      "Condução de processos administrativos sancionadores",
-      "Consultoria em processos de aquisições",
-    ],
+    title: "Processos e representação",
+    description:
+      "Atuação na defesa dos interesses institucionais em processos judiciais, administrativos e sancionadores, com acompanhamento de prazos, riscos e estratégias.",
   },
   {
-    group: "Assessoria às áreas",
-    items: [
-      "Assessoria jurídica às áreas de Negócio",
-      "Assessoria às áreas de Saúde",
-      "Assessoria às áreas de Educação",
-      "Assessoria às áreas de Inovação",
-      "Assessoria às áreas de Apoio",
-    ],
+    title: "Assessoria às áreas",
+    description:
+      "Suporte jurídico contínuo às áreas de negócio e de apoio, contribuindo para decisões mais seguras ao longo das atividades e projetos.",
   },
 ];
 
