@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BrandLogo } from "@/components/ucjc/BrandLogo";
+
 
 /* ---------- Cabeçalho de página de frente ---------- */
 export function AreaHero({
@@ -18,14 +20,18 @@ export function AreaHero({
   return (
     <header className="grain mesh relative overflow-hidden">
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-16 sm:px-8 sm:py-24">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-white/60 transition-colors hover:text-white"
-        >
-          <ArrowLeft className="size-3.5" aria-hidden />
-          UCJC
-        </Link>
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-white/60 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="size-3.5" aria-hidden />
+            UCJC
+          </Link>
+          <BrandLogo variant="light" horizontalClassName="h-4 sm:h-5" stackedClassName="h-7" />
+        </div>
         <p className="label-eyebrow mt-8 text-white/55">{eyebrow}</p>
+
         <h1 className="mt-5 max-w-3xl text-4xl font-extrabold leading-[1.08] text-white sm:text-5xl">
           {title}
         </h1>

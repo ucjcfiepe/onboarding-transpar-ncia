@@ -4,6 +4,8 @@ import { modules } from "@/content/modules";
 import { areas, integracaoExemplo } from "@/content/ucjc";
 import { useProgress } from "@/lib/progress";
 import { ModuleCard } from "@/components/onboarding/ModuleCard";
+import { BrandLogo } from "@/components/ucjc/BrandLogo";
+
 import { ProgressIndicator } from "@/components/onboarding/primitives";
 import { cn } from "@/lib/utils";
 
@@ -47,9 +49,11 @@ function Home() {
       {/* Hero */}
       <header className="grain mesh relative overflow-hidden">
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
-          <p className="label-eyebrow text-white/55">
+          <BrandLogo variant="light" horizontalClassName="h-5 sm:h-6" stackedClassName="h-8" />
+          <p className="label-eyebrow mt-8 text-white/55">
             Unidade Compartilhada Jurídica e de Compliance · Onboarding
           </p>
+
           <h1 className="mt-6 max-w-3xl text-4xl font-extrabold leading-[1.08] text-white sm:text-5xl lg:text-6xl">
             Conheça a UCJC por dentro.
           </h1>
@@ -202,11 +206,13 @@ function Home() {
       </section>
 
       <footer className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-8">
-        <p className="text-xs leading-relaxed text-muted-foreground">
+        <BrandLogo variant="color" horizontalClassName="h-6 sm:h-7" stackedClassName="h-10" />
+        <p className="mt-6 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
           Onboarding da Unidade Compartilhada Jurídica e de Compliance — UCJC · FIEPE, IEL e CIEPE.
           Progresso armazenado localmente neste navegador nesta primeira versão.
         </p>
       </footer>
+
     </div>
   );
 }

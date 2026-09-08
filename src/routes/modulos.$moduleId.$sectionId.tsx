@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { getModule } from "@/content/modules";
 import { useProgress } from "@/lib/progress";
 import { ProgressIndicator } from "@/components/onboarding/primitives";
+import { BrandLogo } from "@/components/ucjc/BrandLogo";
+
 import { Button } from "@/components/ui/button";
 import {
   ConclusionSection,
@@ -137,8 +139,12 @@ function SectionPage() {
             <nav className="mt-8">
               <SectionList moduleId={moduleId} currentId={sectionId} />
             </nav>
+            <div className="mt-10 border-t border-border pt-6">
+              <BrandLogo variant="color" horizontalClassName="h-4 sm:h-4" stackedClassName="h-4" />
+            </div>
           </div>
         </aside>
+
 
         {/* Conteúdo */}
         <main className="min-w-0 flex-1 py-12 lg:py-16">
