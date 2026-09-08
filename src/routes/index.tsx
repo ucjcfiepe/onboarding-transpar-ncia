@@ -49,7 +49,7 @@ function Home() {
       {/* Hero */}
       <header className="grain mesh relative overflow-hidden">
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
-          <BrandLogo variant="light" horizontalClassName="h-5 sm:h-6" stackedClassName="h-8" />
+          <BrandLogo variant="light" horizontalClassName="h-7 sm:h-8" stackedClassName="h-11" />
           <p className="label-eyebrow mt-8 text-white/55">
             Unidade Compartilhada Jurídica e de Compliance · Onboarding
           </p>
@@ -206,7 +206,7 @@ function Home() {
       </section>
 
       <footer className="mx-auto w-full max-w-6xl px-6 py-14 sm:px-8">
-        <BrandLogo variant="color" horizontalClassName="h-6 sm:h-7" stackedClassName="h-10" />
+        <BrandLogo variant="color" horizontalClassName="h-8 sm:h-9" stackedClassName="h-14" />
         <p className="mt-6 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
           Onboarding da Unidade Compartilhada Jurídica e de Compliance — UCJC · FIEPE, IEL e CIEPE.
           Progresso armazenado localmente neste navegador nesta primeira versão.

@@ -28,7 +28,7 @@ export function AreaHero({
             <ArrowLeft className="size-3.5" aria-hidden />
             UCJC
           </Link>
-          <BrandLogo variant="light" horizontalClassName="h-4 sm:h-5" stackedClassName="h-7" />
+          <BrandLogo variant="light" horizontalClassName="h-5 sm:h-7" stackedClassName="h-10" />
         </div>
         <p className="label-eyebrow mt-8 text-white/55">{eyebrow}</p>
 

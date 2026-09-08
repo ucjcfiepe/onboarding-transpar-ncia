@@ -140,7 +140,7 @@ function SectionPage() {
               <SectionList moduleId={moduleId} currentId={sectionId} />
             </nav>
             <div className="mt-10 border-t border-border pt-6">
-              <BrandLogo variant="color" horizontalClassName="h-4 sm:h-4" stackedClassName="h-4" />
+              <BrandLogo variant="color" horizontalClassName="h-5 sm:h-5" stackedClassName="h-5" />
             </div>
           </div>
         </aside>
