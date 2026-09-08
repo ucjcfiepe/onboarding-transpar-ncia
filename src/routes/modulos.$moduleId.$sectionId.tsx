@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { getModule } from "@/content/modules";
 import { useProgress } from "@/lib/progress";
 import { ProgressIndicator } from "@/components/onboarding/primitives";
+import { BrandLogo } from "@/components/ucjc/BrandLogo";
+
 import { Button } from "@/components/ui/button";
 import {
   ConclusionSection,
