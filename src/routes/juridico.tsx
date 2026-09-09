@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, FileText } from "lucide-react";
+import { ArrowRight, Clock, FileText, Inbox, Mail } from "lucide-react";
 import {
   juridicoAntesDeEnviar,
   juridicoEstrutura,
@@ -7,10 +7,27 @@ import {
   juridicoPortfolio,
   juridicoSituacoes,
 } from "@/content/ucjc";
+import {
+  anoFaixas,
+  anoImpactos,
+  assistentesAtribuicoes,
+  chegadaFluxo,
+  chegadaIntro,
+  publicacoesFluxo,
+  prazosTipos,
+  replanejamentoCriterios,
+  reporteUsos,
+  triagemFrase,
+  triagemOrientacoes,
+  zeevCards,
+  zeevFrase,
+} from "@/content/juridicoOperacao";
 import { KeyTakeaway, SectionHeading } from "@/components/onboarding/primitives";
 import {
   AreaHero,
   AreaSection,
+  CheckList,
+  FlowStrip,
   ListCard,
   PillGrid,
   SituationCard,
@@ -23,6 +40,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
 
 const title = "Jurídico — Onboarding UCJC";
 const description =
