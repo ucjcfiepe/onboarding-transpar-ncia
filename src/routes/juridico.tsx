@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Clock, ExternalLink, FileText, Inbox, Mail } from "lucide-react";
+import { ArrowRight, Clock, ExternalLink, Inbox, Mail } from "lucide-react";
 import {
   juridicoAntesDeEnviar,
   juridicoEstrutura,
