@@ -214,7 +214,7 @@ function JuridicoPage() {
       <AreaSection>
         <SectionHeading
           eyebrow="Camada operacional"
-          title="O papel das assistentes jurídicas"
+          title="O papel dos assistentes jurídicos"
           lead="Existe uma camada operacional que organiza a entrada, o acompanhamento e a informação necessária para o trabalho jurídico."
         />
         <div className="mt-10">
