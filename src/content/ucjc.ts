@@ -193,7 +193,6 @@ export const programaIntegridade: { id: string; title: string; items: string[] }
     id: "normativos",
     title: "Códigos, políticas e normativos",
     items: [
-      "Revisão e atualização do Código de Conduta",
       "Código de Conduta de colaboradores",
       "Código de Conduta de fornecedores",
       "Adequação de normativos de integridade",
