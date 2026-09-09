@@ -93,6 +93,7 @@ export const anoFaixas: { prazo: string; unidade: string; itens: string[] }[] = 
       "Consulta — Comercial",
       "Contrato — Comercial",
       "Contrato Fase Interna — Validação",
+      "Termo de Registro de Preços — Validação",
       "Impugnação",
     ],
   },
