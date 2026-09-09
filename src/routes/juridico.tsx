@@ -146,15 +146,21 @@ function JuridicoPage() {
 
         <div className="mt-8">
           <KeyTakeaway title="Documentos necessários" tone="attention">
-            Cada serviço possui documentos específicos. Consulte o checklist antes de enviar a
-            solicitação.
+            Cada serviço possui documentos, fluxos e procedimentos específicos. Consulte o
+            repositório da UCJC antes de enviar a solicitação.
             <div className="mt-5">
-              <Button variant="outline" disabled>
-                <FileText className="size-4" aria-hidden />
-                Consultar documentos necessários
+              <Button variant="outline" asChild>
+                <a
+                  href="https://pesenaibr.sharepoint.com/:f:/s/UCJUR/IgBMRm15jf3JQ6Mp94piMkpwAdATvw25dsgLoTelHJxMa5s?e=JhMe2C"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="size-4" aria-hidden />
+                  Consultar fluxos e procedimentos
+                </a>
               </Button>
               <p className="mt-2 text-xs text-muted-foreground">
-                Espaço reservado para os checklists de cada serviço.
+                Consulte sempre a versão mais atualizada disponível no Sharepoint.
               </p>
             </div>
           </KeyTakeaway>
