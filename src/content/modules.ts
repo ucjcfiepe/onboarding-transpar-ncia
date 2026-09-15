@@ -23,7 +23,21 @@ export type SectionKind =
   | "fc-ajustes"
   | "fc-validacao"
   | "fc-papeis"
-  | "fc-conclusao";
+  | "fc-conclusao"
+  | "ja-papel"
+  | "ja-reportes"
+  | "ja-pauta"
+  | "ja-triagem"
+  | "ja-movimentacoes"
+  | "ja-contencioso"
+  | "ja-apoio"
+  | "ja-controles"
+  | "ja-prognostico"
+  | "ja-atualizacao"
+  | "ja-movimentacao"
+  | "ja-relatorio"
+  | "ja-validacao"
+  | "ja-resumo";
 
 
 export interface ModuleSection {
@@ -44,6 +58,7 @@ export interface OnboardingModule {
   status: "available" | "soon";
   duration: string;
   sections: ModuleSection[];
+  hidden?: boolean;
 }
 
 export const transparenciaSections: ModuleSection[] = [
@@ -171,6 +186,23 @@ export const fiscalizacaoSections: ModuleSection[] = [
   },
 ];
 
+export const assistenciaJuridicaSections: ModuleSection[] = [
+  { id: "papel", eyebrow: "Etapa 01", title: "Papel da Assistência", summary: "Como a Assistência conecta demandas, advogados e controles.", kind: "ja-papel" },
+  { id: "reportes", eyebrow: "Etapa 02", title: "Início do dia", summary: "Tratamento dos reportes encaminhados pelos advogados.", kind: "ja-reportes" },
+  { id: "pauta", eyebrow: "Etapa 03", title: "Organização da pauta", summary: "Dados essenciais para incluir e atualizar demandas.", kind: "ja-pauta" },
+  { id: "triagem", eyebrow: "Etapa 04", title: "Triagem no ZEEV", summary: "Análise inicial de admissibilidade das solicitações.", kind: "ja-triagem" },
+  { id: "movimentacoes", eyebrow: "Etapa 05", title: "Tratamento das movimentações", summary: "Como registrar entradas, retornos, correções e conclusões.", kind: "ja-movimentacoes" },
+  { id: "contencioso", eyebrow: "Etapa 06", title: "Demandas do contencioso", summary: "Atenção especial às publicações e aos prazos judiciais.", kind: "ja-contencioso" },
+  { id: "apoio", eyebrow: "Etapa 07", title: "Apoio à operação", summary: "Suporte aos advogados, clientes internos e gestão.", kind: "ja-apoio" },
+  { id: "controles", eyebrow: "Etapa 08", title: "Manutenção dos controles", summary: "Checklist antes de concluir qualquer atualização.", kind: "ja-controles" },
+  { id: "prognostico", eyebrow: "Etapa 09", title: "Revisão do prognóstico", summary: "Marcos, responsabilidades e papel da Assistência.", kind: "ja-prognostico" },
+  { id: "atualizacao-mensal", eyebrow: "Etapa 10", title: "Atualização mensal", summary: "Preparação do repositório a partir do dia 20.", kind: "ja-atualizacao" },
+  { id: "ultima-movimentacao", eyebrow: "Etapa 11", title: "Última movimentação", summary: "Registros claros sobre o estágio atual do processo.", kind: "ja-movimentacao" },
+  { id: "relatorio-mensal", eyebrow: "Etapa 12", title: "Relatório mensal", summary: "Elaboração objetiva a partir do repositório atualizado.", kind: "ja-relatorio" },
+  { id: "validacao-envio", eyebrow: "Etapa 13", title: "Validação e envio", summary: "Responsáveis, assinatura e prazo de envio oficial.", kind: "ja-validacao" },
+  { id: "visao-rapida", eyebrow: "Etapa 14", title: "Visão rápida da rotina", summary: "Resumo dos principais momentos da rotina da Assistência.", kind: "ja-resumo" },
+];
+
 
 export const modules: OnboardingModule[] = [
   {
@@ -196,6 +228,19 @@ export const modules: OnboardingModule[] = [
     status: "available",
     duration: "≈ 25 min",
     sections: fiscalizacaoSections,
+  },
+  {
+    id: "assistencia-juridica",
+    order: 3,
+    code: "Trilha 01 · Jurídico",
+    title: "Rotina da Assistência Jurídica",
+    subtitle: "Da entrada da demanda aos controles e relatórios",
+    description:
+      "Conheça as responsabilidades e os controles que organizam o trabalho da Assistência Jurídica no dia a dia da UCJC.",
+    status: "available",
+    duration: "≈ 45 min",
+    sections: assistenciaJuridicaSections,
+    hidden: true,
   },
 
 ];

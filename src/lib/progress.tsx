@@ -113,7 +113,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   );
 
   const overallProgress = useCallback(() => {
-    const available = modules.filter((m) => m.status === "available");
+    const available = modules.filter((m) => m.status === "available" && !m.hidden);
     if (!available.length) return 0;
     const sum = available.reduce((acc, m) => acc + moduleProgress(m.id), 0);
     return Math.round(sum / available.length);

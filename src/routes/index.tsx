@@ -193,7 +193,7 @@ function Home() {
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {modules.map((m) => (
+            {modules.filter((m) => !m.hidden).map((m) => (
               <ModuleCard
                 key={m.id}
                 module={m}

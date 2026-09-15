@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Clock, ExternalLink, Inbox, Mail } from "lucide-react";
+import { ArrowRight, Clock, ExternalLink, Inbox, ListChecks, Mail, UserRound } from "lucide-react";
 import {
   juridicoAntesDeEnviar,
   juridicoEstrutura,
@@ -34,6 +34,9 @@ import {
   SoftList,
 } from "@/components/ucjc/primitives";
 import { Button } from "@/components/ui/button";
+import { getModule } from "@/content/modules";
+import { useProgress } from "@/lib/progress";
+import { ProgressIndicator } from "@/components/onboarding/primitives";
 import {
   Accordion,
   AccordionContent,
@@ -61,6 +64,15 @@ export const Route = createFileRoute("/juridico")({
 });
 
 function JuridicoPage() {
+  const trail = getModule("assistencia-juridica");
+  const { hydrated, moduleProgress, state } = useProgress();
+  const trailProgress = hydrated ? moduleProgress("assistencia-juridica") : 0;
+  const lastVisited = state.lastVisited["assistencia-juridica"];
+  const resumeSection =
+    lastVisited && trail?.sections.some((section) => section.id === lastVisited)
+      ? lastVisited
+      : trail?.sections[0]?.id;
+
   return (
     <div className="min-h-screen bg-background">
       <AreaHero
@@ -71,6 +83,14 @@ function JuridicoPage() {
       />
 
       <AreaSection>
+        <div className="mb-14 border-b border-border pb-10">
+          <p className="label-eyebrow">Conteúdo institucional</p>
+          <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl">Conheça o Jurídico</h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+            Entenda o que o Jurídico faz, quais demandas atende, quando deve ser acionado e como suas
+            frentes apoiam as decisões da UCJC.
+          </p>
+        </div>
         <SectionHeading
           eyebrow="Portfólio de serviços"
           title="O que o Jurídico entrega"
@@ -164,6 +184,86 @@ function JuridicoPage() {
               </p>
             </div>
           </KeyTakeaway>
+        </div>
+      </AreaSection>
+
+      <AreaSection className="border-y border-border">
+        <SectionHeading
+          eyebrow="Trilhas por função"
+          title="Como trabalhamos no Jurídico"
+          lead="Conheça as rotinas, responsabilidades e controles que organizam o trabalho jurídico no dia a dia da UCJC."
+        />
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <article className="card-elevated relative overflow-hidden rounded-3xl p-7 sm:p-8">
+            <span className="absolute inset-x-0 top-0 h-1 bg-primary" aria-hidden />
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="label-eyebrow">Trilha 01</p>
+              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+                Disponível
+              </span>
+            </div>
+            <h3 className="mt-4 text-xl font-extrabold text-primary sm:text-2xl">
+              Rotina da Assistência Jurídica
+            </h3>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Da entrada da demanda à organização da pauta, atualização dos processos e elaboração
+              dos relatórios.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
+              <span className="inline-flex items-center gap-2">
+                <UserRound className="size-4 text-sky" aria-hidden />
+                Assistentes Jurídicos
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <ListChecks className="size-4 text-sky" aria-hidden />
+                14 etapas
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <Clock className="size-4 text-sky" aria-hidden />
+                ≈ 45 min
+              </span>
+            </div>
+            <ProgressIndicator className="mt-7" value={trailProgress} label="Progresso" />
+            <div className="mt-7">
+              {resumeSection ? (
+                <Button asChild>
+                  <Link
+                    to="/modulos/$moduleId/$sectionId"
+                    params={{ moduleId: "assistencia-juridica", sectionId: resumeSection }}
+                  >
+                    {trailProgress > 0 ? "Continuar trilha" : "Iniciar trilha"}
+                    <ArrowRight className="size-4" aria-hidden />
+                  </Link>
+                </Button>
+              ) : null}
+            </div>
+          </article>
+
+          <article className="relative overflow-hidden rounded-3xl border border-border bg-card p-7 sm:p-8">
+            <span className="absolute inset-x-0 top-0 h-1 bg-hairline" aria-hidden />
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="label-eyebrow">Trilha 02</p>
+              <span className="rounded-full bg-muted px-3 py-1 text-xs font-bold text-muted-foreground">
+                Em breve
+              </span>
+            </div>
+            <h3 className="mt-4 text-xl font-extrabold text-primary sm:text-2xl">
+              Reporte e Gestão de Demandas
+            </h3>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              Como registrar movimentações, reportar novas demandas, solicitar replanejamentos e
+              manter os controles atualizados.
+            </p>
+            <div className="mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground">
+              <UserRound className="size-4 text-sky" aria-hidden />
+              Advogados
+            </div>
+            <div className="mt-12">
+              <Button variant="outline" disabled>
+                Em breve
+              </Button>
+            </div>
+          </article>
         </div>
       </AreaSection>
 

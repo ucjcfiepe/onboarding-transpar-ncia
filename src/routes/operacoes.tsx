@@ -112,7 +112,7 @@ function OperacoesPage() {
           lead="Transparência Institucional e Fiscalização Contínua do TCU são frentes da UCJC conduzidas pelo NOJC, com módulos completos nesta trilha."
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {modules.map((m) => (
+          {modules.filter((m) => !m.hidden).map((m) => (
             <ModuleCard
               key={m.id}
               module={m}
