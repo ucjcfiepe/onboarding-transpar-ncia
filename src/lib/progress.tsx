@@ -1,37 +1,18 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import { modules } from "@/content/modules";
+import {
+  ProgressContext,
+  type ProgressContextValue,
+  type ProgressState,
+  type QuizResult,
+} from "@/lib/progress-context";
+
+export type { ProgressState, QuizResult } from "@/lib/progress-context";
 
 const STORAGE_KEY = "onboarding-uj-progress-v1";
 
-export interface QuizResult {
-  score: number;
-  total: number;
-  answers: Record<string, string>;
-  completedAt: string;
-}
-
-interface ProgressState {
-  completedSections: Record<string, string[]>;
-  lastVisited: Record<string, string>;
-  quizResults: Record<string, QuizResult>;
-}
-
 const emptyState: ProgressState = { completedSections: {}, lastVisited: {}, quizResults: {} };
-
-interface ProgressContextValue {
-  state: ProgressState;
-  hydrated: boolean;
-  isSectionComplete: (moduleId: string, sectionId: string) => boolean;
-  completeSection: (moduleId: string, sectionId: string) => void;
-  setLastVisited: (moduleId: string, sectionId: string) => void;
-  saveQuizResult: (moduleId: string, result: QuizResult) => void;
-  moduleProgress: (moduleId: string) => number;
-  overallProgress: () => number;
-  resetModule: (moduleId: string) => void;
-}
-
-const ProgressContext = createContext<ProgressContextValue | null>(null);
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<ProgressState>(emptyState);
@@ -128,7 +109,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  const value = useMemo(
+  const value = useMemo<ProgressContextValue>(
     () => ({
       state,
       hydrated,
