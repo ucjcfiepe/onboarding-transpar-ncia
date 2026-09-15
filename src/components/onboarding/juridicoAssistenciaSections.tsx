@@ -38,7 +38,7 @@ function StepFlow({ steps }: { steps: string[] }) {
 }
 
 function Intro({ step, title, lead }: { step: string; title: string; lead?: string }) {
-  return <SectionHeading eyebrow={step} title={title} lead={lead} />;
+  return <SectionHeading eyebrow={step} title={title} {...(lead ? { lead } : {})} />;
 }
 
 function PapelSection() {
