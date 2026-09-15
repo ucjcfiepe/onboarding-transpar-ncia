@@ -30,17 +30,23 @@ import {
   FcPrazosSection,
   FcValidacaoSection,
 } from "@/components/onboarding/fiscalizacaoSections";
+import { JuridicoAssistenciaSection } from "@/components/onboarding/juridicoAssistenciaSections";
 
 
 export const Route = createFileRoute("/modulos/$moduleId/$sectionId")({
   head: ({ params }) => {
+    const isAssistencia = params.moduleId === "assistencia-juridica";
     const fc = params.moduleId === "fiscalizacao-continua";
-    const title = fc
-      ? "Módulo Fiscalização Contínua do TCU — Onboarding Unidade Jurídica"
-      : "Módulo Transparência SESI/SENAI — Onboarding Unidade Jurídica";
-    const description = fc
-      ? "Jornada interativa sobre a Fiscalização Contínua do TCU no SESI e no SENAI: ofício de requisição, prazos, preparação e conferência dos arquivos, envio e validação."
-      : "Trilha interativa sobre a rotina de Transparência do SESI e do SENAI: processo, ambientes públicos, plataformas, monitoramento e evidências.";
+    const title = isAssistencia
+      ? "Rotina da Assistência Jurídica — Onboarding UCJC"
+      : fc
+        ? "Fiscalização Contínua do TCU — Onboarding UCJC"
+        : "Transparência SESI/SENAI — Onboarding UCJC";
+    const description = isAssistencia
+      ? "Trilha guiada sobre rotinas, responsabilidades e controles da Assistência Jurídica da UCJC."
+      : fc
+        ? "Jornada interativa sobre a Fiscalização Contínua do TCU no SESI e no SENAI: ofício, prazos, preparação, conferência, envio e validação."
+        : "Trilha interativa sobre a rotina de Transparência do SESI e do SENAI: processo, ambientes, plataformas, monitoramento e evidências.";
     return {
       meta: [
         { title },
@@ -125,11 +131,11 @@ function SectionPage() {
         <aside className="sticky top-0 hidden h-screen w-72 shrink-0 flex-col justify-between py-10 lg:flex">
           <div className="min-h-0 overflow-y-auto pr-2">
             <Link
-              to="/"
+              to={mod.hidden ? "/juridico" : "/"}
               className="inline-flex items-center gap-2 text-xs font-semibold text-muted-foreground transition-colors hover:text-primary"
             >
               <ArrowLeft className="size-3.5" aria-hidden />
-              Início
+              {mod.hidden ? "Jurídico" : "Início"}
             </Link>
             <p className="label-eyebrow mt-8">{mod.code}</p>
             <h1 className="mt-2 text-lg font-extrabold leading-snug text-primary">{mod.title}</h1>
@@ -268,6 +274,21 @@ function SectionBody({ kind, moduleId }: { kind: string; moduleId: string }) {
       return <FcPapeisSection />;
     case "fc-conclusao":
       return <FcConclusaoSection moduleId={moduleId} />;
+    case "ja-papel":
+    case "ja-reportes":
+    case "ja-pauta":
+    case "ja-triagem":
+    case "ja-movimentacoes":
+    case "ja-contencioso":
+    case "ja-apoio":
+    case "ja-controles":
+    case "ja-prognostico":
+    case "ja-atualizacao":
+    case "ja-movimentacao":
+    case "ja-relatorio":
+    case "ja-validacao":
+    case "ja-resumo":
+      return <JuridicoAssistenciaSection kind={kind} moduleId={moduleId} />;
     default:
       return <SectionNotReady />;
   }
