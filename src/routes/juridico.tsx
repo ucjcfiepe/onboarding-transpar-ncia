@@ -133,6 +133,60 @@ function JuridicoPage() {
         </Accordion>
       </AreaSection>
 
+      <AreaSection>
+        <SectionHeading
+          eyebrow="No dia a dia"
+          title="O Jurídico no dia a dia"
+          lead="Situações comuns que indicam que a demanda deve seguir para o Jurídico."
+        />
+        <div className="mt-10 grid gap-4 md:grid-cols-2">
+          {juridicoSituacoes.map((s) => (
+            <SituationCard key={s} question={s} target="Jurídico" />
+          ))}
+        </div>
+      </AreaSection>
+
+      <AreaSection soft>
+        <SectionHeading
+          eyebrow="Solicitação"
+          title="Antes de enviar uma demanda"
+          lead="Três elementos organizam qualquer solicitação e evitam idas e vindas."
+        />
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {juridicoAntesDeEnviar.map((b, i) => (
+            <article key={b.title} className="card-elevated rounded-3xl p-7">
+              <span className="text-[11px] font-bold tabular-nums text-sky">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 text-lg font-extrabold text-primary">{b.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.text}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-8">
+          <KeyTakeaway title="Documentos necessários" tone="attention">
+            Cada serviço possui documentos, fluxos e procedimentos específicos. Consulte o
+            repositório da UCJC antes de enviar a solicitação.
+            <div className="mt-5">
+              <Button variant="outline" asChild>
+                <a
+                  href="https://pesenaibr.sharepoint.com/:f:/s/UCJUR/IgBMRm15jf3JQ6Mp94piMkpwAdATvw25dsgLoTelHJxMa5s?e=JhMe2C"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="size-4" aria-hidden />
+                  Consultar fluxos e procedimentos
+                </a>
+              </Button>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Consulte sempre a versão mais atualizada disponível no Sharepoint.
+              </p>
+            </div>
+          </KeyTakeaway>
+        </div>
+      </AreaSection>
+
       <AreaSection className="border-y border-border">
         <SectionHeading
           eyebrow="Trilhas por função"
@@ -210,60 +264,6 @@ function JuridicoPage() {
               </Button>
             </div>
           </article>
-        </div>
-      </AreaSection>
-
-      <AreaSection>
-        <SectionHeading
-          eyebrow="No dia a dia"
-          title="O Jurídico no dia a dia"
-          lead="Situações comuns que indicam que a demanda deve seguir para o Jurídico."
-        />
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {juridicoSituacoes.map((s) => (
-            <SituationCard key={s} question={s} target="Jurídico" />
-          ))}
-        </div>
-      </AreaSection>
-
-      <AreaSection soft>
-        <SectionHeading
-          eyebrow="Solicitação"
-          title="Antes de enviar uma demanda"
-          lead="Três elementos organizam qualquer solicitação e evitam idas e vindas."
-        />
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {juridicoAntesDeEnviar.map((b, i) => (
-            <article key={b.title} className="card-elevated rounded-3xl p-7">
-              <span className="text-[11px] font-bold tabular-nums text-sky">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-3 text-lg font-extrabold text-primary">{b.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.text}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-8">
-          <KeyTakeaway title="Documentos necessários" tone="attention">
-            Cada serviço possui documentos, fluxos e procedimentos específicos. Consulte o
-            repositório da UCJC antes de enviar a solicitação.
-            <div className="mt-5">
-              <Button variant="outline" asChild>
-                <a
-                  href="https://pesenaibr.sharepoint.com/:f:/s/UCJUR/IgBMRm15jf3JQ6Mp94piMkpwAdATvw25dsgLoTelHJxMa5s?e=JhMe2C"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="size-4" aria-hidden />
-                  Consultar fluxos e procedimentos
-                </a>
-              </Button>
-              <p className="mt-2 text-xs text-muted-foreground">
-                Consulte sempre a versão mais atualizada disponível no Sharepoint.
-              </p>
-            </div>
-          </KeyTakeaway>
         </div>
       </AreaSection>
 
