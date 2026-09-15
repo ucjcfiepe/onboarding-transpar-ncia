@@ -1,4 +1,4 @@
-import { AlertTriangle, ArrowDown, CalendarDays, CheckCircle2, Clock3, FileCheck2 } from "lucide-react";
+import { AlertTriangle, ArrowDown, CheckCircle2, Clock3, FileCheck2 } from "lucide-react";
 import {
   apoios,
   atribuicoesAssistencia,
@@ -16,7 +16,7 @@ import {
   rotinaResumo,
 } from "@/content/juridicoAssistencia";
 import { useProgress } from "@/lib/progress";
-import { CheckList, FlowStrip, ListCard, SoftList } from "@/components/ucjc/primitives";
+import { CheckList, FlowStrip, ListCard } from "@/components/ucjc/primitives";
 import { KeyTakeaway, ProgressIndicator, SectionHeading } from "./primitives";
 
 function StepFlow({ steps }: { steps: string[] }) {
