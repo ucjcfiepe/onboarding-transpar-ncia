@@ -57,6 +57,7 @@ function ReportesSection() {
       <Intro step="Etapa 02 · Início do dia" title="Tratamento dos reportes" lead="Uma das primeiras atividades do dia é verificar os reportes encaminhados pelos advogados, pois eles podem impactar diretamente a organização do trabalho." />
       <section><p className="label-eyebrow mb-5">O que um reporte pode gerar</p><div className="grid gap-4 sm:grid-cols-2">{efeitosReporte.map((item) => <div key={item} className="rounded-2xl border border-border bg-card p-5 text-sm font-semibold text-primary">{item}</div>)}</div></section>
       <section><p className="label-eyebrow mb-5">Passo a passo da Assistência</p><StepFlow steps={passosReporte} /></section>
+      <KeyTakeaway title="Regra de corte">Reportes de pauta enviados após as 15h são incluídos na pauta no dia seguinte.</KeyTakeaway>
       <KeyTakeaway title="Atenção" tone="attention">A Assistência Jurídica não define ou altera prazos por conta própria. Quando a informação depender de avaliação do advogado, confirme com o responsável antes de atualizar a pauta.</KeyTakeaway>
     </div>
   );

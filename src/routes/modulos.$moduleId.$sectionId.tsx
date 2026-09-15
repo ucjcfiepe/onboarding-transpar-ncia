@@ -103,7 +103,7 @@ function SectionPage() {
       {/* Topbar mobile */}
       <div className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur lg:hidden">
         <div className="flex items-center justify-between gap-3 px-4 py-3">
-          <Link to="/" className="text-sm font-bold text-primary">
+          <Link to={mod.hidden ? "/juridico" : "/"} className="text-sm font-bold text-primary">
             Onboarding UCJC
           </Link>
           <button
