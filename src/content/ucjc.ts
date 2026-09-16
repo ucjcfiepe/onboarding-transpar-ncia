@@ -595,7 +595,7 @@ export const notificacoesFluxo: string[] = [
 /* ============================ INTEGRAÇÃO ============================ */
 
 export const integracaoExemplo: { area: string; text: string }[] = [
-  { area: "Jurídico", text: "Análise do instrumento e segurança jurídica." },
+  { area: "Jurídico", text: "Análise de instrumentos e segurança jurídica." },
   { area: "Compliance", text: "Avaliação de integridade do fornecedor." },
   {
     area: "Operações",
