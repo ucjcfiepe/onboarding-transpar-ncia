@@ -216,7 +216,7 @@ function JuridicoPage() {
               </span>
               <span className="inline-flex items-center gap-2">
                 <ListChecks className="size-4 text-sky" aria-hidden />
-                14 etapas
+                13 etapas
               </span>
               <span className="inline-flex items-center gap-2">
                 <Clock className="size-4 text-sky" aria-hidden />

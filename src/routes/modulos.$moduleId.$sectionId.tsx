@@ -284,7 +284,6 @@ function SectionBody({ kind, moduleId }: { kind: string; moduleId: string }) {
     case "ja-controles":
     case "ja-prognostico":
     case "ja-atualizacao":
-    case "ja-movimentacao":
     case "ja-relatorio":
     case "ja-validacao":
     case "ja-resumo":

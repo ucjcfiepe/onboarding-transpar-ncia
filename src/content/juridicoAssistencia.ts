@@ -115,9 +115,8 @@ export const passosRelatorio = [
 
 export const fluxoValidacao = [
   "Assistência Jurídica — atualiza o repositório e elabora o relatório",
-  "Coordenação — realiza a validação mensal",
-  "Gerência — realiza a validação semestral, quando aplicável",
-  "Após a validação — providenciar assinatura",
+  "Gestão Jurídica — realiza a validação do relatório e repositório",
+  "Após a validação — providenciar assinatura do relatório",
   "Envio oficial — até o 2º dia útil do mês",
 ];
 

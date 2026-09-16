@@ -34,7 +34,6 @@ export type SectionKind =
   | "ja-controles"
   | "ja-prognostico"
   | "ja-atualizacao"
-  | "ja-movimentacao"
   | "ja-relatorio"
   | "ja-validacao"
   | "ja-resumo";
@@ -195,12 +194,11 @@ export const assistenciaJuridicaSections: ModuleSection[] = [
   { id: "contencioso", eyebrow: "Etapa 06", title: "Demandas do contencioso", summary: "Atenção especial às publicações e aos prazos judiciais.", kind: "ja-contencioso" },
   { id: "apoio", eyebrow: "Etapa 07", title: "Apoio à operação", summary: "Suporte aos advogados, clientes internos e gestão.", kind: "ja-apoio" },
   { id: "controles", eyebrow: "Etapa 08", title: "Manutenção dos controles", summary: "Checklist antes de concluir qualquer atualização.", kind: "ja-controles" },
-  { id: "prognostico", eyebrow: "Etapa 09", title: "Revisão do prognóstico", summary: "Marcos, responsabilidades e papel da Assistência.", kind: "ja-prognostico" },
-  { id: "atualizacao-mensal", eyebrow: "Etapa 10", title: "Atualização mensal", summary: "Preparação do repositório a partir do dia 20.", kind: "ja-atualizacao" },
-  { id: "ultima-movimentacao", eyebrow: "Etapa 11", title: "Última movimentação", summary: "Registros claros sobre o estágio atual do processo.", kind: "ja-movimentacao" },
-  { id: "relatorio-mensal", eyebrow: "Etapa 12", title: "Relatório mensal", summary: "Elaboração objetiva a partir do repositório atualizado.", kind: "ja-relatorio" },
-  { id: "validacao-envio", eyebrow: "Etapa 13", title: "Validação e envio", summary: "Responsáveis, assinatura e prazo de envio oficial.", kind: "ja-validacao" },
-  { id: "visao-rapida", eyebrow: "Etapa 14", title: "Visão rápida da rotina", summary: "Resumo dos principais momentos da rotina da Assistência.", kind: "ja-resumo" },
+  { id: "atualizacao-mensal", eyebrow: "Etapa 09", title: "Atualização mensal", summary: "Preparação do repositório a partir do dia 20.", kind: "ja-atualizacao" },
+  { id: "relatorio-mensal", eyebrow: "Etapa 10", title: "Relatório mensal", summary: "Elaboração objetiva a partir do repositório atualizado.", kind: "ja-relatorio" },
+  { id: "prognostico", eyebrow: "Etapa 11", title: "Revisão do prognóstico", summary: "Marcos, responsabilidades e papel da Assistência.", kind: "ja-prognostico" },
+  { id: "validacao-envio", eyebrow: "Etapa 12", title: "Validação e envio", summary: "Responsáveis, assinatura e prazo de envio oficial.", kind: "ja-validacao" },
+  { id: "visao-rapida", eyebrow: "Etapa 13", title: "Visão rápida da rotina", summary: "Resumo dos principais momentos da rotina da Assistência.", kind: "ja-resumo" },
 ];
 
 

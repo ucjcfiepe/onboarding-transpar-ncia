@@ -126,7 +126,7 @@ function ControlesSection() {
 function PrognosticoSection() {
   return (
     <div className="space-y-12">
-      <Intro step="Etapa 09 · Acompanhamento" title="Revisão do prognóstico da ação" lead="Durante o acompanhamento dos processos, alguns marcos exigem análise ou reavaliação do prognóstico. Nem todos são responsabilidade da Assistência." />
+      <Intro step="Etapa 11 · Acompanhamento" title="Revisão do prognóstico da ação" lead="Durante o acompanhamento dos processos, alguns marcos exigem análise ou reavaliação do prognóstico. Nem todos são responsabilidade da Assistência." />
       <ol className="relative space-y-6 border-l-2 border-hairline pl-7">
         {prognosticoMarcos.map((marco, index) => <li key={marco.title} className="relative"><span className="absolute -left-[2.3rem] top-1 inline-flex size-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">{index + 1}</span><article className="card-elevated rounded-2xl p-6"><h3 className="text-lg font-extrabold text-primary">{marco.title}</h3><dl className="mt-5 grid gap-4 text-sm"><div><dt className="font-bold text-foreground">O que se avalia</dt><dd className="mt-1 leading-relaxed text-muted-foreground">{marco.assessment}</dd></div><div><dt className="font-bold text-foreground">Responsável</dt><dd className="mt-1 leading-relaxed text-muted-foreground">{marco.owner}</dd></div><div><dt className="font-bold text-foreground">Papel da Assistência</dt><dd className="mt-1 leading-relaxed text-muted-foreground">{marco.role}</dd></div></dl></article></li>)}
       </ol>
@@ -138,18 +138,8 @@ function PrognosticoSection() {
 function AtualizacaoSection() {
   return (
     <div className="space-y-12">
-      <Intro step="Etapa 10 · Ciclo mensal" title="A partir do dia 20: atualização mensal dos processos" lead="A partir do dia 20 de cada mês, ou antes, começa a atualização do repositório de processos judiciais e administrativos, permitindo que o relatório fique pronto para validação antes do prazo oficial." />
+      <Intro step="Etapa 09 · Ciclo mensal" title="A partir do dia 20: atualização mensal dos processos" lead="A partir do dia 20 de cada mês, ou antes, começa a atualização do repositório de processos judiciais e administrativos, permitindo que o relatório fique pronto para validação antes do prazo oficial." />
       <div className="grid gap-5 sm:grid-cols-2">{atualizacaoMensal.map((item) => <ListCard key={item.title} title={item.title} description={item.text} />)}</div>
-    </div>
-  );
-}
-
-function UltimaMovimentacaoSection() {
-  return (
-    <div className="space-y-12">
-      <Intro step="Etapa 11 · Registro" title="Atualização da última movimentação" lead="O registro deve permitir que qualquer pessoa compreenda rapidamente o estágio atual do processo." />
-      <div className="grain aurora relative overflow-hidden rounded-3xl p-8 sm:p-10"><div className="relative z-10"><p className="label-eyebrow text-primary-foreground/60">Padrão de registro</p><p className="mt-5 text-xl font-extrabold text-primary-foreground">DD/MM/AAAA — resumo da movimentação</p><p className="mt-5 text-sm font-bold text-primary-foreground">Próximos passos:</p><p className="mt-1 text-sm leading-relaxed text-primary-foreground/75">descrição objetiva da providência seguinte.</p></div></div>
-      <KeyTakeaway title="Clareza">Evite registros vagos ou que obriguem o leitor a consultar todo o processo para compreender o andamento.</KeyTakeaway>
     </div>
   );
 }
@@ -157,7 +147,7 @@ function UltimaMovimentacaoSection() {
 function RelatorioSection() {
   return (
     <div className="space-y-12">
-      <Intro step="Etapa 12 · Consolidação" title="Elaboração do relatório mensal" lead="Após atualizar o repositório, a Assistência elabora o relatório com as principais movimentações do período: novos processos, pagamentos, alvarás, alterações de prognóstico e arquivamentos." />
+      <Intro step="Etapa 10 · Consolidação" title="Elaboração do relatório mensal" lead="Após atualizar o repositório, a Assistência elabora o relatório com as principais movimentações do período: novos processos, pagamentos, alvarás, alterações de prognóstico e arquivamentos." />
       <StepFlow steps={passosRelatorio} />
     </div>
   );
@@ -166,7 +156,7 @@ function RelatorioSection() {
 function ValidacaoSection() {
   return (
     <div className="space-y-12">
-      <Intro step="Etapa 13 · Fechamento" title="Validação e envio" lead="O repositório e o relatório devem ficar prontos com antecedência suficiente para a validação da Gerência Jurídica do SENAI." />
+      <Intro step="Etapa 12 · Fechamento" title="Validação e envio" lead="O repositório e o relatório devem ficar prontos com antecedência suficiente para a validação da Gestão Jurídica SENAI, SESI ou FIEPE/IEL." />
       <FlowStrip steps={fluxoValidacao} />
       <KeyTakeaway title="Prazo oficial" tone="attention"><span className="inline-flex items-center gap-3 font-semibold"><Clock3 className="size-4 shrink-0 text-sky" aria-hidden />O envio oficial deve ocorrer até o 2º dia útil do mês.</span></KeyTakeaway>
     </div>
@@ -177,7 +167,7 @@ function ResumoSection({ moduleId }: { moduleId: string }) {
   const { moduleProgress } = useProgress();
   return (
     <div className="space-y-12">
-      <Intro step="Etapa 14 · Síntese" title="Visão rápida da rotina" lead="Retome os principais momentos que organizam o trabalho da Assistência Jurídica." />
+      <Intro step="Etapa 13 · Síntese" title="Visão rápida da rotina" lead="Retome os principais momentos que organizam o trabalho da Assistência Jurídica." />
       <div className="grid gap-5">{rotinaResumo.map((item, index) => <article key={item.title} className="card-elevated flex gap-5 rounded-2xl p-6"><span className="text-xs font-extrabold tabular-nums text-sky">{String(index + 1).padStart(2, "0")}</span><div><h3 className="font-extrabold text-primary">{item.title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p></div></article>)}</div>
       <div className="grain aurora relative overflow-hidden rounded-3xl p-8 sm:p-10"><div className="relative z-10"><div className="flex items-center gap-3 text-primary-foreground"><CheckCircle2 className="size-5" aria-hidden /><h3 className="text-xl font-extrabold">Trilha da Assistência Jurídica</h3></div><p className="mt-3 text-sm leading-relaxed text-primary-foreground/75">Você percorreu as responsabilidades, os controles e os principais ciclos da rotina.</p><ProgressIndicator className="mt-8" value={moduleProgress(moduleId)} label="Conclusão da trilha" tone="dark" /></div></div>
     </div>
@@ -196,7 +186,6 @@ export function JuridicoAssistenciaSection({ kind, moduleId }: { kind: string; m
     case "ja-controles": return <ControlesSection />;
     case "ja-prognostico": return <PrognosticoSection />;
     case "ja-atualizacao": return <AtualizacaoSection />;
-    case "ja-movimentacao": return <UltimaMovimentacaoSection />;
     case "ja-relatorio": return <RelatorioSection />;
     case "ja-validacao": return <ValidacaoSection />;
     case "ja-resumo": return <ResumoSection moduleId={moduleId} />;
