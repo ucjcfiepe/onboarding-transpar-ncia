@@ -33,7 +33,7 @@ import {
 
 const title = "Compliance — Onboarding UCJC";
 const description =
-  "Como o Compliance da UCJC atua: programa de integridade, riscos, due diligence de fornecedores, ações de monitoramento e controle e acompanhamento de recomendações de órgãos de controle.";
+  "Como o Compliance da UCJC atua: programa de integridade, Riscos de Integridade, due diligence de fornecedores, ações de monitoramento e controle e acompanhamento de recomendações de órgãos de controle.";
 
 export const Route = createFileRoute("/compliance")({
   head: () => ({
@@ -63,7 +63,7 @@ function CompliancePage() {
         <SectionHeading
           eyebrow="Portfólio de serviços"
           title="O que o Compliance entrega"
-          lead="Consulta, avaliação de terceiros, riscos, normativos, monitoramento, auditoria independente, comunicação e treinamento."
+          lead="Consulta, avaliação de terceiros, Riscos de Integridade, normativos, monitoramento, auditoria independente, comunicação e treinamento."
         />
         <div className="mt-10">
           <PillGrid items={compliancePortfolio} />
@@ -74,7 +74,7 @@ function CompliancePage() {
         <SectionHeading
           eyebrow="Programa de Integridade"
           title="Integridade se constrói em várias frentes"
-          lead="Riscos, normativos, comunicação, treinamento, presença nas escolas e avaliação de terceiros."
+          lead="Riscos de Integridade, normativos, comunicação, treinamento, presença nas escolas e avaliação de terceiros."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {programaIntegridade.map((b) => (

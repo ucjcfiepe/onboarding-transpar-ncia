@@ -34,9 +34,9 @@ export const areas: AreaSummary[] = [
     route: "/compliance",
     eyebrow: "Frente 02",
     title: "Compliance",
-    subtitle: "Integridade, riscos, controles e monitoramento",
+    subtitle: "Integridade, Riscos de Integridade, controles e monitoramento",
     description:
-      "Atua em integridade institucional, avaliação de riscos, terceiros, comunicação, treinamento e acompanhamento de recomendações.",
+      "Atua em integridade institucional, avaliação de Riscos de Integridade, terceiros, comunicação, treinamento e acompanhamento de recomendações.",
     highlights: ["Programa de Integridade", "Due Diligence de terceiros", "Monitoramento e controle"],
     accent: "teal",
   },
@@ -95,6 +95,7 @@ export const juridicoEstrutura: {
       "Pareceres",
       "Atuação em processos judiciais e administrativos",
       "Consultoria em aquisições",
+      "Assessoria em Termo de Referência para a área de Inovação",
       "Elaboração e revisão de documentos internos",
       "Acordos de vontade",
       "Assessoria às áreas de Educação",
@@ -141,7 +142,6 @@ export const juridicoSituacoes: string[] = [
   "Preciso formalizar um convênio ou termo aditivo.",
   "Existe um processo judicial ou administrativo.",
   "Estou conduzindo uma aquisição e preciso de orientação.",
-  "Preciso revisar um memorando, ofício ou normativo.",
   "Existe uma questão trabalhista coletiva ou sindical.",
 ];
 
