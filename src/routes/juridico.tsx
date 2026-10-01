@@ -10,6 +10,7 @@ import {
 import {
   anoFaixas,
   anoImpactos,
+  anoObservacoes,
   assistentesAtribuicoes,
   chegadaFluxo,
   chegadaIntro,
@@ -20,6 +21,7 @@ import {
   triagemFrase,
   triagemOrientacoes,
   zeevCards,
+  zeevContatos,
   zeevFrase,
 } from "@/content/juridicoOperacao";
 import { KeyTakeaway, SectionHeading } from "@/components/onboarding/primitives";
@@ -293,9 +295,29 @@ function JuridicoPage() {
           </KeyTakeaway>
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-2">
-          {zeevCards.map((c) => (
-            <ListCard key={c.title} title={c.title} description={c.description} />
-          ))}
+          {zeevCards.map((c) =>
+            c.title === "Se o ZEEV estiver indisponível" ? (
+              <article key={c.title} className="card-elevated rounded-3xl p-7 sm:p-8">
+                <h3 className="mt-2 text-lg font-extrabold text-primary">{c.title}</h3>
+                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{c.description}</p>
+                <ul className="mt-5 space-y-3">
+                  {zeevContatos.map((contact) => (
+                    <li key={contact.label} className="text-sm leading-relaxed">
+                      <span className="font-bold text-primary">{contact.label}:</span>{" "}
+                      <a
+                        href={`mailto:${contact.email}`}
+                        className="break-all text-sky underline decoration-sky/40 underline-offset-4 transition-colors hover:text-primary focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      >
+                        {contact.email}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ) : (
+              <ListCard key={c.title} title={c.title} description={c.description} />
+            ),
+          )}
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -384,7 +406,10 @@ function JuridicoPage() {
           <div className="grid gap-5">
             {prazosTipos.map((p) => (
               <article key={p.title} className="card-elevated rounded-3xl p-7">
-                <p className="label-eyebrow">{p.label}</p>
+                <p className="label-eyebrow">
+                  {p.title === "Prazo fatal" ? "Pauta Contenciosa · " : ""}
+                  {p.label}
+                </p>
                 <h3 className="mt-2 text-lg font-extrabold text-primary">{p.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
               </article>
@@ -427,10 +452,24 @@ function JuridicoPage() {
                 </span>
               </AccordionTrigger>
               <AccordionContent className="pb-7">
-                <SoftList
-                  items={f.itens}
-                  className="sm:columns-2 sm:gap-8 [&>li]:break-inside-avoid"
-                />
+                <ul className="mt-5 space-y-2.5 sm:columns-2 sm:gap-8">
+                  {f.itens.map((item) => (
+                    <li
+                      key={item}
+                      className="flex break-inside-avoid items-start gap-2.5 text-sm leading-relaxed"
+                    >
+                      <span className="mt-2 size-1 shrink-0 rounded-full bg-sky" aria-hidden />
+                      <span>
+                        {item}
+                        {anoObservacoes[item] ? (
+                          <span className="mt-1 block text-xs leading-relaxed text-muted-foreground">
+                            {anoObservacoes[item]}
+                          </span>
+                        ) : null}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </AccordionContent>
             </AccordionItem>
           ))}

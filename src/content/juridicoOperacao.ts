@@ -8,6 +8,7 @@ export const chegadaFluxo: string[] = [
   "Triagem",
   "Verificação de admissibilidade",
   "Inclusão em pauta",
+  "Designação de advogado pela gestão",
   "Atendimento pelo advogado",
   "Acompanhamento",
 ];
@@ -34,8 +35,14 @@ export const zeevCards: { title: string; description: string }[] = [
   {
     title: "Se o ZEEV estiver indisponível",
     description:
-      "Em situações de indisponibilidade do sistema, o recebimento pode ocorrer por e-mail.",
+      "Em situações de indisponibilidade do sistema, a demanda poderá ser encaminhada para o e-mail da gerência ou núcleo que irá atendê-la.",
   },
+];
+
+export const zeevContatos: { label: string; email: string }[] = [
+  { label: "SENAI", email: "juridico.senai@sistemafiepe.org.br" },
+  { label: "SESI", email: "juridico.sesi@sistemafiepe.org.br" },
+  { label: "FIEPE/IEL", email: "processosjuridicos@sistemafiepe.org.br" },
 ];
 
 export const triagemOrientacoes: string[] = [
@@ -81,7 +88,7 @@ export const prazosTipos: { label: string; title: string; text: string }[] = [
   {
     label: "Formal",
     title: "Prazo fatal",
-    text: "Nunca deve ser alterado sem solicitação expressa do advogado, formalizada por e-mail.",
+    text: "Nunca deve ser alterado sem solicitação expressa do advogado ou da gestão, formalizada por e-mail.",
   },
 ];
 
@@ -113,7 +120,7 @@ export const anoFaixas: { prazo: string; unidade: string; itens: string[] }[] = 
       "Acordo de Confidencialidade",
       "Acordo de Cooperação",
       "Análise de Documentação",
-      "Análise de Edital",
+       "Análise de Edital de Inovação",
       "Carta de Indicação",
       "Certidão",
       "Cláusula",
@@ -147,6 +154,10 @@ export const anoFaixas: { prazo: string; unidade: string; itens: string[] }[] = 
     ],
   },
 ];
+
+export const anoObservacoes: Record<string, string> = {
+  "Consulta — Comercial": "Inclusive edital de Receita – SESI/SENAI/IEL figurando como licitante.",
+};
 
 export const anoImpactos: string[] = [
   "Organização da pauta",
