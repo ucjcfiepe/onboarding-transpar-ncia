@@ -9,4 +9,4 @@
 - [x] Reordenar as etapas finais, remover “Atualização da última movimentação” e consolidar o fluxo de validação.
 - [x] Aplicar os sete ajustes de conteúdo solicitados na frente Jurídico, preservando o visual existente.
 - [x] Padronizar “Riscos de Integridade” apenas quando “Riscos” nomear o tema no conteúdo de Compliance.
-- [ ] Validar os ajustes em desktop e mobile, incluindo o fluxo jurídico com sete etapas e os links de e-mail.
+- [x] Validar os ajustes em desktop e mobile, incluindo o fluxo jurídico com sete etapas e os links de e-mail.
