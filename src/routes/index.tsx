@@ -5,6 +5,7 @@ import { areas, integracaoExemplo } from "@/content/ucjc";
 import { useProgress } from "@/lib/progress";
 import { ModuleCard } from "@/components/onboarding/ModuleCard";
 import { BrandLogo } from "@/components/ucjc/BrandLogo";
+import { OrganizationChart } from "@/components/ucjc/OrganizationChart";
 
 import { ProgressIndicator } from "@/components/onboarding/primitives";
 import { cn } from "@/lib/utils";
@@ -74,6 +75,21 @@ function Home() {
           </div>
         </div>
       </header>
+
+      {/* Organograma */}
+      <section className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 sm:py-24">
+        <div className="max-w-2xl">
+          <p className="label-eyebrow">Estrutura da UCJC</p>
+          <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl">
+            Como a UCJC está organizada
+          </h2>
+          <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
+            Conheça a estrutura da Unidade Corporativa Jurídica e de Compliance e entenda como suas
+            gerências, coordenações e equipes se distribuem.
+          </p>
+        </div>
+        <OrganizationChart />
+      </section>
 
       {/* Frentes */}
       <section
