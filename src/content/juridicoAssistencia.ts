@@ -92,7 +92,7 @@ export const prognosticoMarcos = [
   { title: "Defesa / Contestação", assessment: "Revisão com base nas teses de defesa, provas disponíveis e pontos frágeis identificados.", owner: "Advogado responsável pela elaboração da defesa.", role: "Identificar o marco e garantir que a análise seja pautada para o responsável, quando necessário." },
   { title: "Sentença ou Acórdão", assessment: "Reclassificação após decisão de 1º ou 2º grau, considerando a existência ou não de recurso.", owner: "Advogado responsável pelo prazo e pela análise do cabimento de recurso.", role: "Identificar o marco e pautar a análise." },
   { title: "Homologação dos cálculos", assessment: "Após manifestação do advogado sobre os cálculos, verificar necessidade de alteração de prognóstico e provisão.", owner: "Advogado responsável pelo prazo.", role: "Pautar a análise do responsável." },
-  { title: "Arquivamento", assessment: "Reclassificação final para baixa e alteração do prognóstico para \"Remoto\".", owner: "Assistente.", role: "Atualizar o repositório conforme a análise aplicável." },
+  { title: "Arquivamento", assessment: "Reclassificação final para baixa e alteração do prognóstico para \"Remoto\".", owner: "Assistente.", role: "Atualizar o repositório e relatório de processos com a informação do arquivamento." },
 ];
 
 export const atualizacaoMensal = [
