@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep institutional organization-chart data separate from its responsive presentation component so hierarchy remains maintainable across desktop and compact layouts.
