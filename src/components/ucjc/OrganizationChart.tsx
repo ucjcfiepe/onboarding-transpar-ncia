@@ -28,19 +28,24 @@ function RoleCard({ role }: { role: OrganizationRole }) {
 }
 
 function DesktopTeam({ area, active }: { area: OrganizationArea; active: boolean }) {
+  const split = area.id === "compliance" ? 4 : 3;
   return (
     <div
       id={`organization-team-${area.id}`}
       className={cn(
         "relative pt-7 transition-all duration-300 before:absolute before:left-1/2 before:top-0 before:h-7 before:w-px before:bg-hairline",
-        active ? "opacity-100" : "opacity-45",
+        active ? "opacity-100" : "opacity-80",
       )}
     >
-      <ul className="grid grid-cols-2 gap-2" aria-label={`Equipe de ${area.name}`}>
-        {area.roles.map((role, index) => (
-          <RoleCard key={`${role.title}-${role.specialty ?? ""}-${index}`} role={role} />
+      <div className="grid grid-cols-2 gap-2" aria-label={`Equipe de ${area.name}`}>
+        {[area.roles.slice(0, split), area.roles.slice(split)].map((column, columnIndex) => (
+          <ul key={columnIndex} className="flex flex-col gap-2">
+            {column.map((role, index) => (
+              <RoleCard key={`${role.title}-${role.specialty ?? ""}-${index}`} role={role} />
+            ))}
+          </ul>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
@@ -66,8 +71,7 @@ export function OrganizationChart() {
                   type="button"
                   variant={active ? "default" : "outline"}
                   onClick={() => setActiveId(area.id)}
-                  aria-expanded={active}
-                  aria-controls={`organization-team-${area.id}`}
+                  aria-pressed={active}
                   className={cn(
                     "h-20 w-full whitespace-normal rounded-lg px-4 text-center text-[11px] font-extrabold uppercase leading-snug shadow-[var(--shadow-soft)]",
                     active && "ring-2 ring-sky/25 ring-offset-2 ring-offset-background",
@@ -104,6 +108,8 @@ export function OrganizationChart() {
                 </Button>
                 <div
                   id={`organization-mobile-team-${area.id}`}
+                  aria-hidden={!open}
+                  inert={!open}
                   className={cn(
                     "grid transition-[grid-template-rows] duration-300",
                     open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
