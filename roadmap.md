@@ -12,3 +12,4 @@
 - [x] Validar os ajustes em desktop e mobile, incluindo o fluxo jurídico com sete etapas e os links de e-mail.
 - [x] Adicionar o organograma responsivo da UCJC na página institucional e validar desktop, tablet e mobile.
 - [x] Refinar espaçamentos e estados de seleção do organograma sem alterar sua estrutura ou conteúdo.
+- [x] Aplicar identidade cromática por área ao organograma, com estado neutro e foco na seleção.
