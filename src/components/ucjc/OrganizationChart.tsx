@@ -16,9 +16,7 @@ function RoleCard({ role, active = false }: { role: OrganizationRole; active?: b
         "flex min-h-16 flex-col items-center justify-center rounded-lg border px-3 py-3 text-center transition-[background-color,border-color,box-shadow] duration-300",
         active
           ? "border-sky/45 bg-mist shadow-[var(--shadow-soft)]"
-          : role.accent
-            ? "border-sky/25 bg-mist/60"
-            : "border-border bg-card",
+          : "border-border bg-card",
       )}
     >
       <span className="text-[11px] font-extrabold uppercase leading-tight text-foreground">
