@@ -87,7 +87,7 @@ function Home() {
             Como a UCJC está organizada
           </h2>
           <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-            Conheça a estrutura da Unidade Corporativa Jurídica e de Compliance e entenda como suas
+            Conheça a estrutura da Unidade Compartilhada Jurídica e de Compliance e entenda como suas
             gerências, coordenações e equipes se distribuem.
           </p>
         </div>
