@@ -66,7 +66,7 @@ function Home() {
 
           <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center">
             <a
-              href="#frentes"
+              href="#estrutura"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-primary transition-transform duration-300 hover:-translate-y-0.5"
             >
               Explorar a UCJC
@@ -77,7 +77,10 @@ function Home() {
       </header>
 
       {/* Organograma */}
-      <section className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 sm:py-24">
+      <section
+        id="estrutura"
+        className="mx-auto w-full max-w-6xl scroll-mt-24 px-6 py-20 sm:px-8 sm:py-24"
+      >
         <div className="max-w-2xl">
           <p className="label-eyebrow">Estrutura da UCJC</p>
           <h2 className="mt-3 text-3xl font-extrabold text-primary sm:text-4xl">
