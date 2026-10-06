@@ -79,17 +79,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Onboarding Unidade Jurídica — SESI/SENAI" },
+      { title: "Onboarding UCJC — Unidade Compartilhada Jurídica e de Compliance" },
       {
         name: "description",
         content:
-          "Experiência de aprendizagem digital da Unidade Jurídica sobre a rotina de Transparência do SESI e do SENAI.",
+          "Onboarding da Unidade Compartilhada Jurídica e de Compliance — UCJC: frentes de Jurídico, Compliance e Operações Jurídicas e de Compliance.",
       },
-      { name: "author", content: "Unidade Jurídica — SESI/SENAI" },
-      { property: "og:title", content: "Onboarding Unidade Jurídica — SESI/SENAI" },
+      { name: "author", content: "UCJC — Unidade Compartilhada Jurídica e de Compliance" },
+      { property: "og:title", content: "Onboarding UCJC — Unidade Compartilhada Jurídica e de Compliance" },
       {
         property: "og:description",
-        content: "Trilha interativa de onboarding: Transparência SESI/SENAI.",
+        content:
+          "Trilha interativa de onboarding da UCJC: Jurídico, Compliance e Operações Jurídicas e de Compliance.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
