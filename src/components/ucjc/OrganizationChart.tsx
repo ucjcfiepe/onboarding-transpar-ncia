@@ -20,28 +20,28 @@ const areaTones: Record<
   }
 > = {
   compliance: {
-    button: "border-primary bg-primary text-primary-foreground hover:bg-primary/90",
+    button: "border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground",
     group: "border-primary/15 bg-primary/5",
     role: "border-primary/30",
     line: "before:bg-primary/45",
     mobileGroup: "border-primary/25 bg-primary/5",
   },
   "juridico-sesi": {
-    button: "border-sesi bg-sesi text-primary-foreground hover:bg-sesi/90",
+    button: "border-sesi bg-sesi text-primary-foreground hover:bg-sesi/90 hover:text-primary-foreground",
     group: "border-sesi/20 bg-sesi/10",
     role: "border-sesi/35",
     line: "before:bg-sesi/55",
     mobileGroup: "border-sesi/30 bg-sesi/10",
   },
   "juridico-senai": {
-    button: "border-senai bg-senai text-primary-foreground hover:bg-senai/90",
+    button: "border-senai bg-senai text-primary-foreground hover:bg-senai/90 hover:text-primary-foreground",
     group: "border-senai/20 bg-senai/10",
     role: "border-senai/35",
     line: "before:bg-senai/55",
     mobileGroup: "border-senai/30 bg-senai/10",
   },
   operacoes: {
-    button: "border-teal bg-teal text-night hover:bg-teal/90",
+    button: "border-teal bg-teal text-night hover:bg-teal/90 hover:text-night",
     group: "border-teal/25 bg-teal/10",
     role: "border-teal/45",
     line: "before:bg-teal/65",
