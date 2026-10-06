@@ -9,39 +9,46 @@ import {
   type OrganizationRole,
 } from "@/content/organization";
 
-const areaTones: Record<
-  OrganizationArea["id"],
-  {
-    button: string;
-    group: string;
-    role: string;
-    line: string;
-    mobileGroup: string;
-  }
-> = {
+type AreaTone = {
+  button: string;
+  group: string;
+  role: string;
+  line: string;
+  mobileGroup: string;
+};
+
+const defaultTone: AreaTone = {
+  button: "border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground",
+  group: "border-primary/15 bg-primary/5",
+  role: "border-primary/30",
+  line: "before:bg-primary/45",
+  mobileGroup: "border-primary/25 bg-primary/5",
+};
+
+const areaTones: Record<OrganizationArea["id"], AreaTone> = {
   compliance: {
-    button: "border-primary bg-primary text-primary-foreground hover:bg-primary/90",
+    button: "border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground",
     group: "border-primary/15 bg-primary/5",
     role: "border-primary/30",
     line: "before:bg-primary/45",
     mobileGroup: "border-primary/25 bg-primary/5",
   },
   "juridico-sesi": {
-    button: "border-sesi bg-sesi text-primary-foreground hover:bg-sesi/90",
+    button: "border-sesi bg-sesi text-primary-foreground hover:bg-sesi/90 hover:text-primary-foreground",
     group: "border-sesi/20 bg-sesi/10",
     role: "border-sesi/35",
     line: "before:bg-sesi/55",
     mobileGroup: "border-sesi/30 bg-sesi/10",
   },
   "juridico-senai": {
-    button: "border-senai bg-senai text-primary-foreground hover:bg-senai/90",
+    button: "border-senai bg-senai text-primary-foreground hover:bg-senai/90 hover:text-primary-foreground",
     group: "border-senai/20 bg-senai/10",
     role: "border-senai/35",
     line: "before:bg-senai/55",
     mobileGroup: "border-senai/30 bg-senai/10",
   },
   operacoes: {
-    button: "border-teal bg-teal text-night hover:bg-teal/90",
+    button: "border-teal bg-teal text-night hover:bg-teal/90 hover:text-night",
     group: "border-teal/25 bg-teal/10",
     role: "border-teal/45",
     line: "before:bg-teal/65",
@@ -56,7 +63,7 @@ function RoleCard({
 }: {
   role: OrganizationRole;
   active?: boolean;
-  tone: (typeof areaTones)[string];
+  tone: AreaTone;
 }) {
   return (
     <li
@@ -79,7 +86,7 @@ function RoleCard({
 
 function DesktopTeam({ area, active }: { area: OrganizationArea; active: boolean }) {
   const split = area.id === "compliance" ? 4 : 3;
-  const tone = areaTones[area.id];
+  const tone = areaTones[area.id] ?? defaultTone;
   return (
     <div
       id={`organization-team-${area.id}`}
@@ -122,7 +129,7 @@ export function OrganizationChart() {
         <div className="relative grid grid-cols-4 gap-6 before:absolute before:left-[12.5%] before:right-[12.5%] before:top-0 before:h-px before:bg-hairline">
           {organizationAreas.map((area) => {
             const active = activeId === area.id;
-            const tone = areaTones[area.id];
+            const tone = areaTones[area.id] ?? defaultTone;
             return (
               <div
                 key={area.id}
@@ -166,7 +173,7 @@ export function OrganizationChart() {
         <div className="space-y-4">
           {organizationAreas.map((area) => {
             const open = activeId === area.id;
-            const tone = areaTones[area.id];
+            const tone = areaTones[area.id] ?? defaultTone;
             return (
               <article
                 key={area.id}
