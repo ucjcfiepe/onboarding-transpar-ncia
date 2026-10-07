@@ -17,11 +17,11 @@ export const organizationAreas: OrganizationArea[] = [
     id: "compliance",
     name: "Coordenação Compliance",
     roles: [
+      { title: "Especialista", specialty: "Compliance", accent: true },
       { title: "Analista II" },
       { title: "Analista II" },
       { title: "Analista II" },
       { title: "Estagiário" },
-      { title: "Especialista", specialty: "Compliance", accent: true },
     ],
   },
   {
