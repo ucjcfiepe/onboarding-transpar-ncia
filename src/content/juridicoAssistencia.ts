@@ -127,3 +127,10 @@ export const rotinaResumo = [
   { title: "A partir do dia 20", text: "Atualizar o repositório de processos." },
   { title: "Final do mês / início do mês seguinte", text: "Elaborar, validar, assinar e enviar o relatório." },
 ];
+
+export const encerramentoAssistencia = {
+  title: "Rotina da Assistência Jurídica",
+  summary: "Você percorreu as responsabilidades da Assistência Jurídica, da organização das demandas à manutenção dos controles e à preparação dos relatórios mensais.",
+  nextSteps: "Use esta trilha como referência no dia a dia. Sempre que precisar, revise uma etapa e consulte os fluxos e procedimentos atualizados da UCJC. Se alguma informação estiver ausente ou pouco clara, confirme com o responsável antes de atualizar os registros.",
+  resetConfirmation: "Deseja reiniciar seu progresso na trilha Rotina da Assistência Jurídica? O progresso das outras trilhas será mantido.",
+};

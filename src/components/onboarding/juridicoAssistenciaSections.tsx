@@ -1,4 +1,7 @@
-import { AlertTriangle, ArrowDown, CheckCircle2, Clock3, FileCheck2 } from "lucide-react";
+import { AlertTriangle, ArrowDown, CalendarDays, CheckCircle2, Clock3, Compass, FileCheck2, Home, RefreshCw, Scale, Sunrise } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Button } from "@/components/ui/button";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import {
   apoios,
   atribuicoesAssistencia,
@@ -14,6 +17,7 @@ import {
   passosReporte,
   prognosticoMarcos,
   rotinaResumo,
+  encerramentoAssistencia,
 } from "@/content/juridicoAssistencia";
 import { useProgress } from "@/lib/progress";
 import { CheckList, FlowStrip, ListCard } from "@/components/ucjc/primitives";
@@ -164,12 +168,68 @@ function ValidacaoSection() {
 }
 
 function ResumoSection({ moduleId }: { moduleId: string }) {
-  const { moduleProgress } = useProgress();
+  const { moduleProgress, resetModule } = useProgress();
+  const progress = moduleProgress(moduleId);
+  const dailyIcons = [Sunrise, FileCheck2, Scale];
   return (
     <div className="space-y-12">
       <Intro step="Etapa 13 · Síntese" title="Visão rápida da rotina" lead="Retome os principais momentos que organizam o trabalho da Assistência Jurídica." />
-      <div className="grid gap-5">{rotinaResumo.map((item, index) => <article key={item.title} className="card-elevated flex gap-5 rounded-2xl p-6"><span className="text-xs font-extrabold tabular-nums text-sky">{String(index + 1).padStart(2, "0")}</span><div><h3 className="font-extrabold text-primary">{item.title}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p></div></article>)}</div>
-      <div className="grain aurora relative overflow-hidden rounded-3xl p-8 sm:p-10"><div className="relative z-10"><div className="flex items-center gap-3 text-primary-foreground"><CheckCircle2 className="size-5" aria-hidden /><h3 className="text-xl font-extrabold">Trilha da Assistência Jurídica</h3></div><p className="mt-3 text-sm leading-relaxed text-primary-foreground/75">Você percorreu as responsabilidades, os controles e os principais ciclos da rotina.</p><ProgressIndicator className="mt-8" value={moduleProgress(moduleId)} label="Conclusão da trilha" tone="dark" /></div></div>
+
+      <section aria-labelledby="rotina-diaria">
+        <div className="mb-5 flex items-center gap-3"><span className="h-px w-8 bg-sky" aria-hidden /><h3 id="rotina-diaria" className="label-eyebrow">No dia a dia</h3></div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {rotinaResumo.slice(0, 3).map((item, index) => {
+            const Icon = dailyIcons[index] ?? FileCheck2;
+            return <article key={item.title} className="card-elevated rounded-lg border-t-2 border-t-sky p-5 sm:p-6">
+              <div className="flex items-center justify-between"><Icon className="size-6 text-sky" aria-hidden /><span className="text-xs font-semibold tabular-nums text-muted-foreground">{String(index + 1).padStart(2, "0")}</span></div>
+              <h4 className="mt-6 text-lg font-bold text-primary">{item.title}</h4>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+            </article>;
+          })}
+        </div>
+      </section>
+
+      <section aria-labelledby="rotina-mensal">
+        <div className="mb-6 flex items-center gap-3"><CalendarDays className="size-4 text-sky" aria-hidden /><h3 id="rotina-mensal" className="label-eyebrow">No ciclo mensal</h3></div>
+        <ol className="grid gap-0 md:grid-cols-2">
+          {rotinaResumo.slice(3).map((item, index) => <li key={item.title} className="relative border-l border-border pb-8 pl-7 last:pb-0 md:border-l-0 md:border-t md:pb-0 md:pl-0 md:pr-8 md:pt-7">
+            <span className="absolute -left-2 top-0 size-4 rounded-full border-4 border-background bg-sky md:-top-2 md:left-0" aria-hidden />
+            <p className="text-xs font-semibold tabular-nums text-sky">{String(index + 4).padStart(2, "0")}</p>
+            <h4 className="mt-2 text-lg font-bold leading-snug text-primary">{item.title}</h4>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+          </li>)}
+        </ol>
+      </section>
+
+      <section className="grain aurora relative overflow-hidden rounded-3xl p-7 sm:p-9" aria-labelledby="encerramento-assistencia">
+        <div className="relative z-10 grid items-center gap-8 sm:grid-cols-[minmax(0,1fr)_minmax(0,0.6fr)]">
+          <div>
+            <p className="label-eyebrow text-primary-foreground/75">{progress === 100 ? "Trilha concluída" : "Encerramento da trilha"}</p>
+            <h3 id="encerramento-assistencia" className="mt-4 text-2xl font-extrabold leading-tight text-primary-foreground">{encerramentoAssistencia.title}</h3>
+            <p className="mt-4 text-sm leading-relaxed text-primary-foreground/80">{encerramentoAssistencia.summary}</p>
+          </div>
+          <div className="border-t border-primary-foreground/20 pt-6 sm:border-l sm:border-t-0 sm:pl-7 sm:pt-0">
+            <CheckCircle2 className="mb-5 size-7 text-primary-foreground" aria-hidden />
+            <ProgressIndicator value={progress} label="Conclusão da trilha" tone="dark" />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-border py-8" aria-labelledby="proximos-passos-assistencia">
+        <h3 id="proximos-passos-assistencia" className="text-xl font-extrabold text-primary">Próximos passos</h3>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">{encerramentoAssistencia.nextSteps}</p>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Button asChild><Link to="/"><Home className="size-4" aria-hidden />Voltar ao início</Link></Button>
+          <Button variant="outline" asChild><Link to="/modulos/$moduleId/$sectionId" params={{ moduleId, sectionId: "papel" }}><Compass className="size-4" aria-hidden />Revisar conteúdo</Link></Button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild><Button variant="ghost"><RefreshCw className="size-4" aria-hidden />Reiniciar progresso</Button></AlertDialogTrigger>
+            <AlertDialogContent className="w-[calc(100%-2rem)] rounded-lg">
+              <AlertDialogHeader><AlertDialogTitle>Reiniciar progresso?</AlertDialogTitle><AlertDialogDescription>{encerramentoAssistencia.resetConfirmation}</AlertDialogDescription></AlertDialogHeader>
+              <AlertDialogFooter><AlertDialogCancel>Cancelar</AlertDialogCancel><AlertDialogAction onClick={() => resetModule(moduleId)}>Reiniciar esta trilha</AlertDialogAction></AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        </div>
+      </section>
     </div>
   );
 }

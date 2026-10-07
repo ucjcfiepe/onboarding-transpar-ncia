@@ -10,3 +10,5 @@
 <!-- LOVABLE:END -->
 
 - Keep institutional organization-chart data separate from its responsive presentation component so hierarchy remains maintainable across desktop and compact layouts.
+
+- Keep assistance conclusion copy in its content module and reuse the shared progress context and confirmation dialog so the final section does not duplicate progress state or reset other modules.
