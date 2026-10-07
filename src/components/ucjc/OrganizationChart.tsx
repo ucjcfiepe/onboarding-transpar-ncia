@@ -68,7 +68,7 @@ function RoleCard({
   return (
     <li
       className={cn(
-        "flex min-h-16 flex-col items-center justify-center rounded-lg border px-3 py-3 text-center transition-[background-color,border-color,box-shadow] duration-300",
+        "flex min-h-12 w-full min-w-0 flex-col items-center justify-center rounded-lg border px-3 py-2 text-center transition-[background-color,border-color,box-shadow] duration-300",
         active
           ? cn("bg-card shadow-[var(--shadow-soft)]", tone.role)
           : "border-border bg-card",
@@ -85,7 +85,6 @@ function RoleCard({
 }
 
 function DesktopTeam({ area, active }: { area: OrganizationArea; active: boolean }) {
-  const split = area.id === "compliance" ? 4 : 3;
   const tone = areaTones[area.id] ?? defaultTone;
   return (
     <div
@@ -95,20 +94,16 @@ function DesktopTeam({ area, active }: { area: OrganizationArea; active: boolean
         active && tone.line,
       )}
     >
-      <div className="grid grid-cols-2 gap-3" aria-label={`Equipe de ${area.name}`}>
-        {[area.roles.slice(0, split), area.roles.slice(split)].map((column, columnIndex) => (
-          <ul key={columnIndex} className="flex flex-col gap-3">
-            {column.map((role, index) => (
-              <RoleCard
-                key={`${role.title}-${role.specialty ?? ""}-${index}`}
-                role={role}
-                active={active}
-                tone={tone}
-              />
-            ))}
-          </ul>
+      <ul className="flex flex-col gap-3" aria-label={`Equipe de ${area.name}`}>
+        {area.roles.map((role, index) => (
+          <RoleCard
+            key={`${role.title}-${role.specialty ?? ""}-${index}`}
+            role={role}
+            active={active}
+            tone={tone}
+          />
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
@@ -208,7 +203,7 @@ export function OrganizationChart() {
                   )}
                 >
                   <div className="overflow-hidden">
-                    <ul className={cn("grid gap-3 p-5 sm:grid-cols-2", open && tone.group)} aria-label={`Equipe de ${area.name}`}>
+                    <ul className={cn("flex flex-col gap-3 p-5", open && tone.group)} aria-label={`Equipe de ${area.name}`}>
                       {area.roles.map((role, index) => (
                         <RoleCard
                           key={`${role.title}-${role.specialty ?? ""}-${index}`}
