@@ -10,7 +10,7 @@ export interface OrganizationArea {
   roles: OrganizationRole[];
 }
 
-export const organizationRoot = "Gestão Jurídico e Compliance";
+export const organizationRoot = "Gerência Executiva do Jurídico e Compliance";
 
 export const organizationAreas: OrganizationArea[] = [
   {
