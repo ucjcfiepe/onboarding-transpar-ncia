@@ -10,4 +10,3 @@
 <!-- LOVABLE:END -->
 
 - Keep institutional organization-chart data separate from its responsive presentation component so hierarchy remains maintainable across desktop and compact layouts.
-- Scope organization-chart area colors through semantic CSS tokens inherited by each group; keep selected button text styling explicit so shared button hover styles cannot override it.

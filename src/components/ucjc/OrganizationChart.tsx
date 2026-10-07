@@ -18,18 +18,42 @@ type AreaTone = {
 };
 
 const defaultTone: AreaTone = {
-  button: "border-chart-active bg-chart-active text-primary-foreground hover:bg-chart-active hover:text-primary-foreground",
-  group: "border-transparent bg-chart-group",
-  role: "border-border/65",
-  line: "before:bg-chart-line",
-  mobileGroup: "border-border/65 bg-chart-group",
+  button: "border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground",
+  group: "border-primary/15 bg-primary/5",
+  role: "border-primary/30",
+  line: "before:bg-primary/45",
+  mobileGroup: "border-primary/25 bg-primary/5",
 };
 
 const areaTones: Record<OrganizationArea["id"], AreaTone> = {
-  compliance: defaultTone,
-  "juridico-sesi": defaultTone,
-  "juridico-senai": defaultTone,
-  operacoes: defaultTone,
+  compliance: {
+    button: "border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground",
+    group: "border-primary/15 bg-primary/5",
+    role: "border-primary/30",
+    line: "before:bg-primary/45",
+    mobileGroup: "border-primary/25 bg-primary/5",
+  },
+  "juridico-sesi": {
+    button: "border-sesi bg-sesi text-primary-foreground hover:bg-sesi/90 hover:text-primary-foreground",
+    group: "border-sesi/20 bg-sesi/10",
+    role: "border-sesi/35",
+    line: "before:bg-sesi/55",
+    mobileGroup: "border-sesi/30 bg-sesi/10",
+  },
+  "juridico-senai": {
+    button: "border-senai bg-senai text-primary-foreground hover:bg-senai/90 hover:text-primary-foreground",
+    group: "border-senai/20 bg-senai/10",
+    role: "border-senai/35",
+    line: "before:bg-senai/55",
+    mobileGroup: "border-senai/30 bg-senai/10",
+  },
+  operacoes: {
+    button: "border-teal bg-teal text-night hover:bg-teal/90 hover:text-night",
+    group: "border-teal/25 bg-teal/10",
+    role: "border-teal/45",
+    line: "before:bg-teal/65",
+    mobileGroup: "border-teal/35 bg-teal/10",
+  },
 };
 
 function RoleCard({
@@ -44,10 +68,10 @@ function RoleCard({
   return (
     <li
       className={cn(
-        "flex min-h-16 flex-col items-center justify-center rounded-lg border bg-card px-3 py-3 text-center transition-colors duration-300",
+        "flex min-h-16 flex-col items-center justify-center rounded-lg border px-3 py-3 text-center transition-[background-color,border-color,box-shadow] duration-300",
         active
-          ? tone.role
-          : "border-border/65",
+          ? cn("bg-card shadow-[var(--shadow-soft)]", tone.role)
+          : "border-border bg-card",
       )}
     >
       <span className="text-[11px] font-extrabold uppercase leading-tight text-foreground">
@@ -109,17 +133,16 @@ export function OrganizationChart() {
             return (
               <div
                 key={area.id}
-                data-chart-area={area.id}
                 className={cn(
                   "relative pt-9 transition-opacity duration-300 before:absolute before:left-1/2 before:top-0 before:h-8 before:w-px before:bg-hairline",
                   active && tone.line,
-                  hasActiveArea && !active && "opacity-90",
+                  hasActiveArea && !active && "opacity-65",
                 )}
               >
                 <div
                   className={cn(
                     "rounded-lg border border-transparent p-3 transition-[background-color,border-color,box-shadow] duration-300",
-                    active && tone.group,
+                    active && cn(tone.group, "shadow-[var(--shadow-soft)]"),
                   )}
                 >
                   <Button
@@ -127,14 +150,13 @@ export function OrganizationChart() {
                     variant="outline"
                     onClick={() => setActiveId(active ? "" : area.id)}
                     aria-pressed={active}
-                    data-selected={active}
                     aria-expanded={active}
                     aria-controls={`organization-team-${area.id}`}
                     className={cn(
-                      "organization-area-button h-20 w-full whitespace-normal rounded-lg px-4 text-center text-[11px] font-extrabold uppercase leading-snug transition-[transform,background-color,border-color,color,box-shadow] duration-300 focus-visible:ring-2 focus-visible:ring-offset-2",
+                      "h-20 w-full whitespace-normal rounded-lg px-4 text-center text-[11px] font-extrabold uppercase leading-snug transition-[transform,background-color,border-color,color,box-shadow] duration-300",
                       active
                         ? cn("-translate-y-0.5 shadow-[var(--shadow-lifted)]", tone.button)
-                        : cn("border-border/75 bg-card shadow-sm hover:-translate-y-0.5 hover:border-sky/30 hover:bg-card hover:text-foreground hover:shadow-[var(--shadow-soft)]", hasActiveArea && "text-muted-foreground"),
+                        : "bg-card shadow-[var(--shadow-soft)] hover:-translate-y-0.5 hover:border-sky/40 hover:bg-mist hover:text-primary hover:shadow-[var(--shadow-lifted)]",
                     )}
                   >
                     {area.name}
@@ -155,12 +177,11 @@ export function OrganizationChart() {
             return (
               <article
                 key={area.id}
-                data-chart-area={area.id}
                 className={cn(
                   "overflow-hidden rounded-lg border bg-card transition-[border-color,box-shadow,transform] duration-300",
                   open
                     ? cn("-translate-y-0.5 shadow-[var(--shadow-lifted)]", tone.mobileGroup)
-                    : cn("border-border/75 shadow-sm", hasActiveArea && "opacity-90"),
+                    : cn("border-border shadow-[var(--shadow-soft)]", hasActiveArea && "opacity-70"),
                 )}
               >
                 <Button
@@ -168,11 +189,9 @@ export function OrganizationChart() {
                   variant="ghost"
                   onClick={() => setActiveId(open ? "" : area.id)}
                   aria-expanded={open}
-                  data-selected={open}
                   aria-controls={`organization-mobile-team-${area.id}`}
                   className={cn(
-                    "organization-area-button grid h-auto min-h-16 w-full grid-cols-[minmax(0,1fr)_auto] gap-4 whitespace-normal rounded-none px-5 py-4 text-left transition-colors duration-300 hover:bg-card hover:text-foreground focus-visible:ring-2 focus-visible:ring-inset",
-                    hasActiveArea && !open && "text-muted-foreground",
+                    "grid h-auto min-h-16 w-full grid-cols-[minmax(0,1fr)_auto] gap-4 whitespace-normal rounded-none px-5 py-4 text-left transition-colors duration-300 hover:bg-mist hover:text-primary",
                     open && tone.button,
                   )}
                 >
