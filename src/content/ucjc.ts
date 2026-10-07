@@ -47,7 +47,7 @@ export const areas: AreaSummary[] = [
     title: "Operações Jurídicas e de Compliance",
     subtitle: "Processos, dados, padrões e frentes transversais",
     description:
-      "Área-meio da UCJC com foco na otimização de processos, gestão de dados e eficiência operacional para o Jurídico SESI, o Jurídico SENAI e o Compliance.",
+      "Área-meio da UCJC com foco na otimização de processos, gestão de dados e eficiência operacional para o Jurídico SESI, SENAI, FIEPE/IEL e o Compliance.",
     highlights: ["Legal Ops e processos", "Dados e conhecimento", "Transparência e Fiscalização Contínua"],
     accent: "sky",
   },
