@@ -139,8 +139,8 @@ export function OrganizationChart() {
 
   return (
     <div className="mt-12">
-      <div className="mx-auto flex min-h-24 w-full max-w-lg items-center justify-center rounded-xl border border-institutional/40 bg-card px-6 py-6 text-institutional shadow-[var(--shadow-soft)] sm:px-10">
-        <p className="text-center text-base font-extrabold leading-snug sm:text-lg">{organizationRoot}</p>
+      <div className="relative mx-auto flex w-fit max-w-full items-center justify-center overflow-hidden rounded-lg border border-institutional/15 bg-card px-5 py-4 text-institutional shadow-[var(--shadow-soft)] before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-institutional sm:px-7">
+        <p className="text-center text-sm font-extrabold leading-snug sm:text-base">{organizationRoot}</p>
       </div>
 
       <div className="hidden lg:block">
