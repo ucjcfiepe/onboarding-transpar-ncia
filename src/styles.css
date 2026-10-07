@@ -53,6 +53,9 @@
   --color-senai: var(--senai);
   --color-teal: var(--teal);
   --color-hairline: var(--hairline);
+  --color-chart-active: var(--chart-active);
+  --color-chart-group: var(--chart-group);
+  --color-chart-line: var(--chart-line);
 
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
@@ -77,6 +80,24 @@
   --mist: oklch(0.958 0.014 233.5); /* #EAF3F8 */
   --ice: oklch(0.973 0.007 233.5); /* #F3F7FA */
   --hairline: oklch(0.905 0.011 240); /* #DDE4EA */
+
+  /* Organograma: identidade própria sem alterar os acentos globais. */
+  --chart-compliance: var(--institutional);
+  --chart-compliance-group: color-mix(in oklab, var(--institutional) 6%, var(--card));
+  --chart-compliance-line: color-mix(in oklab, var(--institutional) 25%, var(--card));
+  --chart-sesi: oklch(0.53804944 0.14511027 139.07738635);
+  --chart-sesi-group: color-mix(in oklab, var(--sesi) 7%, var(--card));
+  --chart-sesi-line: color-mix(in oklab, var(--sesi) 25%, var(--card));
+  --chart-senai: oklch(0.69895875 0.15494060 44.32161262); /* #EB7A45 */
+  --chart-senai-group: oklch(0.93257172 0.02819232 51.83872091); /* #F9E4D8 */
+  --chart-senai-line: oklch(0.82147187 0.07362406 48.68036813); /* #EDB79B */
+  --chart-operations: oklch(0.54763835 0.07468770 186.87258026);
+  --chart-operations-group: color-mix(in oklab, var(--teal) 9%, var(--card));
+  --chart-operations-line: color-mix(in oklab, var(--teal) 32%, var(--card));
+  --chart-active: var(--chart-compliance);
+  --chart-group: var(--chart-compliance-group);
+  --chart-line: var(--chart-compliance-line);
+  --shadow-chart-title: 0 1px 1px color-mix(in oklab, var(--night) 35%, transparent);
 
   --background: oklch(0.983 0.003 106); /* #FAFAF8 */
   --foreground: oklch(0.283 0.017 264); /* #252D38 */
@@ -157,6 +178,39 @@
 }
 
 /* ---------- Utilities ---------- */
+
+[data-chart-area="compliance"] {
+  --chart-active: var(--chart-compliance);
+  --chart-group: var(--chart-compliance-group);
+  --chart-line: var(--chart-compliance-line);
+}
+
+[data-chart-area="juridico-sesi"] {
+  --chart-active: var(--chart-sesi);
+  --chart-group: var(--chart-sesi-group);
+  --chart-line: var(--chart-sesi-line);
+}
+
+[data-chart-area="juridico-senai"] {
+  --chart-active: var(--chart-senai);
+  --chart-group: var(--chart-senai-group);
+  --chart-line: var(--chart-senai-line);
+}
+
+[data-chart-area="operacoes"] {
+  --chart-active: var(--chart-operations);
+  --chart-group: var(--chart-operations-group);
+  --chart-line: var(--chart-operations-line);
+}
+
+.organization-area-button[data-selected="true"],
+.organization-area-button[data-selected="true"]:hover,
+.organization-area-button[data-selected="true"]:focus-visible {
+  background-color: var(--chart-active);
+  border-color: var(--chart-active);
+  color: var(--primary-foreground);
+  text-shadow: var(--shadow-chart-title);
+}
 
 @utility surface-deep {
   background-image: var(--gradient-deep);
