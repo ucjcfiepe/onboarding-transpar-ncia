@@ -14,3 +14,5 @@
 - [x] Refinar espaçamentos e estados de seleção do organograma sem alterar sua estrutura ou conteúdo.
 - [x] Aplicar identidade cromática por área ao organograma, com estado neutro e foco na seleção.
 - [x] Padronizar a nomenclatura UCJC na conclusão do Transparência e nos metadados da página.
+
+- [x] Modernizar a síntese da Assistência e incluir próximos passos com reinício confirmado; validar visual e ações.
