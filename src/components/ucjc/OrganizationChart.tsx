@@ -112,6 +112,31 @@ export function OrganizationChart() {
   const [activeId, setActiveId] = useState("");
   const hasActiveArea = activeId !== "";
 
+  const areaInteraction = (id: string) => ({
+    onPointerEnter: (event: React.PointerEvent<HTMLButtonElement>) => {
+      if (event.pointerType === "mouse") setActiveId(id);
+    },
+    onPointerLeave: (event: React.PointerEvent<HTMLButtonElement>) => {
+      if (event.pointerType === "mouse") {
+        setActiveId((current) => current === id ? "" : current);
+      }
+    },
+    onFocus: (event: React.FocusEvent<HTMLButtonElement>) => {
+      if (event.currentTarget.matches(":focus-visible")) setActiveId(id);
+    },
+    onBlur: () => setActiveId((current) => current === id ? "" : current),
+    onPointerUp: (event: React.PointerEvent<HTMLButtonElement>) => {
+      if (event.pointerType !== "mouse") {
+        setActiveId((current) => current === id ? "" : id);
+      }
+    },
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (event.detail === 0) {
+        setActiveId(id);
+      }
+    },
+  });
+
   return (
     <div className="mt-12">
       <div className="mx-auto flex w-fit max-w-full items-center gap-3 rounded-xl bg-primary px-5 py-4 text-primary-foreground shadow-[var(--shadow-soft)] sm:px-7">
@@ -143,7 +168,7 @@ export function OrganizationChart() {
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => setActiveId(active ? "" : area.id)}
+                    {...areaInteraction(area.id)}
                     aria-pressed={active}
                     aria-expanded={active}
                     aria-controls={`organization-team-${area.id}`}
@@ -182,7 +207,7 @@ export function OrganizationChart() {
                 <Button
                   type="button"
                   variant="ghost"
-                  onClick={() => setActiveId(open ? "" : area.id)}
+                  {...areaInteraction(area.id)}
                   aria-expanded={open}
                   aria-controls={`organization-mobile-team-${area.id}`}
                   className={cn(
