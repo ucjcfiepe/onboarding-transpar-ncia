@@ -85,13 +85,13 @@
   --chart-compliance: var(--institutional);
   --chart-compliance-group: color-mix(in oklab, var(--institutional) 6%, var(--card));
   --chart-compliance-line: color-mix(in oklab, var(--institutional) 25%, var(--card));
-  --chart-sesi: oklch(0.542 0.143 141.3);
+  --chart-sesi: oklch(0.53804944 0.14511027 139.07738635);
   --chart-sesi-group: color-mix(in oklab, var(--sesi) 7%, var(--card));
   --chart-sesi-line: color-mix(in oklab, var(--sesi) 25%, var(--card));
-  --chart-senai: oklch(0.69734 0.15151 46.129); /* #EB7A45 */
-  --chart-senai-group: oklch(0.92999 0.02947 53.955); /* #F9E4D8 */
-  --chart-senai-line: oklch(0.81797 0.07288 49.509); /* #EDB79B */
-  --chart-operations: oklch(0.546 0.076 183.5);
+  --chart-senai: oklch(0.69895875 0.15494060 44.32161262); /* #EB7A45 */
+  --chart-senai-group: oklch(0.93257172 0.02819232 51.83872091); /* #F9E4D8 */
+  --chart-senai-line: oklch(0.82147187 0.07362406 48.68036813); /* #EDB79B */
+  --chart-operations: oklch(0.54763835 0.07468770 186.87258026);
   --chart-operations-group: color-mix(in oklab, var(--teal) 9%, var(--card));
   --chart-operations-line: color-mix(in oklab, var(--teal) 32%, var(--card));
   --chart-active: var(--chart-compliance);
