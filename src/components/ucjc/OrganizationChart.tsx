@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, Network } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
@@ -139,9 +139,8 @@ export function OrganizationChart() {
 
   return (
     <div className="mt-12">
-      <div className="mx-auto flex w-fit max-w-full items-center gap-3 rounded-xl bg-primary px-5 py-4 text-primary-foreground shadow-[var(--shadow-soft)] sm:px-7">
-        <Network className="size-5 shrink-0 text-teal" aria-hidden />
-        <p className="text-center text-sm font-extrabold leading-snug sm:text-base">{organizationRoot}</p>
+      <div className="mx-auto flex min-h-24 w-full max-w-lg items-center justify-center rounded-xl border border-institutional/40 bg-card px-6 py-6 text-institutional shadow-[var(--shadow-soft)] sm:px-10">
+        <p className="text-center text-base font-extrabold leading-snug sm:text-lg">{organizationRoot}</p>
       </div>
 
       <div className="hidden lg:block">
