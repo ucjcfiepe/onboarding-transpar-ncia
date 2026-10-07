@@ -125,11 +125,14 @@ export function OrganizationChart() {
       if (event.currentTarget.matches(":focus-visible")) setActiveId(id);
     },
     onBlur: () => setActiveId((current) => current === id ? "" : current),
+    onPointerUp: (event: React.PointerEvent<HTMLButtonElement>) => {
+      if (event.pointerType !== "mouse") {
+        setActiveId((current) => current === id ? "" : id);
+      }
+    },
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => {
       if (event.detail === 0) {
         setActiveId(id);
-      } else if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-        setActiveId((current) => current === id ? "" : id);
       }
     },
   });
