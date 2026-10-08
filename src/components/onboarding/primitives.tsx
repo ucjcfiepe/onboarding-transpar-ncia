@@ -139,7 +139,7 @@ export function ProgressIndicator({
           <span
             className={cn(
               "text-[11px] font-bold uppercase tracking-[0.16em]",
-              tone === "dark" ? "text-white/60" : "text-muted-foreground",
+              tone === "dark" ? "text-primary-foreground" : "text-muted-foreground",
             )}
           >
             {label}
@@ -147,7 +147,7 @@ export function ProgressIndicator({
           <span
             className={cn(
               "text-sm font-bold tabular-nums",
-              tone === "dark" ? "text-white" : "text-primary",
+              tone === "dark" ? "text-primary-foreground" : "text-primary",
             )}
           >
             {value}%
@@ -161,16 +161,16 @@ export function ProgressIndicator({
         aria-valuemax={100}
         aria-label={label ?? "Progresso"}
         className={cn(
-          "h-1.5 w-full overflow-hidden rounded-full",
-          tone === "dark" ? "bg-white/15" : "bg-hairline",
+          "h-2 w-full overflow-hidden rounded-full",
+          tone === "dark" ? "bg-night" : "bg-hairline",
         )}
       >
         <div
-          className="h-full rounded-full transition-[width] duration-500 ease-out"
-          style={{
-            width: `${value}%`,
-            backgroundImage: "var(--gradient-brand)",
-          }}
+          className={cn(
+            "h-full rounded-full transition-[width] duration-500 ease-out",
+            tone === "dark" ? "bg-primary-foreground" : "bg-primary",
+          )}
+          style={{ width: `${value}%` }}
         />
       </div>
     </div>
