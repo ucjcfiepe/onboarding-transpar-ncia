@@ -1,4 +1,4 @@
-import { AlertTriangle, ArrowDown, CalendarDays, CheckCircle2, Clock3, Compass, FileCheck2, Home, RefreshCw, Scale, Sunrise } from "lucide-react";
+import { AlertTriangle, ArrowDown, CalendarDays, CheckCircle2, Clock3, Compass, FileCheck2, FileText, FolderSync, GitCompareArrows, Home, ListFilter, RefreshCw, Scale, SearchCheck, Sunrise, TextCursorInput } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
@@ -23,7 +23,30 @@ import { useProgress } from "@/lib/progress";
 import { CheckList, FlowStrip, ListCard } from "@/components/ucjc/primitives";
 import { KeyTakeaway, ProgressIndicator, SectionHeading } from "./primitives";
 
-function StepFlow({ steps }: { steps: string[] }) {
+function StepFlow({ steps, modern = false }: { steps: string[]; modern?: boolean }) {
+  if (modern) {
+    const icons = [FileText, FolderSync, ListFilter, TextCursorInput, SearchCheck, GitCompareArrows];
+    return (
+      <ol className="space-y-4">
+        {steps.map((step, index) => {
+          const Icon = icons[index] ?? FileCheck2;
+          const isLast = index === steps.length - 1;
+          return (
+            <li key={step} className="relative grid grid-cols-[2.5rem_minmax(0,1fr)] items-center gap-3 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-5">
+              {!isLast ? <span className="absolute bottom-[-1rem] left-5 top-1/2 w-px bg-primary/25 sm:left-6" aria-hidden /> : null}
+              <span className="relative z-10 flex size-10 items-center justify-center rounded-lg bg-primary text-sm font-semibold tabular-nums text-primary-foreground sm:size-12 sm:text-base" aria-hidden>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className={`flex min-h-20 min-w-0 items-center gap-4 rounded-lg border px-4 py-5 sm:px-6 ${isLast ? "border-primary/25 bg-mist" : "border-hairline bg-card"}`}>
+                <p className="min-w-0 flex-1 text-sm font-semibold leading-relaxed text-foreground sm:text-base"><span className="sr-only">Passo {index + 1}: </span>{step}</p>
+                <Icon className="size-5 shrink-0 text-primary sm:size-6" strokeWidth={1.5} aria-hidden />
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    );
+  }
   return (
     <ol className="grid gap-2">
       {steps.map((step, index) => (
@@ -178,7 +201,7 @@ function RelatorioSection() {
   return (
     <div className="space-y-12">
       <Intro step="Etapa 10 · Consolidação" title="Elaboração do relatório mensal" lead="Após atualizar o repositório, a Assistência elabora o relatório com as principais movimentações do período: novos processos, pagamentos, alvarás, alterações de prognóstico e arquivamentos." />
-      <StepFlow steps={passosRelatorio} />
+      <StepFlow steps={passosRelatorio} modern />
     </div>
   );
 }
