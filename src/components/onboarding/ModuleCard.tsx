@@ -13,7 +13,8 @@ export function ModuleCard({
   progress: number;
   resumeSectionId?: string;
 }) {
-  const available = module.status === "available";
+  const firstSection = module.sections[0];
+  const available = module.status === "available" && Boolean(firstSection);
   const started = progress > 0;
 
   const body = (
@@ -51,13 +52,13 @@ export function ModuleCard({
       ) : (
         <div className="mt-7 flex items-center gap-2 text-sm font-medium text-muted-foreground">
           <Lock className="size-4" aria-hidden />
-          Arquitetura preparada para receber este módulo.
+          Em breve
         </div>
       )}
     </>
   );
 
-  if (!available) {
+  if (!available || !firstSection) {
     return (
       <div className="relative overflow-hidden rounded-3xl border border-dashed border-hairline bg-card/60 p-7 sm:p-9">
         {body}
@@ -70,7 +71,7 @@ export function ModuleCard({
       to="/modulos/$moduleId/$sectionId"
       params={{
         moduleId: module.id,
-        sectionId: resumeSectionId ?? module.sections[0]!.id,
+        sectionId: resumeSectionId ?? firstSection.id,
       }}
       className="card-elevated group relative block overflow-hidden rounded-3xl p-7 sm:p-9"
     >

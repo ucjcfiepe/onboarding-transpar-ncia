@@ -17,3 +17,4 @@
 
 - [x] Modernizar a síntese da Assistência e incluir próximos passos com reinício confirmado; validar visual e ações.
 - [x] Unificar os marcos do prognóstico em Liquidação dos cálculos e modernizar a linha do tempo; validar conteúdo e apresentação.
+- [x] Exibir na home a Assistência Jurídica disponível e Reporte e Gestão de Demandas para advogados em breve, preservando acessos e progresso; validar navegação.

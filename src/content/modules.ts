@@ -238,7 +238,18 @@ export const modules: OnboardingModule[] = [
     status: "available",
     duration: "≈ 45 min",
     sections: assistenciaJuridicaSections,
-    hidden: true,
+  },
+  {
+    id: "reporte-gestao-demandas",
+    order: 4,
+    code: "Trilha 02 · Jurídico",
+    title: "Reporte e Gestão de Demandas",
+    subtitle: "Advogados",
+    description:
+      "Como registrar movimentações, reportar novas demandas, solicitar replanejamentos e manter os controles atualizados.",
+    status: "soon",
+    duration: "",
+    sections: [],
   },
 
 ];
