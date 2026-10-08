@@ -194,8 +194,8 @@ function Home() {
                 Módulos com jornada guiada
               </h2>
               <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-                Frentes transversais conduzidas pelo Núcleo de Operações Jurídicas e de Compliance,
-                com trilha completa e progresso registrado.
+                Trilhas do Jurídico e frentes transversais de Operações Jurídicas e de Compliance,
+                com jornadas guiadas e progresso registrado nos módulos disponíveis.
               </p>
             </div>
             <div className="w-full max-w-xs rounded-2xl border border-border bg-card p-5">
