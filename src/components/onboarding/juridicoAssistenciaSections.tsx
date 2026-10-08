@@ -131,8 +131,34 @@ function PrognosticoSection() {
   return (
     <div className="space-y-12">
       <Intro step="Etapa 11 · Acompanhamento" title="Revisão do prognóstico da ação" lead="Durante o acompanhamento dos processos, alguns marcos exigem análise ou reavaliação do prognóstico. Nem todos são responsabilidade da Assistência." />
-      <ol className="relative space-y-6 border-l-2 border-hairline pl-7">
-        {prognosticoMarcos.map((marco, index) => <li key={marco.title} className="relative"><span className="absolute -left-[2.3rem] top-1 inline-flex size-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">{index + 1}</span><article className="card-elevated rounded-2xl p-6"><h3 className="text-lg font-extrabold text-primary">{marco.title}</h3><dl className="mt-5 grid gap-4 text-sm"><div><dt className="font-bold text-foreground">O que se avalia</dt><dd className="mt-1 leading-relaxed text-muted-foreground">{marco.assessment}</dd></div><div><dt className="font-bold text-foreground">Responsável</dt><dd className="mt-1 leading-relaxed text-muted-foreground">{marco.owner}</dd></div><div><dt className="font-bold text-foreground">Papel da Assistência</dt><dd className="mt-1 leading-relaxed text-muted-foreground">{marco.role}</dd></div></dl></article></li>)}
+      <ol className="space-y-6">
+        {prognosticoMarcos.map((marco, index) => (
+          <li key={marco.title} className="relative grid grid-cols-[2.5rem_minmax(0,1fr)] gap-3 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5">
+            {index < prognosticoMarcos.length - 1 ? <span className="absolute bottom-[-1.5rem] left-5 top-12 w-px bg-hairline sm:left-7 sm:top-16" aria-hidden /> : null}
+            <span className="relative mt-1 flex size-10 items-center justify-center rounded-lg border border-primary/15 bg-primary/10 text-base font-semibold tabular-nums text-primary sm:size-14 sm:text-xl" aria-hidden>
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <article className="overflow-hidden rounded-lg border border-hairline bg-card">
+              <header className="border-b border-hairline bg-ice px-5 py-4 sm:px-6">
+                <h3 className="text-lg font-semibold text-primary"><span className="sr-only">Marco {index + 1}: </span>{marco.title}</h3>
+              </header>
+              <dl className="grid gap-5 p-5 text-sm sm:p-6 xl:grid-cols-[1.2fr_1fr_1.2fr] xl:gap-6">
+                <div>
+                  <dt className="font-semibold text-foreground">O que se avalia</dt>
+                  <dd className="mt-2 leading-relaxed text-muted-foreground">{marco.assessment}</dd>
+                </div>
+                <div className="border-t border-hairline pt-4 xl:border-l xl:border-t-0 xl:pl-6 xl:pt-0">
+                  <dt className="font-semibold text-foreground">Responsável</dt>
+                  <dd className="mt-2 leading-relaxed text-muted-foreground">{marco.owner}</dd>
+                </div>
+                <div className="border-t border-hairline pt-4 xl:border-l xl:border-t-0 xl:pl-6 xl:pt-0">
+                  <dt className="font-semibold text-primary">Papel da Assistência</dt>
+                  <dd className="mt-2 leading-relaxed text-muted-foreground">{marco.role}</dd>
+                </div>
+              </dl>
+            </article>
+          </li>
+        ))}
       </ol>
       <KeyTakeaway title="Atenção" tone="attention">A Assistência Jurídica não redefine, por conta própria, o prognóstico nos marcos atribuídos ao advogado. Seu papel é identificar o momento da revisão, pautar a análise quando necessário e, após a definição, atualizar o repositório.</KeyTakeaway>
     </div>
