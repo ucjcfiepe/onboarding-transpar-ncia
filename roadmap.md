@@ -16,4 +16,4 @@
 - [x] Padronizar a nomenclatura UCJC na conclusão do Transparência e nos metadados da página.
 
 - [x] Modernizar a síntese da Assistência e incluir próximos passos com reinício confirmado; validar visual e ações.
-- [ ] Unificar os marcos do prognóstico em Liquidação dos cálculos e modernizar a linha do tempo; validar conteúdo e apresentação.
+- [x] Unificar os marcos do prognóstico em Liquidação dos cálculos e modernizar a linha do tempo; validar conteúdo e apresentação.
