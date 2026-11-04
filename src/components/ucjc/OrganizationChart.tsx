@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
   organizationAreas,
+  organizationCommittee,
   organizationRoot,
   type OrganizationArea,
   type OrganizationRole,
@@ -54,6 +55,7 @@ const areaTones: Record<OrganizationArea["id"], AreaTone> = {
     line: "before:bg-teal/65",
     mobileGroup: "border-teal/35 bg-teal/10",
   },
+  "fiepe-iel": defaultTone,
 };
 
 function RoleCard({
@@ -139,13 +141,22 @@ export function OrganizationChart() {
 
   return (
     <div className="mt-12">
-      <div className="relative mx-auto flex w-fit max-w-full items-center justify-center overflow-hidden rounded-lg border border-institutional/15 bg-card px-5 py-4 text-institutional shadow-[var(--shadow-soft)] before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-institutional sm:px-7">
-        <p className="text-center text-sm font-semibold leading-snug sm:text-base">{organizationRoot}</p>
+      <div className="grid grid-cols-[minmax(0,1fr)_1px_minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-center">
+        <div className="relative col-span-3 row-start-1 mx-auto flex w-fit max-w-full items-center justify-center overflow-hidden rounded-lg border border-institutional/15 bg-card px-5 py-4 text-institutional shadow-[var(--shadow-soft)] before:absolute before:inset-x-0 before:top-0 before:h-1 before:bg-institutional sm:px-7 lg:col-span-1 lg:col-start-2">
+          <p className="text-center text-sm font-semibold leading-snug sm:text-base">{organizationRoot}</p>
+        </div>
+        <div className="col-start-1 row-start-2 mt-3 flex items-center gap-3 lg:row-start-1 lg:mt-0 lg:pr-3">
+          <aside aria-label={`${organizationCommittee.name} — vínculo direto à ${organizationRoot}`} className="shrink-0 rounded-lg border border-institutional/15 bg-ice px-3 py-3 text-center text-xs font-semibold text-institutional shadow-[var(--shadow-soft)] sm:px-4">
+            {organizationCommittee.name}
+          </aside>
+          <span className="h-px flex-1 bg-hairline" aria-hidden />
+        </div>
+        <div className="relative col-start-2 row-start-2 mt-3 bg-hairline before:absolute before:-top-3 before:bottom-0 before:w-px before:bg-hairline lg:hidden" aria-hidden />
       </div>
 
       <div className="hidden lg:block">
         <div className="mx-auto mt-3 h-10 w-px bg-hairline" aria-hidden />
-        <div className="relative grid grid-cols-4 gap-6 before:absolute before:left-[12.5%] before:right-[12.5%] before:top-0 before:h-px before:bg-hairline">
+        <div className="relative grid grid-cols-5 gap-4 before:absolute before:left-[calc(10%_-_6.4px)] before:right-[calc(10%_-_6.4px)] before:top-0 before:h-px before:bg-hairline">
           {organizationAreas.map((area) => {
             const active = activeId === area.id;
             const tone = areaTones[area.id] ?? defaultTone;
@@ -160,7 +171,7 @@ export function OrganizationChart() {
               >
                 <div
                   className={cn(
-                    "rounded-lg border border-transparent p-3 transition-[background-color,border-color,box-shadow] duration-300",
+                    "rounded-lg border border-transparent p-2 transition-[background-color,border-color,box-shadow] duration-300",
                     active && cn(tone.group, "shadow-[var(--shadow-soft)]"),
                   )}
                 >
@@ -172,7 +183,7 @@ export function OrganizationChart() {
                     aria-expanded={active}
                     aria-controls={`organization-team-${area.id}`}
                     className={cn(
-                      "h-20 w-full whitespace-normal rounded-lg px-4 text-center text-[11px] font-extrabold uppercase leading-snug transition-[transform,background-color,border-color,color,box-shadow] duration-300",
+                      "h-20 w-full whitespace-normal rounded-lg px-3 text-center text-[11px] font-extrabold uppercase leading-snug transition-[transform,background-color,border-color,color,box-shadow] duration-300",
                       active
                         ? cn("-translate-y-0.5 shadow-[var(--shadow-lifted)]", tone.button)
                         : "bg-card shadow-[var(--shadow-soft)] hover:-translate-y-0.5 hover:border-sky/40 hover:bg-mist hover:text-primary hover:shadow-[var(--shadow-lifted)]",
@@ -188,7 +199,8 @@ export function OrganizationChart() {
         </div>
       </div>
 
-      <div className="relative mx-auto mt-3 max-w-2xl pt-10 before:absolute before:left-6 before:top-0 before:h-8 before:w-px before:bg-hairline lg:hidden">
+      <div className="relative mx-auto max-w-2xl pt-10 before:absolute before:left-1/2 before:top-0 before:h-4 before:w-px before:bg-hairline lg:hidden">
+        <div className="absolute left-6 right-1/2 top-4 h-px bg-hairline after:absolute after:left-0 after:top-0 after:h-4 after:w-px after:bg-hairline" aria-hidden />
         <div className="space-y-4">
           {organizationAreas.map((area) => {
             const open = activeId === area.id;

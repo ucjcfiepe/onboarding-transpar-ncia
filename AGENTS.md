@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 - Keep institutional organization-chart data separate from its responsive presentation component so hierarchy remains maintainable across desktop and compact layouts.
+- Model advisory bodies separately from operational branches, with explicit executive parent links, so responsive charts preserve their distinct relationships.
 
 - Keep assistance conclusion copy in its content module and reuse the shared progress context and confirmation dialog so the final section does not duplicate progress state or reset other modules.
 - Register home journey cards in the shared module catalog; upcoming modules have no sections and no navigation, so available journeys reuse existing progress without fictitious content.
