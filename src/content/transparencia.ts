@@ -519,3 +519,21 @@ export const scenarios: Scenario[] = [
     takeaway: "Informação de origem em outro sistema: acompanhar, cobrar, verificar e registrar.",
   },
 ];
+export const takeaways = [
+  {
+    title: "Quatro etapas, um ciclo",
+    text: "Planejar e solicitar, receber e disponibilizar, verificar e registrar, corrigir e aprimorar.",
+  },
+  {
+    title: "Disponibilizar ≠ publicar",
+    text: "Parte das informações é acompanhada, não publicada manualmente pelo analista.",
+  },
+  {
+    title: "Cada recurso, uma função",
+    text: "Ambientes públicos, plataformas de publicação, sistema de origem, monitoramento e acionamento técnico.",
+  },
+  {
+    title: "Evidência é parte do trabalho",
+    text: "Sem verificação e registro, não há rastreabilidade da disponibilização.",
+  },
+];
