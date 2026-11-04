@@ -202,12 +202,12 @@ export function ScenariosSection() {
     <div className="space-y-10">
       <SectionHeading
         eyebrow="Seção 06 · Situações práticas"
-        title="Decidir é parte da rotina"
-        lead="Escolha o encaminhamento que considera adequado. O comentário explica o raciocínio esperado."
+        title="Situações práticas"
+        lead="Situações reais da rotina de Transparência e a conduta esperada em cada uma."
       />
       <div className="space-y-6">
         {scenarios.map((s, i) => (
-          <ScenarioCard key={s.id} scenario={s} index={i + 1} total={scenarios.length} />
+          <ScenarioCard key={s.id} scenario={s} index={i + 1} />
         ))}
       </div>
     </div>

@@ -48,10 +48,6 @@ export function FcAberturaSection() {
           </h2>
           <p className="mt-6 text-base leading-relaxed text-white/75 sm:text-lg">{abertura.lead}</p>
           <p className="mt-5 text-[15px] leading-relaxed text-white/60">{abertura.call}</p>
-          <p className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-primary">
-            Começar jornada
-            <ArrowRight className="size-4" aria-hidden />
-          </p>
         </div>
       </figure>
 
@@ -117,8 +113,8 @@ export function FcInicioSection() {
       />
 
       <KeyTakeaway title="Ponto-chave" tone="attention">
-        O ofício é o <strong className="font-semibold">ponto de partida</strong> da Fiscalização
-        Contínua.
+        O ofício é o <strong className="font-semibold">ponto de partida</strong> dos diferentes
+        ciclos da Fiscalização Contínua.
       </KeyTakeaway>
 
       <section className="space-y-7">
@@ -251,7 +247,7 @@ export function FcEntregasSection() {
             <ActorChip actor="especialista" />
             <span className="text-sm font-semibold text-primary">Inspeção formal do arquivo</span>
           </div>
-          <ul className="mt-6 grid gap-3 sm:grid-cols-4">
+          <ul className="mt-6 grid gap-3 sm:grid-cols-3">
             {conferenciaCriterios.map((c) => (
               <li
                 key={c}
@@ -262,6 +258,10 @@ export function FcEntregasSection() {
               </li>
             ))}
           </ul>
+          <p className="mt-5 flex items-start gap-2 text-sm leading-relaxed text-muted-foreground">
+            <ActorChip actor="tcu" />
+            <span>A credibilidade dos dados é verificada pelo sistema do TCU após o envio, e não manualmente pelo Especialista.</span>
+          </p>
         </div>
 
         <Branch
@@ -528,7 +528,7 @@ export function FcConclusaoSection({ moduleId }: { moduleId: string }) {
 
       <section className="grid gap-4 sm:grid-cols-3">
         {[
-          { icon: FileCheck2, title: "Início", text: "O ofício do TCU abre a Fiscalização Contínua do exercício." },
+          { icon: FileCheck2, title: "Início", text: "O ofício do TCU abre o ciclo da Fiscalização Contínua do exercício." },
           { icon: Send, title: "Condução", text: "O Especialista em Fiscalização Contínua coordena prazos, conferência e envio." },
           { icon: ShieldCheck, title: "Encerramento", text: "A entrega termina com a validação do TCU e a comunicação da conformidade." },
         ].map((t) => (

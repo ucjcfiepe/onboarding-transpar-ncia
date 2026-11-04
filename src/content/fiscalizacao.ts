@@ -87,7 +87,7 @@ export const flowSteps: FlowStep[] = [
     title: "Especialista verifica os arquivos",
     actor: "especialista",
     detail:
-      "Análise quanto ao aspecto formal: estrutura, credibilidade dos dados e layout, conforme os documentos orientativos do TCU.",
+      "Análise quanto ao aspecto formal: estrutura, formato e layout, conforme os documentos orientativos do TCU. A credibilidade dos dados é verificada pelo sistema do TCU.",
   },
   {
     id: "envia",
@@ -101,7 +101,7 @@ export const flowSteps: FlowStep[] = [
     title: "TCU valida ou solicita ajustes",
     actor: "tcu",
     detail:
-      "O sistema do TCU verifica os documentos e pode gerar validação ou comunicação de não conformidade, com as alterações e o prazo de atendimento.",
+      "O sistema do TCU verifica os documentos, incluindo a credibilidade dos dados, e pode gerar validação ou comunicação de não conformidade, com as alterações e o prazo de atendimento.",
   },
   {
     id: "conclui",
@@ -167,7 +167,7 @@ export const preparoFluxo = [
   },
 ];
 
-export const conferenciaCriterios = ["Estrutura", "Formato", "Credibilidade dos dados", "Layout"];
+export const conferenciaCriterios = ["Estrutura", "Formato", "Layout"];
 
 export const responsabilidades: {
   actor: Actor;
