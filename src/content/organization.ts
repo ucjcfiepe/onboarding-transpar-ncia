@@ -7,15 +7,21 @@ export interface OrganizationRole {
 export interface OrganizationArea {
   id: string;
   name: string;
+  parentId: "executive";
   roles: OrganizationRole[];
 }
 
 export const organizationRoot = "Gerência Executiva do Jurídico e Compliance";
+export const organizationCommittee = {
+  name: "Comitê de Ética",
+  parentId: "executive",
+} as const;
 
 export const organizationAreas: OrganizationArea[] = [
   {
     id: "compliance",
     name: "Coordenação Compliance",
+    parentId: "executive",
     roles: [
       { title: "Especialista", specialty: "Compliance", accent: true },
       { title: "Analista II" },
@@ -27,6 +33,7 @@ export const organizationAreas: OrganizationArea[] = [
   {
     id: "juridico-sesi",
     name: "Gerência de Negócios Jurídicos – SESI",
+    parentId: "executive",
     roles: [
       { title: "Especialista", specialty: "Educacional e Trabalhista", accent: true },
       { title: "Advogado", specialty: "Inovação" },
@@ -39,6 +46,7 @@ export const organizationAreas: OrganizationArea[] = [
   {
     id: "juridico-senai",
     name: "Gerência de Negócios Jurídicos – SENAI",
+    parentId: "executive",
     roles: [
       { title: "Especialista", specialty: "Inovação", accent: true },
       { title: "Especialista", specialty: "Trabalhista", accent: true },
@@ -51,6 +59,7 @@ export const organizationAreas: OrganizationArea[] = [
   {
     id: "operacoes",
     name: "Coordenação de Operações Jurídicas e de Compliance",
+    parentId: "executive",
     roles: [
       {
         title: "Especialista",
@@ -63,5 +72,11 @@ export const organizationAreas: OrganizationArea[] = [
       { title: "Assistente Administrativo" },
       { title: "Estagiário" },
     ],
+  },
+  {
+    id: "fiepe-iel",
+    name: "ADVOGADO FIEPE E IEL",
+    parentId: "executive",
+    roles: [{ title: "ESTAGIÁRIO" }],
   },
 ];
