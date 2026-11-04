@@ -19,16 +19,16 @@ export function ProcessArchitecture() {
           {processSteps.map((step) => {
             const isActive = step.id === activeId;
             return (
-              <li key={step.id}>
+              <li key={step.id} className="flex">
                 <button
                   type="button"
                   onClick={() => setActiveId(step.id)}
                   aria-pressed={isActive}
                   className={cn(
-                    "group relative w-full rounded-2xl border p-5 text-left transition-all duration-300",
+                    "group relative flex h-full w-full flex-col rounded-2xl border p-5 text-left transition-all duration-300",
                     isActive
                       ? "border-transparent shadow-[var(--shadow-lifted)]"
-                      : "border-border bg-card opacity-70 hover:opacity-100 hover:-translate-y-0.5",
+                      : "border-border bg-ice hover:-translate-y-0.5 hover:bg-card hover:border-primary/30",
                   )}
                   style={isActive ? { backgroundImage: "var(--gradient-brand)" } : undefined}
                 >
