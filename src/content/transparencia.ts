@@ -466,349 +466,59 @@ export const responsibilities = [
 
 /* ---------------- Situações práticas ---------------- */
 
-export interface ScenarioOption {
-  id: string;
-  text: string;
-  correct: boolean;
-  feedback: string;
-}
-
 export interface Scenario {
   id: string;
   situation: string;
-  options: ScenarioOption[];
+  guidance: string;
   takeaway: string;
 }
 
 export const scenarios: Scenario[] = [
   {
     id: "s1",
-    situation:
-      "O DataCG identificou uma inconsistência relacionada a uma informação publicada. Qual deve ser o próximo passo?",
-    options: [
-      {
-        id: "a",
-        text: "Identificar a natureza da inconsistência e quem é responsável pelo ajuste, para então direcionar o encaminhamento.",
-        correct: true,
-        feedback:
-          "A inconsistência pode ser de conteúdo (área responsável), de carga/publicação (plataforma aplicável) ou técnica (acionamento técnico por meio do ZEEV). O direcionamento depende dessa leitura.",
-      },
-      {
-        id: "b",
-        text: "Abrir imediatamente um chamado no ZEEV, sem analisar o tipo de inconsistência.",
-        correct: false,
-        feedback:
-          "O acionamento técnico é adequado quando a necessidade exige intervenção do desenvolvedor. Antes disso, é preciso identificar a natureza da inconsistência.",
-      },
-      {
-        id: "c",
-        text: "Desconsiderar o evento, porque o DataCG apenas monitora.",
-        correct: false,
-        feedback:
-          "O DataCG é ferramenta de monitoramento e seus apontamentos entram na rotina de acompanhamento e correção.",
-      },
-    ],
+    situation: "O DataCG identificou uma inconsistência relacionada a uma informação publicada.",
+    guidance:
+      "Identifique a natureza da inconsistência e quem é responsável pelo ajuste antes de encaminhar. Ela pode ser de conteúdo (área responsável), de carga/publicação (plataforma aplicável) ou técnica (acionamento técnico por meio do ZEEV).",
     takeaway: "Antes de encaminhar, identifique a natureza da inconsistência e o responsável.",
   },
   {
     id: "s2",
     situation:
-      "O Portal da Transparência do SENAI está indisponível. As informações estão corretas, mas o site não está funcionando. Como o Analista de Transparência deve solicitar a intervenção técnica?",
-    options: [
-      {
-        id: "a",
-        text: "Acionamento técnico por meio do ZEEV.",
-        correct: true,
-        feedback:
-          "O ZEEV é utilizado para abrir e acompanhar o chamado destinado à atuação técnica necessária no portal.",
-      },
-      {
-        id: "b",
-        text: "Republicar os arquivos na Transparência Web.",
-        correct: false,
-        feedback:
-          "A informação já está correta. A indisponibilidade do site exige intervenção técnica, não nova carga.",
-      },
-      {
-        id: "c",
-        text: "Solicitar novo arquivo à área responsável.",
-        correct: false,
-        feedback: "A área responsável não atua sobre a indisponibilidade técnica do portal.",
-      },
-    ],
+      "O Portal da Transparência do SENAI está indisponível. As informações estão corretas, mas o site não está funcionando.",
+    guidance:
+      "Solicite a intervenção técnica por meio do ZEEV, que é utilizado para abrir e acompanhar o chamado destinado à atuação técnica necessária no portal.",
     takeaway: "Indisponibilidade do portal: acionamento técnico por meio do ZEEV.",
   },
   {
     id: "s3",
-    situation:
-      "Uma área encaminhou um arquivo para publicação, mas ele está incompleto. O que fazer?",
-    options: [
-      {
-        id: "a",
-        text: "Solicitar correção à área responsável antes de concluir a disponibilização.",
-        correct: true,
-        feedback:
-          "A conferência de completude ocorre antes da disponibilização. O arquivo corrigido é que segue para publicação.",
-      },
-      {
-        id: "b",
-        text: "Disponibilizar assim mesmo e corrigir depois da verificação.",
-        correct: false,
-        feedback:
-          "A verificação de completude integra a etapa de recebimento, antes da disponibilização.",
-      },
-      {
-        id: "c",
-        text: "Abrir chamado técnico no ZEEV.",
-        correct: false,
-        feedback:
-          "Trata-se de conteúdo sob responsabilidade da área, não de necessidade de intervenção técnica.",
-      },
-    ],
+    situation: "Uma área encaminhou um arquivo para publicação, mas ele está incompleto.",
+    guidance:
+      "Solicite a correção à área responsável antes de concluir a disponibilização. A conferência de completude ocorre antes da publicação, e é o arquivo corrigido que segue para o portal.",
     takeaway: "Completude é conferida antes de disponibilizar.",
   },
   {
     id: "s4",
-    situation:
-      "A informação aparece normalmente no DataCG. Isso significa necessariamente que seu conteúdo está totalmente de acordo com o manual?",
-    options: [
-      {
-        id: "a",
-        text: "Não.",
-        correct: true,
-        feedback:
-          "O DataCG auxilia no monitoramento, mas não substitui a análise de conformidade do conteúdo.",
-      },
-      {
-        id: "b",
-        text: "Sim, o monitoramento valida a conformidade do conteúdo.",
-        correct: false,
-        feedback:
-          "O monitoramento apoia a identificação de inconsistências, disponibilidade e completude — não o mérito do conteúdo.",
-      },
-    ],
+    situation: "A informação aparece normalmente no DataCG.",
+    guidance:
+      "Isso não significa, necessariamente, que o conteúdo está totalmente de acordo com o manual. O DataCG auxilia no monitoramento, mas não substitui a análise de conformidade do conteúdo.",
     takeaway: "Monitoramento não é análise de conformidade.",
   },
   {
     id: "s5",
-    situation: "Uma informação foi disponibilizada no portal. A atividade está encerrada?",
-    options: [
-      {
-        id: "a",
-        text: "Não necessariamente.",
-        correct: true,
-        feedback:
-          "Após a disponibilização, é necessário verificar o resultado e registrar a evidência correspondente.",
-      },
-      {
-        id: "b",
-        text: "Sim, a publicação encerra a obrigação.",
-        correct: false,
-        feedback:
-          "A etapa de verificar e registrar é parte do processo: sem evidência, não há rastreabilidade.",
-      },
-    ],
+    situation: "Uma informação foi disponibilizada no portal.",
+    guidance:
+      "A atividade não está necessariamente encerrada. Após a disponibilização, verifique o resultado no ambiente público e registre a evidência correspondente.",
     takeaway: "Disponibilizar não encerra: verificar e registrar fazem parte do processo.",
   },
   {
     id: "s6",
     situation:
-      "Uma informação orçamentária relacionada ao SORS ainda não apareceu no Portal da Transparência, e o prazo se aproxima. Qual atuação é compatível com a rotina?",
-    options: [
-      {
-        id: "a",
-        text: "Acompanhar o prazo, cobrar a área responsável, verificar se a informação foi refletida no portal e registrar a verificação.",
-        correct: true,
-        feedback:
-          "Quando a informação tem origem em outro sistema, a atuação do analista é de acompanhamento, cobrança, verificação e registro.",
-      },
-      {
-        id: "b",
-        text: "Realizar a carga manual do conteúdo na Transparência Web sem contato com a área.",
-        correct: false,
-        feedback:
-          "A informação tem origem em outro sistema; a atuação começa pelo acompanhamento junto à área responsável.",
-      },
-    ],
+      "Uma informação orçamentária relacionada ao SORS ainda não apareceu no Portal da Transparência, e o prazo se aproxima.",
+    guidance:
+      "Acompanhe o prazo, cobre a área responsável, verifique se a informação foi refletida no portal e registre a verificação. Quando a informação tem origem em outro sistema, a atuação do analista é de acompanhamento, cobrança, verificação e registro.",
     takeaway: "Informação de origem em outro sistema: acompanhar, cobrar, verificar e registrar.",
   },
 ];
-
-/* ---------------- Quiz ---------------- */
-
-export type QuizFormat = "multiple" | "boolean" | "match" | "scenario";
-
-export interface QuizQuestionData {
-  id: string;
-  format: QuizFormat;
-  prompt: string;
-  formatLabel: string;
-  options: { id: string; text: string }[];
-  correctId: string;
-  explanation: string;
-}
-
-export const quizQuestions: QuizQuestionData[] = [
-  {
-    id: "q1",
-    format: "multiple",
-    formatLabel: "Múltipla escolha",
-    prompt: "Qual é a ordem correta da arquitetura do processo de Transparência?",
-    options: [
-      {
-        id: "a",
-        text: "Planejar e solicitar → Receber e disponibilizar → Verificar e registrar → Corrigir e aprimorar",
-      },
-      {
-        id: "b",
-        text: "Receber e disponibilizar → Planejar e solicitar → Corrigir e aprimorar → Verificar e registrar",
-      },
-      {
-        id: "c",
-        text: "Verificar e registrar → Planejar e solicitar → Receber e disponibilizar → Corrigir e aprimorar",
-      },
-    ],
-    correctId: "a",
-    explanation:
-      "As quatro etapas seguem esta ordem e formam um ciclo: após corrigir e aprimorar, uma nova verificação pode ser necessária.",
-  },
-  {
-    id: "q2",
-    format: "match",
-    formatLabel: "Associação",
-    prompt: "Qual recurso é classificado como ferramenta de acionamento técnico?",
-    options: [
-      { id: "a", text: "Transparência Web" },
-      { id: "b", text: "ZEEV" },
-      { id: "c", text: "SORS" },
-      { id: "d", text: "DataCG" },
-    ],
-    correctId: "b",
-    explanation:
-      "O ZEEV é a ferramenta de acionamento técnico. Não é plataforma de publicação da Transparência nem origem das informações.",
-  },
-  {
-    id: "q3",
-    format: "boolean",
-    formatLabel: "Verdadeiro ou falso",
-    prompt: "“Publicação via ZEEV” é a expressão correta para descrever o uso da ferramenta.",
-    options: [
-      { id: "v", text: "Verdadeiro" },
-      { id: "f", text: "Falso" },
-    ],
-    correctId: "f",
-    explanation:
-      "A expressão correta é “acionamento técnico por meio do ZEEV”. Não há publicação da Transparência via ZEEV.",
-  },
-  {
-    id: "q4",
-    format: "match",
-    formatLabel: "Associação",
-    prompt: "Onde são geridas informações de dirigentes, responsáveis, órgãos colegiados e reuniões?",
-    options: [
-      { id: "a", text: "DDR" },
-      { id: "b", text: "DataCG" },
-      { id: "c", text: "Portal da Transparência SESI/PE" },
-    ],
-    correctId: "a",
-    explanation:
-      "O DDR é a plataforma de publicação e gestão desses conteúdos, incluindo Relação de Dirigentes e Rol de Responsáveis.",
-  },
-  {
-    id: "q5",
-    format: "multiple",
-    formatLabel: "Múltipla escolha",
-    prompt: "Qual conjunto representa ambientes públicos de divulgação e consulta?",
-    options: [
-      { id: "a", text: "Transparência Web e DDR" },
-      {
-        id: "b",
-        text: "Portais da Transparência SESI/PE e SENAI/PE e Prestação de Contas TCU SESI/PE e SENAI/PE",
-      },
-      { id: "c", text: "SORS e DataCG" },
-    ],
-    correctId: "b",
-    explanation:
-      "Os portais e os ambientes de Prestação de Contas TCU são pontos públicos de consulta, e não sistemas internos de trabalho.",
-  },
-  {
-    id: "q6",
-    format: "boolean",
-    formatLabel: "Verdadeiro ou falso",
-    prompt:
-      "O DataCG substitui a análise de conformidade do conteúdo em relação aos manuais aplicáveis.",
-    options: [
-      { id: "v", text: "Verdadeiro" },
-      { id: "f", text: "Falso" },
-    ],
-    correctId: "f",
-    explanation:
-      "O DataCG auxilia na identificação de inconsistências, disponibilidade e completude, mas não substitui a análise de conformidade do conteúdo.",
-  },
-  {
-    id: "q7",
-    format: "multiple",
-    formatLabel: "Múltipla escolha",
-    prompt: "Qual é o papel do SORS na rotina de Transparência?",
-    options: [
-      { id: "a", text: "Ferramenta de monitoramento dos portais." },
-      {
-        id: "b",
-        text: "Sistema relacionado à origem ou ao lançamento de determinadas informações orçamentárias e financeiras.",
-      },
-      { id: "c", text: "Plataforma de abertura de chamados técnicos." },
-    ],
-    correctId: "b",
-    explanation:
-      "O SORS é sistema de origem de informações que posteriormente são refletidas no Portal da Transparência.",
-  },
-  {
-    id: "q8",
-    format: "scenario",
-    formatLabel: "Cenário",
-    prompt:
-      "Uma alteração estrutural no Portal da Transparência foi solicitada pelo Departamento Nacional. Qual é o encaminhamento?",
-    options: [
-      { id: "a", text: "Acionamento técnico por meio do ZEEV, com acompanhamento até a validação." },
-      { id: "b", text: "Nova carga na Transparência Web." },
-      { id: "c", text: "Solicitação de novo arquivo à área responsável." },
-    ],
-    correctId: "a",
-    explanation:
-      "Adequações estruturais dependem de intervenção técnica: abre-se o chamado, acompanha-se o atendimento, testa-se, valida-se e registra-se a evidência.",
-  },
-  {
-    id: "q9",
-    format: "scenario",
-    formatLabel: "Cenário",
-    prompt: "O que caracteriza o encerramento adequado de uma disponibilização?",
-    options: [
-      { id: "a", text: "A publicação do arquivo na plataforma." },
-      { id: "b", text: "A verificação no ambiente público e o registro da evidência." },
-      { id: "c", text: "O envio do arquivo pela área responsável." },
-    ],
-    correctId: "b",
-    explanation:
-      "O registro deve estar associado à verificação efetiva da disponibilização: data, link, prints e atualização dos controles.",
-  },
-  {
-    id: "q10",
-    format: "match",
-    formatLabel: "Associação",
-    prompt: "Qual responsabilidade pertence às áreas responsáveis pelas informações?",
-    options: [
-      { id: "a", text: "Registrar as evidências de verificação nos controles da Transparência." },
-      { id: "b", text: "Produzir os dados, validar o conteúdo e observar os prazos." },
-      { id: "c", text: "Executar ajustes estruturais no portal." },
-    ],
-    correctId: "b",
-    explanation:
-      "As áreas produzem e validam o conteúdo; o registro de evidências cabe ao analista e os ajustes estruturais à equipe técnica.",
-  },
-];
-
-/* ---------------- Conclusão ---------------- */
-
 export const takeaways = [
   {
     title: "Quatro etapas, um ciclo",
