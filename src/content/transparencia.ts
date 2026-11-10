@@ -52,6 +52,7 @@ export interface ProcessStep {
   index: number;
   title: string;
   question: string;
+  description?: string[];
   activities: string[];
 }
 
@@ -78,6 +79,10 @@ export const processSteps: ProcessStep[] = [
     index: 2,
     title: "Receber e disponibilizar",
     question: "A informação chegou e como ficará disponível?",
+    description: [
+      "As informações de Transparência são disponibilizadas por diferentes canais, conforme a natureza dos dados. Algumas são atualizadas automaticamente por integrações entre sistemas, como o SGE/API-DN ou SORS, sem necessidade de intervenção manual. Outras são recebidas das áreas responsáveis e disponibilizadas pelos canais institucionais.",
+      "A equipe de Transparência acompanha as publicações e verifica a integridade das informações disponibilizadas, utilizando ferramentas de monitoramento e consulta aos portais.",
+    ],
     activities: [
       "Receber arquivos",
       "Verificar período de referência",
@@ -191,69 +196,46 @@ export const toolGroups: ToolGroup[] = [
     ],
   },
   {
-    id: "plataformas",
-    question: "Onde a equipe publica ou administra?",
-    classification: "Plataformas de publicação e gestão",
+    id: "sistemas",
+    question: "Quais sistemas fazem parte da rotina?",
+    classification: "Sistemas de informação e disponibilização",
     intro:
-      "Ambientes de trabalho do Analista de Transparência para carga, publicação e gestão de conteúdos.",
+      "Cada sistema tem uma finalidade específica. A disponibilização das informações ocorre por diferentes canais, conforme a natureza dos dados.",
     items: [
       {
-        id: "transparencia-web",
-        name: "Transparência Web",
+        id: "sge",
+        name: "SGE — Gestão da Educação",
         entity: "ambos",
-        role: "Plataforma de publicação e gestão",
-        description:
-          "Utilizada pelo Analista de Transparência para realizar determinadas cargas, validar arquivos, publicar conteúdos e administrar títulos, notas e fontes. Também pode ser utilizada para consulta de informações relacionadas aos Manuais da Transparência e ao cronograma de publicação.",
-        flow: [
-          "Selecionar módulo",
-          "Informar parâmetros",
-          "Inserir arquivo",
-          "Processar",
-          "Validar",
-          "Publicar",
-          "Verificar no portal",
-        ],
+        role: "Informações educacionais",
+        description: "Sistema relacionado às informações educacionais.",
+      },
+      {
+        id: "sors",
+        name: "SORS",
+        entity: "ambos",
+        role: "Informações contábeis e financeiras",
+        description: "Sistema relacionado às informações contábeis e financeiras.",
+      },
+      {
+        id: "crm",
+        name: "CRM",
+        entity: "ambos",
+        role: "SAC e Ouvidoria",
+        description: "Sistema utilizado para gestão do SAC e da Ouvidoria.",
       },
       {
         id: "ddr",
         name: "DDR",
         entity: "ambos",
-        role: "Plataforma de publicação e gestão",
-        description:
-          "Utilizada principalmente para gestão e publicação de informações relacionadas a dirigentes, responsáveis, órgãos colegiados e reuniões.",
-        bullets: [
-          "Cadastro de dados",
-          "Gestão de dirigentes e responsáveis",
-          "Registro de substituições",
-          "Cadastro de reuniões",
-          "Gestão de títulos, notas e fontes",
-          "Relação de Dirigentes",
-          "Rol de Responsáveis",
-        ],
+        role: "Dirigentes e responsáveis",
+        description: "Sistema de Gestão de Dirigentes e Rol dos Responsáveis.",
       },
-    ],
-  },
-  {
-    id: "origem",
-    question: "De onde vêm determinadas informações?",
-    classification: "Sistema de origem de informações",
-    intro:
-      "Nem tudo é publicado manualmente. Parte da informação nasce em outro sistema e se reflete no portal.",
-    items: [
       {
-        id: "sors",
-        name: "SORS",
+        id: "transparencia-web",
+        name: "Transparência Web",
         entity: "ambos",
-        role: "Sistema de origem de informações",
-        description:
-          "Participa da rotina como sistema relacionado à origem ou ao lançamento de determinadas informações orçamentárias e financeiras que posteriormente são refletidas no Portal da Transparência.",
-        bullets: [
-          "Execução orçamentária",
-          "Saldos de exercícios anteriores",
-          "Despesas por licitação e processos de seleção",
-          "Rateio de despesas",
-        ],
-        note: "Nesses casos, pode não haver publicação manual: a atuação envolve acompanhar o prazo, cobrar a área responsável, verificar se a informação foi refletida no portal e registrar a verificação.",
+        role: "Disponibilização de arquivos",
+        description: "Sistema utilizado para disponibilizar arquivos que não são publicados via API.",
       },
     ],
   },

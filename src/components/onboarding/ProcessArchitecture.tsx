@@ -4,8 +4,9 @@ import { cn } from "@/lib/utils";
 import { processSteps } from "@/content/transparencia";
 
 export function ProcessArchitecture() {
-  const [activeId, setActiveId] = useState<string>(processSteps[0]!.id);
-  const active = processSteps.find((s) => s.id === activeId) ?? processSteps[0]!;
+  const [activeId, setActiveId] = useState<string>(processSteps[0]?.id ?? "");
+  const active = processSteps.find((s) => s.id === activeId) ?? processSteps[0];
+  if (!active) return null;
 
   return (
     <div className="space-y-8">
@@ -74,16 +75,22 @@ export function ProcessArchitecture() {
           <p className="mt-4 text-2xl font-extrabold leading-snug text-primary">
             “{active.question}”
           </p>
-          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-            Esta etapa integra um ciclo. Após <strong className="font-semibold text-foreground">corrigir e aprimorar</strong>,
-            uma nova verificação pode ser necessária.
-          </p>
+          {active.description ? (
+            <div className="mt-5 space-y-4 text-sm leading-relaxed text-muted-foreground">
+              {active.description.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </div>
+          ) : (
+            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+              Esta etapa integra um ciclo. Após <strong className="font-semibold text-foreground">corrigir e aprimorar</strong>,
+              uma nova verificação pode ser necessária.
+            </p>
+          )}
           <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-mist px-3.5 py-1.5 text-xs font-semibold text-primary">
             <RotateCw className="size-3.5" aria-hidden />
             Processo cíclico
           </div>
         </div>
-        <ul className="grid gap-x-6 gap-y-3 sm:grid-cols-2">
+        <ul className="grid content-start gap-x-6 gap-y-3 sm:grid-cols-2">
           {active.activities.map((a) => (
             <li key={a} className="flex items-start gap-2.5 text-sm leading-relaxed">
               <ArrowRight className="mt-1 size-3.5 shrink-0 text-sky" aria-hidden />
