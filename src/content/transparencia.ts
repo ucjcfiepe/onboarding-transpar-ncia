@@ -167,7 +167,7 @@ export const toolGroups: ToolGroup[] = [
         entity: "sesi",
         role: "Ambiente público",
         description: "Ponto público de consulta das informações do SESI/PE.",
-        link: null,
+        link: "https://transparencia.pe.sesi.org.br/",
       },
       {
         id: "portal-senai",
@@ -175,7 +175,7 @@ export const toolGroups: ToolGroup[] = [
         entity: "senai",
         role: "Ambiente público",
         description: "Ponto público de consulta das informações do SENAI/PE.",
-        link: null,
+        link: "https://transparencia.pe.senai.br/",
       },
       {
         id: "tcu-sesi",
@@ -183,7 +183,7 @@ export const toolGroups: ToolGroup[] = [
         entity: "sesi",
         role: "Ambiente público",
         description: "Ambiente público de prestação de contas do SESI/PE.",
-        link: null,
+        link: "https://transparencia.pe.sesi.org.br/canais/SESI/prestacao-de-contas-tcu/",
       },
       {
         id: "tcu-senai",
@@ -191,7 +191,7 @@ export const toolGroups: ToolGroup[] = [
         entity: "senai",
         role: "Ambiente público",
         description: "Ambiente público de prestação de contas do SENAI/PE.",
-        link: null,
+        link: "https://transparencia.pe.senai.br/canais/SENAI/prestacao-de-contas-tcu/",
       },
     ],
   },
