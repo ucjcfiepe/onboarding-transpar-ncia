@@ -243,10 +243,10 @@ export const modules: OnboardingModule[] = [
     id: "reporte-gestao-demandas",
     order: 4,
     code: "Trilha 02 · Jurídico",
-    title: "Reporte e Gestão de Demandas",
-    subtitle: "Advogados",
+    title: "Rotina dos Advogados e Especialistas Jurídicos",
+    subtitle: "Advogados e especialistas jurídicos",
     description:
-      "Como registrar movimentações, reportar novas demandas, solicitar replanejamentos e manter os controles atualizados.",
+      "Conheça as principais atividades, ferramentas e procedimentos que fazem parte da atuação jurídica na UCJC, desde o recebimento das demandas até seu acompanhamento e conclusão.",
     status: "soon",
     duration: "",
     sections: [],

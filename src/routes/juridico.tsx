@@ -250,15 +250,14 @@ function JuridicoPage() {
               </span>
             </div>
             <h3 className="mt-4 text-xl font-extrabold text-primary sm:text-2xl">
-              Reporte e Gestão de Demandas
+              Rotina dos Advogados e Especialistas Jurídicos
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Como registrar movimentações, reportar novas demandas, solicitar replanejamentos e
-              manter os controles atualizados.
+              Conheça as principais atividades, ferramentas e procedimentos que fazem parte da atuação jurídica na UCJC, desde o recebimento das demandas até seu acompanhamento e conclusão.
             </p>
             <div className="mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground">
               <UserRound className="size-4 text-sky" aria-hidden />
-              Advogados
+              Advogados e especialistas jurídicos
             </div>
             <div className="mt-12">
               <Button variant="outline" disabled>
