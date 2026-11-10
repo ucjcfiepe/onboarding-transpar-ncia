@@ -1,6 +1,7 @@
 # Roadmap
 
 - [x] Incorporar Recursos nas páginas, com oito itens sem links fictícios; validar menu, teclado e telas menores.
+- [x] Cadastrar os oito endereços definitivos no menu Recursos e validar abertura em nova aba, segurança e acessibilidade.
 
 - [x] Atualizar as seções 2 e 3 da Transparência com informações validadas e verificar leitura, cards e navegação em desktop e celular.
 
