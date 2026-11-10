@@ -5,6 +5,7 @@ import { areas, integracaoExemplo } from "@/content/ucjc";
 import { useProgress } from "@/lib/progress";
 import { ModuleCard } from "@/components/onboarding/ModuleCard";
 import { BrandLogo } from "@/components/ucjc/BrandLogo";
+import { ResourcesMenu } from "@/components/ucjc/ResourcesMenu";
 import { OrganizationChart } from "@/components/ucjc/OrganizationChart";
 
 import { ProgressIndicator } from "@/components/onboarding/primitives";
@@ -50,7 +51,10 @@ function Home() {
       {/* Hero */}
       <header className="grain mesh relative overflow-hidden">
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
-          <BrandLogo variant="light" horizontalClassName="h-7 sm:h-8" stackedClassName="h-11" />
+          <div className="flex items-center justify-between gap-4">
+            <BrandLogo variant="light" horizontalClassName="h-7 sm:h-8" stackedClassName="h-11" />
+            <ResourcesMenu />
+          </div>
           <p className="label-eyebrow mt-8 text-white/55">
             Unidade Compartilhada Jurídica e de Compliance · Onboarding
           </p>

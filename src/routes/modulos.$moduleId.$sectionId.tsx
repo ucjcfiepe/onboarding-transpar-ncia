@@ -6,6 +6,7 @@ import { getModule } from "@/content/modules";
 import { useProgress } from "@/lib/progress";
 import { ProgressIndicator } from "@/components/onboarding/primitives";
 import { BrandLogo } from "@/components/ucjc/BrandLogo";
+import { ResourcesMenu } from "@/components/ucjc/ResourcesMenu";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -106,6 +107,8 @@ function SectionPage() {
           <Link to={mod.hidden ? "/juridico" : "/"} className="text-sm font-bold text-primary">
             Onboarding UCJC
           </Link>
+          <div className="flex items-center gap-2">
+          <ResourcesMenu variant="color" />
           <button
             type="button"
             onClick={() => setNavOpen((v) => !v)}
@@ -115,6 +118,7 @@ function SectionPage() {
             {navOpen ? <X className="size-3.5" aria-hidden /> : <Menu className="size-3.5" aria-hidden />}
             Seções
           </button>
+          </div>
         </div>
         <div className="px-4 pb-3">
           <ProgressIndicator value={progress} />
@@ -154,6 +158,9 @@ function SectionPage() {
 
         {/* Conteúdo */}
         <main className="min-w-0 flex-1 py-12 lg:py-16">
+          <div className="mx-auto mb-8 hidden max-w-3xl justify-end lg:flex xl:max-w-4xl">
+            <ResourcesMenu variant="color" />
+          </div>
           <div key={sectionId} className="rise-in mx-auto max-w-3xl xl:max-w-4xl">
             <SectionBody kind={section.kind} moduleId={moduleId} />
 

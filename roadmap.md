@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Incorporar Recursos nas páginas, com oito itens sem links fictícios; validar menu, teclado e telas menores.
+
 - [x] Atualizar as seções 2 e 3 da Transparência com informações validadas e verificar leitura, cards e navegação em desktop e celular.
 
 - [x] Separar a página Jurídico em “Conheça o Jurídico” e “Como trabalhamos no Jurídico”.

@@ -15,3 +15,4 @@
 - Keep assistance conclusion copy in its content module and reuse the shared progress context and confirmation dialog so the final section does not duplicate progress state or reset other modules.
 - Register home journey cards in the shared module catalog; upcoming modules have no sections and no navigation, so available journeys reuse existing progress without fictitious content.
 - Scope report-flow visual variants to the monthly-report section while keeping step copy in the content module, so presentation refinements do not change other guided sections.
+- Keep resource metadata and optional HTTPS destinations in one content catalog, rendered by a shared Radix menu across page headers; missing destinations remain disabled so future link updates never require layout changes.

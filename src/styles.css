@@ -122,6 +122,37 @@
   --shadow-lifted: 0 2px 4px color-mix(in oklab, var(--night) 6%, transparent),
     0 24px 48px -22px color-mix(in oklab, var(--night) 38%, transparent);
   --shadow-glass: 0 24px 60px -28px color-mix(in oklab, var(--night) 55%, transparent);
+  --resources-glass: color-mix(in oklab, var(--institutional) 24%, transparent);
+  --resources-glass-hover: color-mix(in oklab, var(--primary-foreground) 16%, var(--resources-glass));
+  --resources-glass-border: color-mix(in oklab, var(--primary-foreground) 40%, transparent);
+  --shadow-resources: 0 12px 40px -12px color-mix(in oklab, var(--night) 28%, transparent);
+}
+
+.resources-trigger {
+  background: var(--resources-glass);
+  border-color: var(--resources-glass-border);
+  color: var(--primary-foreground);
+  backdrop-filter: blur(12px);
+  box-shadow: none;
+}
+.resources-trigger:hover,
+.resources-trigger[data-state="open"] {
+  background: var(--resources-glass-hover);
+  color: var(--primary-foreground);
+}
+.resources-panel {
+  box-shadow: var(--shadow-resources);
+  overscroll-behavior: contain;
+}
+.resources-panel[data-state="open"] {
+  animation: resources-open 180ms ease-out;
+}
+.resources-panel[data-state="closed"] {
+  animation: none;
+}
+@keyframes resources-open {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @layer base {

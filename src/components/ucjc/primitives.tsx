@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BrandLogo } from "@/components/ucjc/BrandLogo";
+import { ResourcesMenu } from "@/components/ucjc/ResourcesMenu";
 
 
 /* ---------- Cabeçalho de página de frente ---------- */
@@ -28,7 +29,10 @@ export function AreaHero({
             <ArrowLeft className="size-3.5" aria-hidden />
             UCJC
           </Link>
-          <BrandLogo variant="light" horizontalClassName="h-5 sm:h-7" stackedClassName="h-10" />
+          <div className="ml-auto flex items-center gap-3 sm:gap-6">
+            <BrandLogo variant="light" horizontalClassName="h-5 sm:h-7" stackedClassName="h-10" />
+            <ResourcesMenu />
+          </div>
         </div>
         <p className="label-eyebrow mt-8 text-white/55">{eyebrow}</p>
 
