@@ -37,6 +37,7 @@ import {
 } from "@/components/ucjc/primitives";
 import { Button } from "@/components/ui/button";
 import { getModule } from "@/content/modules";
+import { legalPracticeId, legalPracticeModules } from "@/content/juridicoAdvogados";
 import { useProgress } from "@/lib/progress";
 import { ProgressIndicator } from "@/components/onboarding/primitives";
 import {
@@ -69,6 +70,9 @@ function JuridicoPage() {
   const trail = getModule("assistencia-juridica");
   const { hydrated, moduleProgress, state } = useProgress();
   const trailProgress = hydrated ? moduleProgress("assistencia-juridica") : 0;
+  const legalTrail = getModule(legalPracticeId);
+  const legalTrailAvailable = legalTrail?.status === "available" && Boolean(legalTrail.sections.length);
+  const legalTrailProgress = hydrated ? moduleProgress(legalPracticeId) : 0;
   const lastVisited = state.lastVisited["assistencia-juridica"];
   const resumeSection =
     lastVisited && trail?.sections.some((section) => section.id === lastVisited)
@@ -241,12 +245,12 @@ function JuridicoPage() {
             </div>
           </article>
 
-          <article className="relative overflow-hidden rounded-3xl border border-border bg-card p-7 sm:p-8">
-            <span className="absolute inset-x-0 top-0 h-1 bg-hairline" aria-hidden />
+          <article className="card-elevated relative overflow-hidden rounded-3xl p-7 sm:p-8">
+            <span className="absolute inset-x-0 top-0 h-1 bg-primary" aria-hidden />
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="label-eyebrow">Trilha 02 · Jurídico</p>
               <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
-                Disponível
+                {legalTrailAvailable ? "Disponível" : "Em breve"}
               </span>
             </div>
             <h3 className="mt-4 text-xl font-extrabold text-primary sm:text-2xl">
@@ -255,14 +259,32 @@ function JuridicoPage() {
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Conheça as principais atividades, ferramentas e procedimentos que fazem parte da atuação jurídica na UCJC, desde o recebimento das demandas até seu acompanhamento e conclusão.
             </p>
-            <div className="mt-6 inline-flex items-center gap-2 text-sm text-muted-foreground">
-              <UserRound className="size-4 text-sky" aria-hidden />
-              Advogados e especialistas jurídicos
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">
+              <span className="inline-flex items-center gap-2">
+                <UserRound className="size-4 text-sky" aria-hidden />
+                Advogados e especialistas jurídicos
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <ListChecks className="size-4 shrink-0 text-sky" aria-hidden />
+                {legalPracticeModules.length} módulos planejados · {legalPracticeModules.filter((m) => m.status === "available").length} disponível
+              </span>
+              {legalTrail?.duration ? (
+                <span className="inline-flex items-center gap-2">
+                  <Clock className="size-4 text-sky" aria-hidden />
+                  {legalTrail.duration}
+                </span>
+              ) : null}
             </div>
-            <div className="mt-12">
-              <Button variant="outline" asChild>
-                <Link to="/trilhas/rotina-juridica">Acessar trilha</Link>
-              </Button>
+            <ProgressIndicator className="mt-7" value={legalTrailProgress} label="Progresso" />
+            <div className="mt-7">
+              {legalTrailAvailable ? (
+                <Button asChild>
+                  <Link to="/trilhas/rotina-juridica">
+                    {legalTrailProgress > 0 ? "Continuar trilha" : "Iniciar trilha"}
+                    <ArrowRight className="size-4" aria-hidden />
+                  </Link>
+                </Button>
+              ) : null}
             </div>
           </article>
         </div>

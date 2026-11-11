@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Padronizar os dois cards da Trilha 02, reutilizar o progresso publicado e validar início, conclusão e retorno em desktop e celular.
+
 - [x] Habilitar a Trilha 02 preservando os cards aprovados e criar sua visão geral com oito módulos.
 - [x] Desenvolver integralmente Sua atuação na UCJC; manter módulos 02–08 indisponíveis e documentar validações futuras do PDF.
 - [x] Verificar acesso, retorno, conclusão, conteúdo institucional e apresentação em desktop e celular.

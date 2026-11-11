@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Lock } from "lucide-react";
+import { ArrowRight, ListChecks, Lock } from "lucide-react";
+import { legalPracticeId, legalPracticeModules } from "@/content/juridicoAdvogados";
 import { cn } from "@/lib/utils";
 import type { OnboardingModule } from "@/content/modules";
 import { ProgressIndicator } from "./primitives";
@@ -16,7 +17,7 @@ export function ModuleCard({
   const firstSection = module.sections[0];
   const available = module.status === "available" && Boolean(firstSection);
   const started = progress > 0;
-  const isLegalPractice = module.id === "reporte-gestao-demandas";
+  const isLegalPractice = module.id === legalPracticeId;
 
   const body = (
     <>
@@ -40,17 +41,20 @@ export function ModuleCard({
         {module.description}
       </p>
 
-      {available && isLegalPractice ? (
-        <div className="mt-7 flex items-center gap-2 text-sm font-semibold text-primary">
-          Acessar trilha <ArrowRight className="size-4" aria-hidden />
+      {isLegalPractice ? (
+        <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
+          <ListChecks className="size-4 shrink-0 text-sky" aria-hidden />
+          {legalPracticeModules.length} módulos planejados · {legalPracticeModules.filter((m) => m.status === "available").length} disponível
         </div>
-      ) : available ? (
+      ) : null}
+
+      {available ? (
         <>
           <div className="mt-7">
             <ProgressIndicator value={progress} label="Progresso do módulo" />
           </div>
           <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary">
-            {started ? (progress === 100 ? "Revisar módulo" : "Continuar de onde parou") : "Iniciar módulo"}
+            {isLegalPractice ? (started ? "Continuar trilha" : "Iniciar trilha") : started ? (progress === 100 ? "Revisar módulo" : "Continuar de onde parou") : "Iniciar módulo"}
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
           </div>
         </>
@@ -72,7 +76,12 @@ export function ModuleCard({
   }
 
   if (isLegalPractice) {
-    return <Link to="/trilhas/rotina-juridica" className="relative block overflow-hidden rounded-3xl border border-dashed border-hairline bg-card/60 p-7 sm:p-9">{body}</Link>;
+    return (
+      <Link to="/trilhas/rotina-juridica" className="card-elevated group relative block overflow-hidden rounded-3xl p-7 sm:p-9">
+        <span className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-primary" aria-hidden />
+        {body}
+      </Link>
+    );
   }
 
   return (

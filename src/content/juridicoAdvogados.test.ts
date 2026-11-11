@@ -15,6 +15,9 @@ describe("legal-practice journey availability", () => {
     assert.equal(module?.status, "available");
     assert.deepEqual(module?.sections.map(s => s.id), ["sua-atuacao"]);
   });
+  it("does not publish an unvalidated duration for the eight planned modules", () => {
+    assert.equal(getModule(legalPracticeId)?.duration, "");
+  });
   it("models NOJC as operational support without hierarchical or technical approval authority", () => {
     const nojc = legalIntegration.support.find(s => s.id === "nojc");
     assert.equal(nojc?.relationship, "operational-support");
