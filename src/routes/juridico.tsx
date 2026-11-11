@@ -244,9 +244,9 @@ function JuridicoPage() {
           <article className="relative overflow-hidden rounded-3xl border border-border bg-card p-7 sm:p-8">
             <span className="absolute inset-x-0 top-0 h-1 bg-hairline" aria-hidden />
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="label-eyebrow">Trilha 02</p>
-              <span className="rounded-full bg-muted px-3 py-1 text-xs font-bold text-muted-foreground">
-                Em breve
+              <p className="label-eyebrow">Trilha 02 · Jurídico</p>
+              <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+                Disponível
               </span>
             </div>
             <h3 className="mt-4 text-xl font-extrabold text-primary sm:text-2xl">
@@ -260,8 +260,8 @@ function JuridicoPage() {
               Advogados e especialistas jurídicos
             </div>
             <div className="mt-12">
-              <Button variant="outline" disabled>
-                Em breve
+              <Button variant="outline" asChild>
+                <Link to="/trilhas/rotina-juridica">Acessar trilha</Link>
               </Button>
             </div>
           </article>

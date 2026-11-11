@@ -36,7 +36,8 @@ export type SectionKind =
   | "ja-atualizacao"
   | "ja-relatorio"
   | "ja-validacao"
-  | "ja-resumo";
+  | "ja-resumo"
+  | "adv-sua-atuacao";
 
 
 export interface ModuleSection {
@@ -247,9 +248,9 @@ export const modules: OnboardingModule[] = [
     subtitle: "Advogados e especialistas jurídicos",
     description:
       "Conheça as principais atividades, ferramentas e procedimentos que fazem parte da atuação jurídica na UCJC, desde o recebimento das demandas até seu acompanhamento e conclusão.",
-    status: "soon",
+    status: "available",
     duration: "",
-    sections: [],
+    sections: [{ id: "sua-atuacao", eyebrow: "Módulo 01 · Rotina Jurídica", title: "Sua atuação na UCJC", summary: "Dimensões da atuação e integração com a gestão e as equipes de apoio.", kind: "adv-sua-atuacao" }],
   },
 
 ];

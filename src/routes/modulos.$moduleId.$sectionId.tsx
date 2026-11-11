@@ -32,10 +32,16 @@ import {
   FcValidacaoSection,
 } from "@/components/onboarding/fiscalizacaoSections";
 import { JuridicoAssistenciaSection } from "@/components/onboarding/juridicoAssistenciaSections";
+import { LegalPracticeModulePage } from "@/components/onboarding/LegalPracticeModule";
 
 
 export const Route = createFileRoute("/modulos/$moduleId/$sectionId")({
   head: ({ params }) => {
+    if (params.moduleId === "reporte-gestao-demandas") {
+      const title = "Sua atuação na UCJC — Rotina dos Advogados e Especialistas Jurídicos";
+      const description = "Módulo 01 da Trilha 02: responsabilidades, dimensões da atuação jurídica, estrutura de gestão, interfaces de apoio e boas práticas na UCJC.";
+      return { meta: [{ title }, { name: "description", content: description }, { property: "og:title", content: title }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] };
+    }
     const isAssistencia = params.moduleId === "assistencia-juridica";
     const fc = params.moduleId === "fiscalizacao-continua";
     const title = isAssistencia
@@ -70,6 +76,12 @@ export const Route = createFileRoute("/modulos/$moduleId/$sectionId")({
 });
 
 function SectionPage() {
+  const { moduleId } = Route.useParams();
+  if (moduleId === "reporte-gestao-demandas") return <LegalPracticeModulePage />;
+  return <ExistingSectionPage />;
+}
+
+function ExistingSectionPage() {
   const { moduleId, sectionId } = Route.useParams();
   const navigate = useNavigate();
   const mod = getModule(moduleId)!;

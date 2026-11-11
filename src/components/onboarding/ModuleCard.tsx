@@ -16,6 +16,7 @@ export function ModuleCard({
   const firstSection = module.sections[0];
   const available = module.status === "available" && Boolean(firstSection);
   const started = progress > 0;
+  const isLegalPractice = module.id === "reporte-gestao-demandas";
 
   const body = (
     <>
@@ -31,7 +32,7 @@ export function ModuleCard({
             available ? "bg-mist text-primary" : "bg-ice text-muted-foreground",
           )}
         >
-          {available ? module.duration : "Em breve"}
+          {available ? module.duration || "Disponível" : "Em breve"}
         </span>
       </div>
 
@@ -39,7 +40,11 @@ export function ModuleCard({
         {module.description}
       </p>
 
-      {available ? (
+      {available && isLegalPractice ? (
+        <div className="mt-7 flex items-center gap-2 text-sm font-semibold text-primary">
+          Acessar trilha <ArrowRight className="size-4" aria-hidden />
+        </div>
+      ) : available ? (
         <>
           <div className="mt-7">
             <ProgressIndicator value={progress} label="Progresso do módulo" />
@@ -64,6 +69,10 @@ export function ModuleCard({
         {body}
       </div>
     );
+  }
+
+  if (isLegalPractice) {
+    return <Link to="/trilhas/rotina-juridica" className="relative block overflow-hidden rounded-3xl border border-dashed border-hairline bg-card/60 p-7 sm:p-9">{body}</Link>;
   }
 
   return (

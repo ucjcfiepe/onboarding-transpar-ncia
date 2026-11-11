@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ComplianceRouteImport } from './routes/compliance'
 import { Route as JuridicoRouteImport } from './routes/juridico'
 import { Route as OperacoesRouteImport } from './routes/operacoes'
+import { Route as TrilhasRotinaJuridicaRouteImport } from './routes/trilhas.rotina-juridica'
 import { Route as ModulosModuleIdSectionIdRouteImport } from './routes/modulos.$moduleId.$sectionId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const OperacoesRoute = OperacoesRouteImport.update({
   path: '/operacoes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrilhasRotinaJuridicaRoute = TrilhasRotinaJuridicaRouteImport.update({
+  id: '/trilhas/rotina-juridica',
+  path: '/trilhas/rotina-juridica',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ModulosModuleIdSectionIdRoute =
   ModulosModuleIdSectionIdRouteImport.update({
     id: '/modulos/$moduleId/$sectionId',
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/compliance': typeof ComplianceRoute
   '/juridico': typeof JuridicoRoute
   '/operacoes': typeof OperacoesRoute
+  '/trilhas/rotina-juridica': typeof TrilhasRotinaJuridicaRoute
   '/modulos/$moduleId/$sectionId': typeof ModulosModuleIdSectionIdRoute
 }
 export interface FileRoutesByTo {
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/compliance': typeof ComplianceRoute
   '/juridico': typeof JuridicoRoute
   '/operacoes': typeof OperacoesRoute
+  '/trilhas/rotina-juridica': typeof TrilhasRotinaJuridicaRoute
   '/modulos/$moduleId/$sectionId': typeof ModulosModuleIdSectionIdRoute
 }
 export interface FileRoutesById {
@@ -62,6 +70,7 @@ export interface FileRoutesById {
   '/compliance': typeof ComplianceRoute
   '/juridico': typeof JuridicoRoute
   '/operacoes': typeof OperacoesRoute
+  '/trilhas/rotina-juridica': typeof TrilhasRotinaJuridicaRoute
   '/modulos/$moduleId/$sectionId': typeof ModulosModuleIdSectionIdRoute
 }
 export interface FileRouteTypes {
@@ -71,6 +80,7 @@ export interface FileRouteTypes {
     | '/compliance'
     | '/juridico'
     | '/operacoes'
+    | '/trilhas/rotina-juridica'
     | '/modulos/$moduleId/$sectionId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -78,6 +88,7 @@ export interface FileRouteTypes {
     | '/compliance'
     | '/juridico'
     | '/operacoes'
+    | '/trilhas/rotina-juridica'
     | '/modulos/$moduleId/$sectionId'
   id:
     | '__root__'
@@ -85,6 +96,7 @@ export interface FileRouteTypes {
     | '/compliance'
     | '/juridico'
     | '/operacoes'
+    | '/trilhas/rotina-juridica'
     | '/modulos/$moduleId/$sectionId'
   fileRoutesById: FileRoutesById
 }
@@ -93,6 +105,7 @@ export interface RootRouteChildren {
   ComplianceRoute: typeof ComplianceRoute
   JuridicoRoute: typeof JuridicoRoute
   OperacoesRoute: typeof OperacoesRoute
+  TrilhasRotinaJuridicaRoute: typeof TrilhasRotinaJuridicaRoute
   ModulosModuleIdSectionIdRoute: typeof ModulosModuleIdSectionIdRoute
 }
 
@@ -126,6 +139,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OperacoesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trilhas/rotina-juridica': {
+      id: '/trilhas/rotina-juridica'
+      path: '/trilhas/rotina-juridica'
+      fullPath: '/trilhas/rotina-juridica'
+      preLoaderRoute: typeof TrilhasRotinaJuridicaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/modulos/$moduleId/$sectionId': {
       id: '/modulos/$moduleId/$sectionId'
       path: '/modulos/$moduleId/$sectionId'
@@ -141,6 +161,7 @@ const rootRouteChildren: RootRouteChildren = {
   ComplianceRoute: ComplianceRoute,
   JuridicoRoute: JuridicoRoute,
   OperacoesRoute: OperacoesRoute,
+  TrilhasRotinaJuridicaRoute: TrilhasRotinaJuridicaRoute,
   ModulosModuleIdSectionIdRoute: ModulosModuleIdSectionIdRoute,
 }
 export const routeTree = rootRouteImport

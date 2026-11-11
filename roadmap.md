@@ -1,5 +1,9 @@
 # Roadmap
 
+- [x] Habilitar a Trilha 02 preservando os cards aprovados e criar sua visão geral com oito módulos.
+- [x] Desenvolver integralmente Sua atuação na UCJC; manter módulos 02–08 indisponíveis e documentar validações futuras do PDF.
+- [x] Verificar acesso, retorno, conclusão, conteúdo institucional e apresentação em desktop e celular.
+
 - [x] Incorporar Recursos nas páginas, com oito itens sem links fictícios; validar menu, teclado e telas menores.
 - [x] Cadastrar os oito endereços definitivos no menu Recursos e validar abertura em nova aba, segurança e acessibilidade.
 
