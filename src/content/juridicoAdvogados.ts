@@ -84,7 +84,7 @@ export const legalGoodPractices = {
     "Comunique tempestivamente situações que possam impactar a condução das atividades.",
     "Utilize os canais institucionais adequados.",
     "Preserve a confidencialidade das informações.",
-    "Organize os documentos relacionados ao seu trabalho.",
+    "Organize e salve os documentos relacionados ao seu trabalho no Sharepoint.",
   ],
 };
 
