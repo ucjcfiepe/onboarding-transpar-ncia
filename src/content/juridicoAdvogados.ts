@@ -54,7 +54,7 @@ export const legalIntegration = {
   management: {
     title: "Gerências Jurídicas",
     text: "Os profissionais jurídicos desenvolvem suas atividades vinculados às respectivas estruturas de gestão, de acordo com a organização institucional e as atribuições de cada função.",
-    note: "As Gerências de Negócios Jurídicos do SESI e do SENAI integram a estrutura da UCJC, conforme o organograma institucional. Os vínculos hierárquicos podem variar conforme a função e a estrutura de atuação.",
+    note: "As Gerências Jurídicas do SESI, SENAI e FIEPE/IEL integram a estrutura da UCJC, conforme o organograma institucional. Os vínculos hierárquicos podem variar conforme a função e a estrutura de atuação.",
   },
   support: [
     { id: "assistencia", title: "Assistência Jurídica", relationship: "operational-support", hierarchicalAuthority: false, technicalApproval: false, text: "Atua no suporte às rotinas administrativas e operacionais, colaborando com a organização das informações, o acompanhamento das atividades e os encaminhamentos previstos nos procedimentos internos." },
