@@ -17,4 +17,5 @@
 - Scope report-flow visual variants to the monthly-report section while keeping step copy in the content module, so presentation refinements do not change other guided sections.
 - Keep resource metadata and optional HTTPS destinations in one content catalog, rendered by a shared Radix menu across page headers; missing destinations remain disabled so future link updates never require layout changes.
 - Model the legal-practice journey in a separate content catalog with eight availability entries; register only published content in shared progress and use a dedicated overview as its entry point, so future modules never create empty navigable pages.
+- Keep each published legal-practice module's copy in its own content catalog and render it through the existing parameterized module route; reuse resource URLs and stable progress IDs so publishing modules preserves prior completion records.
 - Keep legal journey card progress and access actions in a bottom-aligned flex region on desktop, with natural content flow on mobile, so differing copy lengths do not misalign controls or affect other module cards.

@@ -10,7 +10,7 @@ export interface LegalPracticeModule {
 
 export const legalPracticeModules: LegalPracticeModule[] = [
   { number: 1, id: "sua-atuacao", title: "Sua atuação na UCJC", description: "Dimensões da atuação, responsabilidades e integração com a gestão e as equipes de apoio.", status: "available" },
-  { number: 2, id: "ferramentas", title: "Ferramentas e sistemas de trabalho", description: "Ambientes institucionais, consulta de demandas, pautas e controles internos.", status: "soon" },
+  { number: 2, id: "ferramentas", title: "Ferramentas e sistemas de trabalho", description: "Ambientes institucionais, consulta de demandas, pautas e controles internos.", status: "available" },
   { number: 3, id: "recebimento", title: "Recebimento e análise de demandas", description: "Objeto da solicitação, documentação, complementações e encaminhamentos.", status: "soon" },
   { number: 4, id: "prazos", title: "Gestão de prazos e acompanhamento das pautas", description: "A.N.O., datas, status e cuidados com o preenchimento dos controles.", status: "soon" },
   { number: 5, id: "consultivo", title: "Rotina consultiva", description: "Análises, manifestações, correções, validação e conclusão das demandas.", status: "soon" },

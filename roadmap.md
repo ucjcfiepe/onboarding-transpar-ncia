@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Desenvolver Módulo 02 da Trilha 02, reutilizar Recursos e progresso, habilitar navegação e manter módulos 03–08 indisponíveis.
+- [x] Validar conteúdo, preservação do progresso, links, navegação e apresentação em desktop, tablet e celular.
+
 - [x] Ajustar indicadores e alinhamento dos cards jurídicos na home e no Jurídico; preservar duração, disponibilidade, contagem interna, progresso e navegação; validar desktop e celular.
 
 - [x] Padronizar os dois cards da Trilha 02, reutilizar o progresso publicado e validar início, conclusão e retorno em desktop e celular.

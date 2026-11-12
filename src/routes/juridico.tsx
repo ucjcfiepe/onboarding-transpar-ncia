@@ -268,7 +268,7 @@ function JuridicoPage() {
               </span>
               <span className="inline-flex items-center gap-2">
                 <ListChecks className="size-4 shrink-0 text-sky" aria-hidden />
-                {legalPracticeModules.length} módulos planejados · {legalPracticeModules.filter((m) => m.status === "available").length} disponível
+                {legalPracticeModules.length} módulos planejados · {legalPracticeModules.filter((m) => m.status === "available").length} disponíveis
               </span>
               {legalTrail?.duration ? (
                 <span className="inline-flex items-center gap-2">

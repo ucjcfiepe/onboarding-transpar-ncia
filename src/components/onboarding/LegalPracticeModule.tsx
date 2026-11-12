@@ -84,7 +84,7 @@ export function LegalPracticeModulePage() {
             <section id="encerramento" className="scroll-mt-8 py-12 sm:py-16">
               <ChapterHeading number="05" title={legalPracticeConclusion.title} />
               <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">{legalPracticeConclusion.paragraphs.map(p => <p key={p}>{p}</p>)}</div>
-              <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-y border-border py-5"><div><p className="label-eyebrow">Próximo módulo</p><p className="mt-2 font-semibold text-primary">Ferramentas e sistemas de trabalho</p></div><span className="text-xs font-semibold text-muted-foreground">Em breve</span></div>
+              <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-y border-border py-5"><div><p className="label-eyebrow">Próximo módulo</p><p className="mt-2 font-semibold text-primary">Ferramentas e sistemas de trabalho</p></div><Button variant="link" asChild className="px-0"><Link to="/modulos/$moduleId/$sectionId" params={{ moduleId: legalPracticeId, sectionId: "ferramentas" }}>Ir para o módulo 02<ArrowRight className="size-4" aria-hidden /></Link></Button></div>
               <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap">
                 <Button onClick={() => completeSection(legalPracticeId, "sua-atuacao")} disabled={done}><Check className="size-4" aria-hidden />{done ? "Módulo 01 concluído" : "Marcar módulo 01 como concluído"}</Button>
                 <Button variant="outline" asChild className="h-auto min-h-10 whitespace-normal"><Link to="/trilhas/rotina-juridica"><ArrowLeft className="size-4 shrink-0" aria-hidden />Voltar à visão geral da trilha</Link></Button>

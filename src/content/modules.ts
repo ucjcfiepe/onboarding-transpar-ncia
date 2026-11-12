@@ -37,7 +37,8 @@ export type SectionKind =
   | "ja-relatorio"
   | "ja-validacao"
   | "ja-resumo"
-  | "adv-sua-atuacao";
+   | "adv-sua-atuacao"
+   | "adv-ferramentas";
 
 
 export interface ModuleSection {
@@ -250,7 +251,10 @@ export const modules: OnboardingModule[] = [
       "Conheça as principais atividades, ferramentas e procedimentos que fazem parte da atuação jurídica na UCJC, desde o recebimento das demandas até seu acompanhamento e conclusão.",
     status: "available",
     duration: "",
-    sections: [{ id: "sua-atuacao", eyebrow: "Módulo 01 · Rotina Jurídica", title: "Sua atuação na UCJC", summary: "Dimensões da atuação e integração com a gestão e as equipes de apoio.", kind: "adv-sua-atuacao" }],
+    sections: [
+      { id: "sua-atuacao", eyebrow: "Módulo 01 · Rotina Jurídica", title: "Sua atuação na UCJC", summary: "Dimensões da atuação e integração com a gestão e as equipes de apoio.", kind: "adv-sua-atuacao" },
+      { id: "ferramentas", eyebrow: "Módulo 02 · Rotina Jurídica", title: "Ferramentas e sistemas de trabalho", summary: "Finalidades dos ambientes digitais que apoiam a rotina jurídica.", kind: "adv-ferramentas" },
+    ],
   },
 
 ];

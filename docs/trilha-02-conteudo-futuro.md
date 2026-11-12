@@ -1,6 +1,6 @@
 # Trilha 02 — preparação dos módulos operacionais
 
-Somente o Módulo 01 está publicado. Este documento não apresenta regras como vigentes e não é exibido na trilha.
+Os Módulos 01 e 02 estão publicados. Este documento não apresenta regras como vigentes e não é exibido na trilha.
 
 ## Fonte e publicação
 
@@ -8,7 +8,7 @@ Referência examinada: PDF **Reporte de Demandas**, enviado pela UCJC. Sua publi
 
 ## Conteúdo futuro por módulo
 
-- **02 — Ferramentas:** Zeev, consulta e acompanhamento, pautas, SharePoint e sistemas processuais pertinentes. Página 5: confirmar monitoramento às **9h, 12h e 15h**.
+- **02 — Ferramentas (publicado):** Zeev, consulta e acompanhamento, pautas, SharePoint e categoria de sistemas processuais, sem sistemas específicos não confirmados. Página 5: confirmar monitoramento às **9h, 12h e 15h** antes de substituir a orientação geral publicada. Confirmar quais sistemas processuais são aplicáveis a cada área e atividade antes de nomeá-los.
 - **03 — Recebimento:** solicitante, objeto, documentação, complementações e encaminhamentos. Zeev recebe demandas; pautas e controles acompanham atividades. Solicitar documentação de distribuição, triagem e priorização antes de detalhá-las.
 - **04 — Prazos:** páginas 2, 4, 9–11. Conferência da fórmula do A.N.O. contra a situação real; justificativa de estouro em observação; preenchimento distinto com/sem correções; sequência cronológica de saídas e retornos; saída definitiva; status; proteção das fórmulas ocultas contra arraste ou cópia em bloco. Preparar exemplos visuais fictícios e validar preenchimentos com a versão atual dos controles.
 - **05 — Consultivo:** páginas 2–5. Diferenciar validação (incluindo data, meio e pasta), rejeição, cancelamento, saída para correção, retorno e saída definitiva; registrar motivos e complexidade. Confirmar atendimento do retorno no mesmo dia, reporte de replanejamento quando inviável e sinalização do potencial estouro do A.N.O. Não equiparar rejeição a cancelamento ou correção.
