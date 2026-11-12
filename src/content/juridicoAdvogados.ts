@@ -82,7 +82,7 @@ export const legalGoodPractices = {
     "Registre os encaminhamentos relevantes.",
     "Mantenha as informações atualizadas.",
     "Comunique tempestivamente situações que possam impactar a condução das atividades.",
-    "Utilize os canais institucionais adequados.",
+    "Utilize os canais institucionais adequados (Teams e\ne-mail).",
     "Preserve a confidencialidade das informações.",
     "Organize e salve os documentos relacionados ao seu trabalho no Sharepoint.",
   ],
