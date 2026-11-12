@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ListChecks, Lock } from "lucide-react";
-import { legalPracticeId, legalPracticeModules } from "@/content/juridicoAdvogados";
+import { ArrowRight, Lock } from "lucide-react";
+import { legalPracticeId } from "@/content/juridicoAdvogados";
 import { cn } from "@/lib/utils";
 import type { OnboardingModule } from "@/content/modules";
 import { ProgressIndicator } from "./primitives";
@@ -18,6 +18,7 @@ export function ModuleCard({
   const available = module.status === "available" && Boolean(firstSection);
   const started = progress > 0;
   const isLegalPractice = module.id === legalPracticeId;
+  const isLegalTrail = isLegalPractice || module.id === "assistencia-juridica";
 
   const body = (
     <>
@@ -41,23 +42,14 @@ export function ModuleCard({
         {module.description}
       </p>
 
-      {isLegalPractice ? (
-        <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
-          <ListChecks className="size-4 shrink-0 text-sky" aria-hidden />
-          {legalPracticeModules.length} módulos planejados · {legalPracticeModules.filter((m) => m.status === "available").length} disponível
-        </div>
-      ) : null}
-
       {available ? (
-        <>
-          <div className="mt-7">
-            <ProgressIndicator value={progress} label="Progresso do módulo" />
-          </div>
+        <div className={isLegalTrail ? "mt-7 lg:mt-auto lg:pt-7" : "mt-7"}>
+          <ProgressIndicator value={progress} label={isLegalTrail ? "Progresso da trilha" : "Progresso do módulo"} />
           <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-primary">
             {isLegalPractice ? (started ? "Continuar trilha" : "Iniciar trilha") : started ? (progress === 100 ? "Revisar módulo" : "Continuar de onde parou") : "Iniciar módulo"}
             <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
           </div>
-        </>
+        </div>
       ) : (
         <div className="mt-7 flex items-center gap-2 text-sm font-medium text-muted-foreground">
           <Lock className="size-4" aria-hidden />
@@ -77,7 +69,7 @@ export function ModuleCard({
 
   if (isLegalPractice) {
     return (
-      <Link to="/trilhas/rotina-juridica" className="card-elevated group relative block overflow-hidden rounded-3xl p-7 sm:p-9">
+      <Link to="/trilhas/rotina-juridica" className="card-elevated group relative flex flex-col overflow-hidden rounded-3xl p-7 sm:p-9">
         <span className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-primary" aria-hidden />
         {body}
       </Link>
@@ -91,7 +83,7 @@ export function ModuleCard({
         moduleId: module.id,
         sectionId: resumeSectionId ?? firstSection.id,
       }}
-      className="card-elevated group relative block overflow-hidden rounded-3xl p-7 sm:p-9"
+      className={cn("card-elevated group relative overflow-hidden rounded-3xl p-7 sm:p-9", isLegalTrail ? "flex flex-col" : "block")}
     >
       <span
         className="pointer-events-none absolute inset-x-0 top-0 h-1"

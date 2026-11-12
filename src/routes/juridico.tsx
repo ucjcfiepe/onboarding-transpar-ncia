@@ -200,7 +200,7 @@ function JuridicoPage() {
           lead="Conheça as rotinas, responsabilidades e controles que organizam o trabalho jurídico no dia a dia da UCJC."
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          <article className="card-elevated relative overflow-hidden rounded-3xl p-7 sm:p-8">
+          <article className="card-elevated relative flex flex-col overflow-hidden rounded-3xl p-7 sm:p-8">
             <span className="absolute inset-x-0 top-0 h-1 bg-primary" aria-hidden />
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="label-eyebrow">Trilha 01</p>
@@ -229,7 +229,8 @@ function JuridicoPage() {
                 ≈ 45 min
               </span>
             </div>
-            <ProgressIndicator className="mt-7" value={trailProgress} label="Progresso" />
+            <div className="mt-7 lg:mt-auto lg:pt-7">
+            <ProgressIndicator value={trailProgress} label="Progresso da trilha" />
             <div className="mt-7">
               {resumeSection ? (
                 <Button asChild>
@@ -243,9 +244,10 @@ function JuridicoPage() {
                 </Button>
               ) : null}
             </div>
+            </div>
           </article>
 
-          <article className="card-elevated relative overflow-hidden rounded-3xl p-7 sm:p-8">
+          <article className="card-elevated relative flex flex-col overflow-hidden rounded-3xl p-7 sm:p-8">
             <span className="absolute inset-x-0 top-0 h-1 bg-primary" aria-hidden />
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="label-eyebrow">Trilha 02 · Jurídico</p>
@@ -275,7 +277,8 @@ function JuridicoPage() {
                 </span>
               ) : null}
             </div>
-            <ProgressIndicator className="mt-7" value={legalTrailProgress} label="Progresso" />
+            <div className="mt-7 lg:mt-auto lg:pt-7">
+            <ProgressIndicator value={legalTrailProgress} label="Progresso da trilha" />
             <div className="mt-7">
               {legalTrailAvailable ? (
                 <Button asChild>
@@ -285,6 +288,7 @@ function JuridicoPage() {
                   </Link>
                 </Button>
               ) : null}
+            </div>
             </div>
           </article>
         </div>
