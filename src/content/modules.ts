@@ -38,7 +38,8 @@ export type SectionKind =
   | "ja-validacao"
   | "ja-resumo"
    | "adv-sua-atuacao"
-   | "adv-ferramentas";
+   | "adv-ferramentas"
+   | "adv-recebimento";
 
 
 export interface ModuleSection {
@@ -254,6 +255,7 @@ export const modules: OnboardingModule[] = [
     sections: [
       { id: "sua-atuacao", eyebrow: "Módulo 01 · Rotina Jurídica", title: "Sua atuação na UCJC", summary: "Dimensões da atuação e integração com a gestão e as equipes de apoio.", kind: "adv-sua-atuacao" },
       { id: "ferramentas", eyebrow: "Módulo 02 · Rotina Jurídica", title: "Ferramentas e sistemas de trabalho", summary: "Finalidades dos ambientes digitais que apoiam a rotina jurídica.", kind: "adv-ferramentas" },
+      { id: "recebimento", eyebrow: "Módulo 03 · Rotina Jurídica", title: "Recebimento e Análise de Demandas", summary: "Cuidados iniciais, documentação, pendências e encaminhamentos nas demandas jurídicas.", kind: "adv-recebimento" },
     ],
   },
 

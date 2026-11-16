@@ -34,11 +34,17 @@ import {
 import { JuridicoAssistenciaSection } from "@/components/onboarding/juridicoAssistenciaSections";
 import { LegalPracticeModulePage } from "@/components/onboarding/LegalPracticeModule";
 import { LegalToolsModulePage } from "@/components/onboarding/LegalToolsModule";
+import { LegalIntakeModulePage } from "@/components/onboarding/LegalIntakeModule";
 
 
 export const Route = createFileRoute("/modulos/$moduleId/$sectionId")({
   head: ({ params }) => {
     if (params.moduleId === "reporte-gestao-demandas") {
+      if (params.sectionId === "recebimento") {
+        const title = "Recebimento e Análise de Demandas — Rotina Jurídica UCJC";
+        const description = "Módulo 03 da Trilha 02: compreensão da solicitação, documentação, pendências e encaminhamentos em demandas consultivas e contenciosas da UCJC.";
+        return { meta: [{ title }, { name: "description", content: description }, { property: "og:title", content: title }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] };
+      }
       const tools = params.sectionId === "ferramentas";
       const title = tools ? "Ferramentas e sistemas de trabalho — Rotina Jurídica UCJC" : "Sua atuação na UCJC — Rotina dos Advogados e Especialistas Jurídicos";
       const description = tools ? "Módulo 02 da Trilha 02: Zeev, pautas e controles internos, SharePoint e sistemas processuais na rotina jurídica da UCJC." : "Módulo 01 da Trilha 02: responsabilidades, dimensões da atuação jurídica, estrutura de gestão, interfaces de apoio e boas práticas na UCJC.";
@@ -79,7 +85,10 @@ export const Route = createFileRoute("/modulos/$moduleId/$sectionId")({
 
 function SectionPage() {
   const { moduleId, sectionId } = Route.useParams();
-  if (moduleId === "reporte-gestao-demandas") return sectionId === "ferramentas" ? <LegalToolsModulePage /> : <LegalPracticeModulePage />;
+  if (moduleId === "reporte-gestao-demandas") {
+    if (sectionId === "recebimento") return <LegalIntakeModulePage />;
+    return sectionId === "ferramentas" ? <LegalToolsModulePage /> : <LegalPracticeModulePage />;
+  }
   return <ExistingSectionPage />;
 }
 

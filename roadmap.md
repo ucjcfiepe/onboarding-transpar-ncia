@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Desenvolver Módulo 03 da Trilha 02 com conteúdo informativo, integrar navegação e disponibilizar somente módulos 01–03.
+- [x] Verificar expansão de informações, situação prática, progresso anterior e apresentação em desktop e celular.
+
 - [x] Desenvolver Módulo 02 da Trilha 02, reutilizar Recursos e progresso, habilitar navegação e manter módulos 03–08 indisponíveis.
 - [x] Validar conteúdo, preservação do progresso, links, navegação e apresentação em desktop, tablet e celular.
 

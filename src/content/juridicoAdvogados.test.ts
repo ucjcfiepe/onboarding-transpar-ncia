@@ -5,16 +5,16 @@ import { legalIntegration, legalPracticeId, legalPracticeModules } from "./jurid
 import { legalZeevMonitoring } from "./juridicoFerramentas";
 
 describe("legal-practice journey availability", () => {
-  it("has eight modules with only modules 01 and 02 available", () => {
+  it("has eight modules with only modules 01, 02 and 03 available", () => {
     assert.equal(legalPracticeModules.length, 8);
     assert.deepEqual(legalPracticeModules.map(m => m.number), [1,2,3,4,5,6,7,8]);
-    assert.deepEqual(legalPracticeModules.filter(m => m.status === "available").map(m => m.number), [1,2]);
-    assert.deepEqual(legalPracticeModules.filter(m => m.status === "soon").map(m => m.number), [3,4,5,6,7,8]);
+    assert.deepEqual(legalPracticeModules.filter(m => m.status === "available").map(m => m.number), [1,2,3]);
+    assert.deepEqual(legalPracticeModules.filter(m => m.status === "soon").map(m => m.number), [4,5,6,7,8]);
   });
   it("registers only published content in the existing navigation and progress", () => {
     const module = getModule(legalPracticeId);
     assert.equal(module?.status, "available");
-    assert.deepEqual(module?.sections.map(s => s.id), ["sua-atuacao", "ferramentas"]);
+    assert.deepEqual(module?.sections.map(s => s.id), ["sua-atuacao", "ferramentas", "recebimento"]);
   });
   it("does not make unconfirmed Zeev monitoring hours mandatory", () => {
     assert.equal(legalZeevMonitoring.confirmed, false);
