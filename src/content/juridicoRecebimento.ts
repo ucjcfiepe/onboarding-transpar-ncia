@@ -57,7 +57,7 @@ export const legalIntakeMissing = {
     { title: "Acompanhe a continuidade", text: "Observe o retorno das informações e os encaminhamentos necessários à retomada da atividade." },
   ],
   example: "Exemplo fictício: uma solicitação menciona um anexo que não foi disponibilizado. Identifique o material ausente e busque esclarecimento com os envolvidos, mantendo o registro pertinente e acompanhando o retorno.",
-  note: "Documentação incompleta não exige automaticamente uma “Saída para Correção”. O material Reporte de Demandas apresenta orientações específicas sobre contato com o solicitante e uso dessa situação, que serão aprofundadas no Módulo 05 — Rotina Consultiva. Aqui, a orientação é identificar pendências e solicitar esclarecimentos.",
+  note: "Documentação incompleta não exige automaticamente uma “Saída para Correção”. Existem orientações específicas sobre o contato com o solicitante e o uso dessa situação, que serão aprofundadas no Módulo 05 — Rotina Consultiva. Aqui, a orientação é identificar pendências e solicitar esclarecimentos.",
 };
 
 export const legalIntakeContexts = {
