@@ -35,11 +35,17 @@ import { JuridicoAssistenciaSection } from "@/components/onboarding/juridicoAssi
 import { LegalPracticeModulePage } from "@/components/onboarding/LegalPracticeModule";
 import { LegalToolsModulePage } from "@/components/onboarding/LegalToolsModule";
 import { LegalIntakeModulePage } from "@/components/onboarding/LegalIntakeModule";
+import { LegalDeadlinesModulePage } from "@/components/onboarding/LegalDeadlinesModule";
 
 
 export const Route = createFileRoute("/modulos/$moduleId/$sectionId")({
   head: ({ params }) => {
     if (params.moduleId === "reporte-gestao-demandas") {
+      if (params.sectionId === "prazos") {
+        const title = "Gestão de Prazos e Acompanhamento das Pautas — Rotina Jurídica UCJC";
+        const description = "Módulo 04 da Trilha 02: acompanhamento de prazos, conferência do A.N.O., registro cronológico de datas e cuidados com fórmulas e colunas ocultas das pautas jurídicas.";
+        return { meta: [{ title }, { name: "description", content: description }, { property: "og:title", content: title }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] };
+      }
       if (params.sectionId === "recebimento") {
         const title = "Recebimento e Análise de Demandas — Rotina Jurídica UCJC";
         const description = "Módulo 03 da Trilha 02: compreensão da solicitação, documentação, pendências e encaminhamentos em demandas consultivas e contenciosas da UCJC.";
@@ -86,6 +92,7 @@ export const Route = createFileRoute("/modulos/$moduleId/$sectionId")({
 function SectionPage() {
   const { moduleId, sectionId } = Route.useParams();
   if (moduleId === "reporte-gestao-demandas") {
+    if (sectionId === "prazos") return <LegalDeadlinesModulePage />;
     if (sectionId === "recebimento") return <LegalIntakeModulePage />;
     return sectionId === "ferramentas" ? <LegalToolsModulePage /> : <LegalPracticeModulePage />;
   }

@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Desenvolver Módulo 04 com exemplos de A.N.O., datas e fórmulas, habilitar módulos 01–04 e preservar progresso.
+- [x] Validar sequência demonstrativa, conclusão, navegação e apresentação em desktop, tablet e celular.
+
 - [x] Desenvolver Módulo 03 da Trilha 02 com conteúdo informativo, integrar navegação e disponibilizar somente módulos 01–03.
 - [x] Verificar expansão de informações, situação prática, progresso anterior e apresentação em desktop e celular.
 
