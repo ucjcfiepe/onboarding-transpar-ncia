@@ -40,7 +40,8 @@ export type SectionKind =
    | "adv-sua-atuacao"
    | "adv-ferramentas"
     | "adv-recebimento"
-    | "adv-prazos";
+    | "adv-prazos"
+    | "adv-consultivo";
 
 
 export interface ModuleSection {
@@ -258,6 +259,7 @@ export const modules: OnboardingModule[] = [
       { id: "ferramentas", eyebrow: "Módulo 02 · Rotina Jurídica", title: "Ferramentas e sistemas de trabalho", summary: "Finalidades dos ambientes digitais que apoiam a rotina jurídica.", kind: "adv-ferramentas" },
       { id: "recebimento", eyebrow: "Módulo 03 · Rotina Jurídica", title: "Recebimento e Análise de Demandas", summary: "Cuidados iniciais, documentação, pendências e encaminhamentos nas demandas jurídicas.", kind: "adv-recebimento" },
        { id: "prazos", eyebrow: "Módulo 04 · Rotina Jurídica", title: "Gestão de Prazos e Acompanhamento das Pautas", summary: "Controle de prazos, acompanhamento do A.N.O. e preenchimento dos registros.", kind: "adv-prazos" },
+       { id: "consultivo", eyebrow: "Módulo 05 · Rotina Jurídica", title: "Rotina Consultiva", summary: "Procedimentos e encaminhamentos nas diferentes situações de atendimento.", kind: "adv-consultivo" },
     ],
   },
 

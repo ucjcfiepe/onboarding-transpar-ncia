@@ -1,5 +1,8 @@
 # Roadmap
 
+- [x] Implementar exclusivamente Módulo 05 com cinco status, correção, validação, comparação e guia rápido; habilitar cinco módulos preservando 01–04.
+- [x] Verificar teclado, apresentação compacta, navegação e conclusão com progresso anterior preservado.
+
 - [x] Desenvolver Módulo 04 com exemplos de A.N.O., datas e fórmulas, habilitar módulos 01–04 e preservar progresso.
 - [x] Validar sequência demonstrativa, conclusão, navegação e apresentação em desktop, tablet e celular.
 

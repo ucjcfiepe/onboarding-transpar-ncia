@@ -13,7 +13,7 @@ export const legalPracticeModules: LegalPracticeModule[] = [
   { number: 2, id: "ferramentas", title: "Ferramentas e sistemas de trabalho", description: "Ambientes institucionais, consulta de demandas, pautas e controles internos.", status: "available" },
   { number: 3, id: "recebimento", title: "Recebimento e análise de demandas", description: "Objeto da solicitação, documentação, complementações e encaminhamentos.", status: "available" },
   { number: 4, id: "prazos", title: "Gestão de prazos e acompanhamento das pautas", description: "Acompanhamento do A.N.O., registro de datas e cuidados com as fórmulas das pautas.", status: "available" },
-  { number: 5, id: "consultivo", title: "Rotina consultiva", description: "Análises, manifestações, correções, validação e conclusão das demandas.", status: "soon" },
+  { number: 5, id: "consultivo", title: "Rotina consultiva", description: "Análises, manifestações, correções, validação e conclusão das demandas.", status: "available" },
   { number: 6, id: "contencioso", title: "Rotina contenciosa", description: "Processos judiciais, providências, audiências e registros processuais.", status: "soon" },
   { number: 7, id: "registros", title: "Registros, movimentações e reportes", description: "Comunicação, atualização de controles e modelos de reporte e replanejamento.", status: "soon" },
   { number: 8, id: "conclusao", title: "Conclusão das atividades e boas práticas", description: "Formalização dos resultados, organização documental e situações da rotina.", status: "soon" },
