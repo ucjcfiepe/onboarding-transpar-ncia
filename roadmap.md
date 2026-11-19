@@ -1,5 +1,8 @@
 # Roadmap
 
+- [ ] Implementar Módulo 07 com modelos informativos e guia por âncoras, preservando demais módulos e progresso.
+- [ ] Validar modelos, navegação, conclusão e leitura em desktop e celular; registrar regras ainda não confirmadas fora da interface.
+
 - [x] Implementar exclusivamente Módulo 05 com cinco status, correção, validação, comparação e guia rápido; habilitar cinco módulos preservando 01–04.
 - [x] Verificar teclado, apresentação compacta, navegação e conclusão com progresso anterior preservado.
 

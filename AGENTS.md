@@ -19,4 +19,5 @@
 - Model the legal-practice journey in a separate content catalog with eight availability entries; register only published content in shared progress and use a dedicated overview as its entry point, so future modules never create empty navigable pages.
 - Keep each published legal-practice module's copy in its own content catalog and render it through the existing parameterized module route; reuse resource URLs and stable progress IDs so publishing modules preserves prior completion records.
 - Keep operational agenda demonstrations as literal illustrative records with local column-highlight state, not editable spreadsheets or A.N.O. calculations, so examples cannot invent institutional formulas or change real records.
+- Keep report templates as static content records and reveal their existing accordion panels from quick-guide anchors; derive adjacent-module access from the catalog so unavailable neighbors never become empty links.
 - Keep legal journey card progress and access actions in a bottom-aligned flex region on desktop, with natural content flow on mobile, so differing copy lengths do not misalign controls or affect other module cards.

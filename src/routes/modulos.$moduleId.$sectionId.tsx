@@ -37,11 +37,17 @@ import { LegalToolsModulePage } from "@/components/onboarding/LegalToolsModule";
 import { LegalIntakeModulePage } from "@/components/onboarding/LegalIntakeModule";
 import { LegalDeadlinesModulePage } from "@/components/onboarding/LegalDeadlinesModule";
 import { LegalConsultiveModulePage } from "@/components/onboarding/LegalConsultiveModule";
+import { LegalReportsModulePage } from "@/components/onboarding/LegalReportsModule";
 
 
 export const Route = createFileRoute("/modulos/$moduleId/$sectionId")({
   head: ({ params }) => {
     if (params.moduleId === "reporte-gestao-demandas") {
+      if (params.sectionId === "registros") {
+        const title = "Registros, Movimentações e Reportes — Módulo 07 — Onboarding UCJC";
+        const description = "Modelos de consulta para retorno de demandas, reuniões e replanejamentos consultivos e judiciais, com orientações de comunicação por e-mail na UCJC.";
+        return { meta: [{ title }, { name: "description", content: description }, { property: "og:title", content: title }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] };
+      }
       if (params.sectionId === "consultivo") {
         const title = "Rotina Consultiva — Módulo 05 — Onboarding UCJC";
         const description = "Situações da demanda consultiva na UCJC: saída para correção, retorno, validação pela gestão, rejeição, cancelamento e conclusão definitiva.";
@@ -98,6 +104,7 @@ export const Route = createFileRoute("/modulos/$moduleId/$sectionId")({
 function SectionPage() {
   const { moduleId, sectionId } = Route.useParams();
   if (moduleId === "reporte-gestao-demandas") {
+    if (sectionId === "registros") return <LegalReportsModulePage />;
     if (sectionId === "consultivo") return <LegalConsultiveModulePage />;
     if (sectionId === "prazos") return <LegalDeadlinesModulePage />;
     if (sectionId === "recebimento") return <LegalIntakeModulePage />;
